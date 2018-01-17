@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Player_Control : MonoBehaviour {
     
-    //
+    //this field holds the player gameobject
     private GameObject player;
 
+    [SerializeField]
     private Player_Movement movescript;
+
+    [SerializeField]
+    private PowerUp_Menu powerupscript; 
 
     private bool left_active;
 
@@ -15,12 +19,29 @@ public class Player_Control : MonoBehaviour {
 
     private bool jump_active;
 
-    private bool powermenu_active;
+    [SerializeField]
+    //If trigger for powerupmenu is activated -> true
+    private bool powerupmenu_trigger;
+
+    
+
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
+
+        powerupscript = GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>();
+
+        if(powerupscript == null)
+        {
+            Debug.Log("Script nicht gefunden!");
+        }
+
+     
+
 	}
 
     // Update is called once per frame
@@ -54,8 +75,10 @@ public class Player_Control : MonoBehaviour {
 
         jump_active = Input.GetKeyDown(KeyCode.Space);
 
-        powermenu_active = Input.GetKeyDown(KeyCode.E);
+        powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
 
+       
+            
     #elif UNITY_IOS || UNITY_ANDROID
 
         // Touch(es) was found
@@ -112,7 +135,7 @@ public class Player_Control : MonoBehaviour {
                             Debug.Log("Touch ended");
                             left_active = false;
                             right_active = false;
-                            jump_active = false;
+                           
                         break;
 
                       default:
@@ -132,8 +155,8 @@ public class Player_Control : MonoBehaviour {
     /// </summary>
     private void FixedUpdate()
     {
-        
-        if(left_active)
+
+        if (left_active)
         {
             movescript.MovePlayer(-1f);
         }
@@ -145,12 +168,13 @@ public class Player_Control : MonoBehaviour {
         if (jump_active)
         {
             movescript.JumpPlayer();
+            jump_active = false;
         }
-        if(powermenu_active)
+        //if the powerupmenu_trigger is active -> toggle the screen
+        if (powerupmenu_trigger)
         {
-            //powerupscript;
+            powerupscript.ToogleMenu();
         }
-    }
 
-        
+    }  
 }
