@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Player_Control : MonoBehaviour {
     
-    //
+    //this field holds the player gameobject
     private GameObject player;
 
+    [SerializeField]
     private Player_Movement movescript;
+
+    [SerializeField]
+    private PowerUp_Menu powerupscript; 
 
     private bool left_active;
 
@@ -19,8 +23,19 @@ public class Player_Control : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
+
+        powerupscript = GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>();
+
+        if(powerupscript == null)
+        {
+            Debug.Log("Script nicht gefunden!");
+        }
+        
+
 	}
 
     // Update is called once per frame
@@ -149,7 +164,7 @@ public class Player_Control : MonoBehaviour {
         }
         if(powermenu_active)
         {
-            //powerupscript;
+            powerupscript.OpenMenu();
         }
     }
 
