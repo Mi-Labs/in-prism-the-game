@@ -112,7 +112,7 @@ public class Player_Control : MonoBehaviour {
                             Debug.Log("Touch ended");
                             left_active = false;
                             right_active = false;
-                            jump_active = false;
+                           
                         break;
 
                       default:
@@ -145,6 +145,7 @@ public class Player_Control : MonoBehaviour {
         if (jump_active)
         {
             movescript.JumpPlayer();
+            jump_active = false;
         }
         if(powermenu_active)
         {
