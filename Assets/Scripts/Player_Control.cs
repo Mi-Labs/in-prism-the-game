@@ -19,7 +19,12 @@ public class Player_Control : MonoBehaviour {
 
     private bool jump_active;
 
-    private bool powermenu_active;
+    [SerializeField]
+    //If trigger for powerupmenu is activated -> true
+    private bool powerupmenu_trigger;
+
+    
+
 
 
 	// Use this for initialization
@@ -34,7 +39,8 @@ public class Player_Control : MonoBehaviour {
         {
             Debug.Log("Script nicht gefunden!");
         }
-        
+
+     
 
 	}
 
@@ -69,8 +75,10 @@ public class Player_Control : MonoBehaviour {
 
         jump_active = Input.GetKeyDown(KeyCode.Space);
 
-        powermenu_active = Input.GetKeyDown(KeyCode.E);
+        powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
 
+       
+            
     #elif UNITY_IOS || UNITY_ANDROID
 
         // Touch(es) was found
@@ -147,8 +155,8 @@ public class Player_Control : MonoBehaviour {
     /// </summary>
     private void FixedUpdate()
     {
-        
-        if(left_active)
+
+        if (left_active)
         {
             movescript.MovePlayer(-1f);
         }
@@ -162,11 +170,11 @@ public class Player_Control : MonoBehaviour {
             movescript.JumpPlayer();
             jump_active = false;
         }
-        if(powermenu_active)
+        //if the powerupmenu_trigger is active -> toggle the screen
+        if (powerupmenu_trigger)
         {
-            powerupscript.OpenMenu();
+            powerupscript.ToogleMenu();
         }
-    }
 
-        
+    }  
 }

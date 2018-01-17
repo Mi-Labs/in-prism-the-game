@@ -4,29 +4,41 @@ using UnityEngine;
 
 public class PowerUp_Menu : MonoBehaviour {
 
-    //private field (Holds the menucanvas)
-    private Canvas powerupCanvas;
+    //Holds the menucanvas -> must be assigned
+    public GameObject powerupCanvas;
 
-	// Use this for initialization
-	void Start ()
-    {
-        powerupCanvas = GetComponentInChildren<Canvas>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
-    public void OpenMenu()
+    /// <summary>
+    /// This method activate the powerupmenu screen
+    /// </summary>
+    void OpenMenu()
     {
-        powerupCanvas.gameObject.SetActive(true);
-
+        powerupCanvas.SetActive(true);
     }
 
-    public void CloseMenu()
+    /// <summary>
+    /// This method deactivate the powerupmenu screen
+    /// </summary>
+    void CloseMenu()
     {
-        powerupCanvas.gameObject.SetActive(false);
+        powerupCanvas.SetActive(false);
+    }
+
+    /// <summary>
+    /// This method toggles between an active and an inactive powerupmenu screen
+    /// </summary>
+    public void ToogleMenu()
+    {
+        // if the canvas is deactivated -> do this
+        if (!powerupCanvas.activeSelf)
+        {
+            OpenMenu();
+            Debug.Log("Opened Canvas");
+        }
+        else
+        {
+            CloseMenu();
+            Debug.Log("Closed Canvas");
+        }
     }
 }
