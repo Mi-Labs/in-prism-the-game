@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerJump : MonoBehaviour {
+public class PowerJump : PowerUp {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,19 @@ public class PowerJump : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public override void  StartCooldown()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void StartPowerUp()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void PowerUpAction()
+    {
+        throw new System.NotImplementedException();
+    }
 }

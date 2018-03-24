@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 50743348848937906}
   - component: {fileID: 114423321016373896}
   - component: {fileID: 114413207072401690}
+  - component: {fileID: 114516318651605476}
+  - component: {fileID: 114716874880612714}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movescript: {fileID: 0}
   powerupscript: {fileID: 0}
+  powerupmenu_trigger: 0
 --- !u!114 &114423321016373896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,6 +108,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumppower: 200
   acceleration: 4
+--- !u!114 &114516318651605476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645399573131462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d14e21e5f4e17468e7ecb6b63c8c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114716874880612714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645399573131462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764ec6bd5932b52469d8e2b800d624bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212132335828080954
 SpriteRenderer:
   m_ObjectHideFlags: 1

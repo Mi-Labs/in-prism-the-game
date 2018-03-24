@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class holds the statistics over the whole game
+/// Also it saves the progress of the player
+/// </summary>
+
 //Makes the stats saveable
 [System.Serializable]
 

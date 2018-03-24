@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class holds the statistics for every level
+/// </summary>
 public class Level_Stats : MonoBehaviour {
     
     // Holds the status of the level complition
@@ -17,10 +20,7 @@ public class Level_Stats : MonoBehaviour {
     private int savedspheres;
 
 	// Use this for initialization
-	void Start ()
-    {
-		
-	}
+	void Start () {}
 	
 	// Update is called once per frame
 	void Update ()
@@ -28,4 +28,19 @@ public class Level_Stats : MonoBehaviour {
         //updates the leveltime
         leveltime = Time.timeSinceLevelLoad;	
 	}
+
+    /**
+     *  Speichermöglichkeit für das Speichern der Farben
+     * 
+    private bool[] colorful;
+
+    public void Savecolors()
+    {
+        GameObject[] go = FindObjectsOfType<GameObject>();
+        foreach(GameObject element in go)
+        {
+            colorful = element.GetComponent<Coloration>().GetIsColorful();
+        }
+    }
+    **/
 }
