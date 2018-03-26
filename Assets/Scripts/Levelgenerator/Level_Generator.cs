@@ -62,7 +62,11 @@ public class Level_Generator : MonoBehaviour {
 
                 // Clone the Prefab at the actual position with no changes in transform and rotation
                 Instantiate(color.PreFab, position, Quaternion.identity, transform);
+        
+                
             }
         }
     }
+
+
 }

@@ -10,12 +10,20 @@ public class PowerUp_Menu : MonoBehaviour {
 
     //Holds all available powerups in Array
     [SerializeField]
-    private PowerUp[] powerups;
+    public PowerUp[] powerups;
 
     
     void Start()
     {
+        //Create a new array with space for 5 powerups
+        powerups = new PowerUp[5];
+
+        // Get every powerUp on a specific position
         powerups[0] = new Boost();
+        powerups[1] = new PowerJump();
+        powerups[2] = new Sticky();
+        powerups[3] = new Invulnerablity();
+        powerups[4] = new Power_Light();
     }
     
 
@@ -95,7 +103,7 @@ public class PowerUp_Menu : MonoBehaviour {
             }
 
             // Light
-            if (powerup_button.gameObject.name.Equals("PowerUp_Light))
+            if (powerup_button.gameObject.name.Equals("PowerUp_Light"))
             {
                 if (stats.powerup_powerlight)
                 {

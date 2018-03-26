@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invulnerablity : MonoBehaviour {
+public class Invulnerablity : PowerUp {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,19 @@ public class Invulnerablity : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public override void StartCooldown()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void StartPowerUp()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void PowerUpAction()
+    {
+        throw new System.NotImplementedException();
+    }
 }
