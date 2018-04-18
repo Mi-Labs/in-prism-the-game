@@ -7,23 +7,41 @@ public class PowerUp_Menu : MonoBehaviour {
 
     //Holds the menucanvas -> must be assigned
     public GameObject powerupCanvas;
+    public GameObject timer;
 
     //Holds all available powerups in Array
     [SerializeField]
-    public PowerUp[] powerups;
+    public GameObject[] powerups;
 
     
     void Start()
     {
         //Create a new array with space for 5 powerups
-        powerups = new PowerUp[5];
+        powerups = new GameObject[5];
 
         // Get every powerUp on a specific position
-        powerups[0] = new Boost();
-        powerups[1] = new PowerJump();
-        powerups[2] = new Sticky();
-        powerups[3] = new Invulnerablity();
-        powerups[4] = new Power_Light();
+
+        GameObject boost = new GameObject("Boost");
+        boost.AddComponent<Boost>();
+        boost.GetComponent<Boost>().timer = this.timer;
+
+        GameObject powerjump = new GameObject("PowerJump");
+        powerjump.AddComponent<PowerJump>();
+
+        GameObject sticky = new GameObject("Sticky");
+        sticky.AddComponent<Sticky>();
+
+        GameObject invulnerablity = new GameObject("Invulnerablity");
+        invulnerablity.AddComponent<Invulnerablity>();
+
+        GameObject powerlight = new GameObject("PowerLight");
+        powerlight.AddComponent<Power_Light>();
+
+        powerups[0] = boost;
+        powerups[1] = powerjump;
+        powerups[2] = sticky;
+        powerups[3] = invulnerablity;
+        powerups[4] = powerlight;
     }
     
 
@@ -141,7 +159,31 @@ public class PowerUp_Menu : MonoBehaviour {
         // Check if number is in the correct range
         if(number < 6 && number >= 0)
         {
-            powerups[number].StartPowerUp();
+           switch(number)
+            {
+                case 0:
+                    powerups[number].GetComponent<Boost>().StartPowerUp();
+                    break;
+
+                case 1:
+                    powerups[number].GetComponent<PowerJump>().StartPowerUp();
+                    break;
+
+                case 2:
+                    powerups[number].GetComponent<Sticky>().StartPowerUp();
+                    break;
+
+                case 3:
+                    powerups[number].GetComponent<Invulnerablity>().StartPowerUp();
+                    break;
+
+                case 4:
+                    powerups[number].GetComponent<Power_Light>().StartPowerUp();
+                    break;
+
+                default:
+                    throw new System.IndexOutOfRangeException();
+            }
         }
         // if number is incorrect
         else

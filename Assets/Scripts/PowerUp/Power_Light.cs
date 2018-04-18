@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Power_Light : PowerUp {
+public class Power_Light : MonoBehaviour, IPowerUp {
 
 	// Use this for initialization
 	void Start () {
@@ -14,18 +14,29 @@ public class Power_Light : PowerUp {
 		
 	}
 
-    public override void StartCooldown()
+    public void StartCooldown()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void StartPowerUp()
+    public void StartPowerUp()
     {
         throw new System.NotImplementedException();
     }
 
-    public override void PowerUpAction()
+    public void PowerUpAction()
     {
         throw new System.NotImplementedException();
     }
+
+    public void StartTimer(int time)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TimeIsUp()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

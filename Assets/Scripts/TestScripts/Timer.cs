@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour {
     //@Awake this method should not start -> only after calling SetTimer()
     private void Awake()
     {
-        this.enabled = false;
+       this.enabled = false;
     }
 
     // Use this for initialization
@@ -48,26 +48,16 @@ public class Timer : MonoBehaviour {
             timeleft = endtime - Time.time;
             //Debug.Log(timeleft);
         }
-	}
-
-    /// <summary>
-    /// This method checks if any time is left.
-    /// If so it returns true, else false
-    /// </summary>
-    /// <returns>Status of left time(true/false)</returns>
-    public bool IsTimeLeft()
-    {
-        if(timeleft > 0)
-        {
-            return true;
-        }
         else
         {
-            return false;
+            transform.parent.gameObject.BroadcastMessage("TimeIsUp");
+            Debug.Log("TimeIsUp");
+            Destroy(this.gameObject);     
         }
-    }
+	}
 
-    public void SetTimer(int seconds)
+
+    public void StartTimer(int seconds)
     {
         //enable this script
         this.enabled = true;
@@ -75,11 +65,8 @@ public class Timer : MonoBehaviour {
         secondsToWait = seconds;
     }
 
-    /// <summary>
-    /// This method destroys this script after usage
-    /// </summary>
-    public void DestroyTimer()
+    public void OnDestroy()
     {
-        Destroy(this);
+        Debug.Log("Timer has been destroyed");
     }
 }
