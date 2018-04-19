@@ -50,13 +50,20 @@ public class Timer : MonoBehaviour {
         }
         else
         {
+            //Send Message to parent GameObject
             transform.parent.gameObject.BroadcastMessage("TimeIsUp");
+
             Debug.Log("TimeIsUp");
+
+            //Destroy this Gameobject
             Destroy(this.gameObject);     
         }
 	}
 
-
+    /// <summary>
+    /// This method starts the timer for a defined time
+    /// </summary>
+    /// <param name="seconds"></param>
     public void StartTimer(int seconds)
     {
         //enable this script
@@ -65,6 +72,9 @@ public class Timer : MonoBehaviour {
         secondsToWait = seconds;
     }
 
+    /// <summary>
+    /// When Destroy() is called, do these actions
+    /// </summary>
     public void OnDestroy()
     {
         Debug.Log("Timer has been destroyed");

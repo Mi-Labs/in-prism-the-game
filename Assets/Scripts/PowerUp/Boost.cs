@@ -111,6 +111,7 @@ public class Boost : MonoBehaviour, IPowerUp {
         if(cooldownIsActive)
         {
             StartCooldown();
+            isAvailable = false;
         }
         else
         {

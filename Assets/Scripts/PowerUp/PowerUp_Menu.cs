@@ -7,6 +7,8 @@ public class PowerUp_Menu : MonoBehaviour {
 
     //Holds the menucanvas -> must be assigned
     public GameObject powerupCanvas;
+
+    //Holds the prefab for the timer
     public GameObject timer;
 
     //Holds all available powerups in Array
@@ -19,24 +21,31 @@ public class PowerUp_Menu : MonoBehaviour {
         //Create a new array with space for 5 powerups
         powerups = new GameObject[5];
 
-        // Get every powerUp on a specific position
+        //Generate new GameObjects (for each poweruo)
 
         GameObject boost = new GameObject("Boost");
+        // Add boost-script to GameObject 
         boost.AddComponent<Boost>();
+        // Give prefab for timer to Boost
         boost.GetComponent<Boost>().timer = this.timer;
 
         GameObject powerjump = new GameObject("PowerJump");
+        // Add powerjump-script to GameObject 
         powerjump.AddComponent<PowerJump>();
 
         GameObject sticky = new GameObject("Sticky");
+        // Add sticky-script to GameObject 
         sticky.AddComponent<Sticky>();
 
         GameObject invulnerablity = new GameObject("Invulnerablity");
+        // Add invulnerability-script to GameObject 
         invulnerablity.AddComponent<Invulnerablity>();
 
         GameObject powerlight = new GameObject("PowerLight");
+        // Add powerlight-script to GameObject 
         powerlight.AddComponent<Power_Light>();
 
+        // Get every powerUp on a specific position
         powerups[0] = boost;
         powerups[1] = powerjump;
         powerups[2] = sticky;
@@ -182,6 +191,7 @@ public class PowerUp_Menu : MonoBehaviour {
                     break;
 
                 default:
+                    //if the number is invalid -> throw IndexOutofRange
                     throw new System.IndexOutOfRangeException();
             }
         }
