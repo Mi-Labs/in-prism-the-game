@@ -12,7 +12,7 @@ public class TestTimer : MonoBehaviour {
 	void Start ()
     {
         //Add a timer with 10 Seconds -> Waits 10 Seconds
-        this.gameObject.AddComponent<Timer>().SetTimer(10);
+        this.gameObject.AddComponent<Timer>().StartTimer(10);
 	}
 	
 	// Update is called once per frame

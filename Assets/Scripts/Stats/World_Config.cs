@@ -14,10 +14,13 @@ public class World_Config : MonoBehaviour {
 
     // Values for Boost
     [Header("Boost-Values")]
+    public bool isavailableBoost;
 
-    public int activetime_boost = 2;
+    public int activetimeBoost = 2;
 
-    public int cooldowntime_boost = 10;
+    public int cooldowntimeBoost = 10;
+
+    public float strenghtBoost = 2.0f;
 
     // Space between two different parts
     [Space(20)]
@@ -53,7 +56,9 @@ public class World_Config : MonoBehaviour {
     public int activetime_power_light;
     public int cooldowntime_power_light;
 
-
+    [Space(20)]
+    [Header("PreFab Timer")]
+    public GameObject timer;
 
     // @Load of this Object -> Should never be destroyed when loaded
     private void Awake()

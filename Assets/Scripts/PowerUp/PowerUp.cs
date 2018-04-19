@@ -6,30 +6,33 @@ using UnityEngine;
 /// This abstract class is the basic structure for all PowerUps
 /// </summary>
 
-public abstract class PowerUp {
-
-    // Holds the duration of the powerup
-    protected int activetime;
-
-    // Holds the cooldownduration
-    protected int cooldowntime;
-
-    // Holds the status of this powerup
-    protected bool is_availabe;
-
+public interface IPowerUp {
 
     /// <summary>
     /// This method should activate the cooldown, when the active time is over
     /// </summary>
-    public abstract void StartCooldown();
+     void StartCooldown();
 
     /// <summary>
     /// This method should be activate the PowerUp
     /// </summary>
-    public abstract void StartPowerUp();
+     void StartPowerUp();
 
     /// <summary>
     /// This method activates the logic of the PowerUp -> Usually started with StartPowerUP()
     /// </summary>
-    public abstract void PowerUpAction();
+    void PowerUpAction();
+
+
+    /// <summary>
+    /// This method should activate a timer 
+    /// </summary>
+    /// <param name="time"></param>
+    void StartTimer(int time);
+
+
+    /// <summary>
+    /// This method should be called, when the time of the countdown is up
+    /// </summary>
+    void TimeIsUp();
 }

@@ -13,12 +13,15 @@ public class Player_Movement : MonoBehaviour {
     //acceleration for movement
     public float acceleration = 1.5f;
 
+    //Factor for boost powerup
+    public float boostfactor;
+
 	// Use this for initialization
 	void Start () {
 
         //Initalize Rigidbody of Player
         rgb2D = GetComponent<Rigidbody2D>();
-
+        boostfactor = 1.0f;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class Player_Movement : MonoBehaviour {
     public void MovePlayer(float direction)
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(direction*acceleration, 0);
+        Vector2 movement = new Vector2(direction*acceleration*boostfactor, 0);
 
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
