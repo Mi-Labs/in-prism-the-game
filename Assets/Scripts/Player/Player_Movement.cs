@@ -13,6 +13,9 @@ public class Player_Movement : MonoBehaviour {
     //acceleration for movement
     public float acceleration = 1.5f;
 
+    // Constant boost factor
+    private const float standardboostfactor = 1.0f;
+
     //Factor for boost powerup
     public float boostfactor;
 
@@ -21,7 +24,7 @@ public class Player_Movement : MonoBehaviour {
 
         //Initalize Rigidbody of Player
         rgb2D = GetComponent<Rigidbody2D>();
-        boostfactor = 1.0f;
+        boostfactor = standardboostfactor;
 	}
 	
 	// Update is called once per frame
@@ -53,5 +56,11 @@ public class Player_Movement : MonoBehaviour {
 
         //Add movement to rgb2D
         rgb2D.AddForce(movement);
+    }
+
+    public void SetBoostSpeedToStandard()
+    {
+        boostfactor = standardboostfactor;
+        Debug.Log("Boost is on standard value");
     }
 }

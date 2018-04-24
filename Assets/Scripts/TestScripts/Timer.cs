@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour {
         {
             // new left time is endtime - actual systemtime
             timeleft = endtime - Time.time;
-            //Debug.Log(timeleft);
+            Debug.Log(timeleft);
         }
         else
         {

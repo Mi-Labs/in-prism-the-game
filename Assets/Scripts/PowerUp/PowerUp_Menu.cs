@@ -8,9 +8,6 @@ public class PowerUp_Menu : MonoBehaviour {
     //Holds the menucanvas -> must be assigned
     public GameObject powerupCanvas;
 
-    //Holds the prefab for the timer
-    public GameObject timer;
-
     //Holds all available powerups in Array
     [SerializeField]
     public GameObject[] powerups;
@@ -26,8 +23,7 @@ public class PowerUp_Menu : MonoBehaviour {
         GameObject boost = new GameObject("Boost");
         // Add boost-script to GameObject 
         boost.AddComponent<Boost>();
-        // Give prefab for timer to Boost
-        boost.GetComponent<Boost>().timer = this.timer;
+        
 
         GameObject powerjump = new GameObject("PowerJump");
         // Add powerjump-script to GameObject 
