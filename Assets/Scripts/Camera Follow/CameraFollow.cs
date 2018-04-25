@@ -15,6 +15,15 @@ public class CameraFollow : MonoBehaviour {
     {
         // Call method CheckForPlayer
         CheckForPlayer();
+
+        // Set Camera to Position
+        float cameraZ = transform.position.z;
+
+        Vector2 positionPlayer = (Vector2)player.transform.position;
+        Vector3 newCameraPosition = positionPlayer;
+        newCameraPosition.z = cameraZ;
+
+        transform.position = newCameraPosition;
         // Calculate offset => Position camera - Position player
         offset = transform.position - player.transform.position;
         

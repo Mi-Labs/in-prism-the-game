@@ -980,7 +980,7 @@ MonoBehaviour:
   cooldowntime_invulnerable: 0
   activetime_power_light: 0
   cooldowntime_power_light: 0
-  timer: {fileID: 0}
+  timer: {fileID: 1317252620715778, guid: 3eef986f197811b4192de264fea1b2ec, type: 2}
 --- !u!4 &709122971
 Transform:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 734105779}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1740211887}
+        m_MethodName: StartPowerUP
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &734105779
@@ -1208,7 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: []
   powerup_boost: 1
-  powerup_powerjump: 0
+  powerup_powerjump: 1
   powerup_powerlight: 0
   powerup_invulnerable: 0
   powerup_sticky: 0
@@ -1388,7 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d211370ba367af141bb1403f9d12d1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelmap: {fileID: 2800000, guid: 965e6cae0ae6ef44fb7f84bd497d978c, type: 3}
+  levelmap: {fileID: 2800000, guid: a49b502bce78891419d940071cee4f02, type: 3}
   colorassignment:
   - colorPreFab:
       serializedVersion: 2
@@ -1744,7 +1755,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupCanvas: {fileID: 1470264164}
-  timer: {fileID: 1317252620715778, guid: 3eef986f197811b4192de264fea1b2ec, type: 2}
   powerups: []
 --- !u!1 &1941801043
 GameObject:
