@@ -41,14 +41,13 @@ public class Boost : MonoBehaviour, IPowerUp {
         //Get the world config, with data for this powerup
         World_Config config = GameObject.Find("World_Config").GetComponent<World_Config>();
 
-
         // Set activetime
         activetime = config.activetimeBoost;
 
         // Set cooldowntime
         cooldowntime = config.cooldowntimeBoost;
 
-        // Set is_available
+        // Set is_available // Currently for tests -> normal activation trough powerupmenu
         isAvailable = true;
 
         // Set boost strength
@@ -70,7 +69,7 @@ public class Boost : MonoBehaviour, IPowerUp {
 
 
     /// <summary>
-    ///  Override standard method StartCooldown with specific method for this PowerUp
+    ///  Cooldown-Mechanic. Starts the spezific cooldown
     /// </summary>
     public void StartCooldown()
     {    
@@ -87,7 +86,6 @@ public class Boost : MonoBehaviour, IPowerUp {
     }
 
     /// <summary>
-    /// This method overrides the standard method with more specific instructions
     /// If this powerup is not in cooldown and available -> PowerUPAction
     /// </summary>
     public void StartPowerUp()
@@ -154,7 +152,8 @@ public class Boost : MonoBehaviour, IPowerUp {
         }
         else
         {
-           // Debug.Log("Boost is ready again");
+            isAvailable = true;
+            // Debug.Log("Boost is ready again");
         }
     }
 }

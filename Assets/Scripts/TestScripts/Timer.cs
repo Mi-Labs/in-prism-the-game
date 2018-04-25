@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour {
         else
         {
             //If a inncorrect value is given to this script -> deacivation of the script
-            Debug.Log("Invalid Argument");
+            Debug.LogError("Invalid Argument");
             this.enabled = false;
         }
     }
@@ -46,14 +46,14 @@ public class Timer : MonoBehaviour {
         {
             // new left time is endtime - actual systemtime
             timeleft = endtime - Time.time;
-            Debug.Log(timeleft);
+            // Debug.Log(timeleft);
         }
         else
         {
             //Send Message to parent GameObject
             transform.parent.gameObject.BroadcastMessage("TimeIsUp");
 
-            Debug.Log("TimeIsUp");
+            // Debug.Log("TimeIsUp");
 
             //Destroy this Gameobject
             Destroy(this.gameObject);     
@@ -77,6 +77,6 @@ public class Timer : MonoBehaviour {
     /// </summary>
     public void OnDestroy()
     {
-        Debug.Log("Timer has been destroyed");
+       // Debug.Log("Timer has been destroyed");
     }
 }

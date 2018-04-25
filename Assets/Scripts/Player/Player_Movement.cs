@@ -10,21 +10,31 @@ public class Player_Movement : MonoBehaviour {
     //Jump-Strength
     public float jumppower;
 
+    public float jumpfactor;
+
     //acceleration for movement
     public float acceleration = 1.5f;
-
-    // Constant boost factor
-    private const float standardboostfactor = 1.0f;
 
     //Factor for boost powerup
     public float boostfactor;
 
-	// Use this for initialization
-	void Start () {
+
+    // Constants
+
+    // Constant boost factor
+    private const float standardboostfactor = 1.0f;
+
+    // Constant jump factor
+    private const float standardjumpfactor = 1.0f;
+
+
+    // Use this for initialization
+    void Start () {
 
         //Initalize Rigidbody of Player
         rgb2D = GetComponent<Rigidbody2D>();
         boostfactor = standardboostfactor;
+        jumpfactor = standardjumpfactor;
 	}
 	
 	// Update is called once per frame
@@ -52,15 +62,28 @@ public class Player_Movement : MonoBehaviour {
     public void JumpPlayer()
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(0f, jumppower);
+        Vector2 movement = new Vector2(0f, jumppower*jumpfactor);
 
         //Add movement to rgb2D
         rgb2D.AddForce(movement);
     }
 
+    /// <summary>
+    /// This method sets the boostfactor to standard (1x)
+    /// </summary>
     public void SetBoostSpeedToStandard()
     {
         boostfactor = standardboostfactor;
         Debug.Log("Boost is on standard value");
+    }
+
+
+    /// <summary>
+    /// This method sets the jumpfactor to standard (1x)
+    /// </summary>
+    public void SetJumpFactorToStandard()
+    {
+        jumpfactor = standardjumpfactor;
+        Debug.Log("Jump is on standard value");
     }
 }
