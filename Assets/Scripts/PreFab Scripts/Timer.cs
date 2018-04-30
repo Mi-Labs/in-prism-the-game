@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour {
         {
             // endtime = actual time + the time we will count down
             endtime = Time.time + secondsToWait;
+
             // @Start the left time should be our inital value
             timeleft = secondsToWait;
         }
@@ -34,6 +35,7 @@ public class Timer : MonoBehaviour {
         {
             //If a inncorrect value is given to this script -> deacivation of the script
             Debug.LogError("Invalid Argument");
+
             this.enabled = false;
         }
     }
@@ -46,6 +48,7 @@ public class Timer : MonoBehaviour {
         {
             // new left time is endtime - actual systemtime
             timeleft = endtime - Time.time;
+
             // Debug.Log(timeleft);
         }
         else
@@ -63,7 +66,7 @@ public class Timer : MonoBehaviour {
     /// <summary>
     /// This method starts the timer for a defined time
     /// </summary>
-    /// <param name="seconds"></param>
+    /// <param name="seconds">The time, that the timer should run (in seconds)</param>
     public void StartTimer(int seconds)
     {
         //enable this script

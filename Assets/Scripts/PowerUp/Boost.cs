@@ -152,7 +152,9 @@ public class Boost : MonoBehaviour, IPowerUp {
         }
         else
         {
+            // Make the powerUp available again
             isAvailable = true;
+
             // Debug.Log("Boost is ready again");
         }
     }
