@@ -8,11 +8,25 @@ public class EventManager : MonoBehaviour
     // Saves every event in a dictonary with string as key and UnityEvent as value
     private Dictionary<string, UnityEvent> eventDictionary;
 
-    private static EventManager eventManager;
+    private static EventManager eventManager = null;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+          DontDestroyOnLoad(this);
+
+        /* Singleton Pattern */
+
+        // If no other instance is there -> save this instance
+        if (eventManager == null)
+        {
+            eventManager = this;
+        }
+
+        // if another instance is already there -> destroy this
+        else if (eventManager != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

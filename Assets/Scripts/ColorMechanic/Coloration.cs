@@ -19,11 +19,9 @@ public class Coloration : MonoBehaviour {
     {
         is_colorful = false;	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update() { }
 
     public Color GetColor()
     {
@@ -44,7 +42,7 @@ public class Coloration : MonoBehaviour {
     public void ActivateColor()
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = this.GetColor();
-        Debug.Log(this.GetColor() +" Color sucessfully changed");
+     //   Debug.Log(this.GetColor() +" Color sucessfully changed");
         is_colorful = true;
     }
 }
