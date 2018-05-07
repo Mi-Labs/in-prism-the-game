@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Level_Generator : MonoBehaviour {
 
-    //public field (Holds map of the level)
+
+    /* Variables */
+
+    // Holds map of the level
     public Texture2D levelmap;
 
-    //public field (Holds array with all ColorToPrefab assigments)
+    // Holds array with all ColorToPrefab assigments
     public ColorToPreFab[] colorassignment;
+
+
+
+    /* Methods*/
 
 	// Use this for initialization
 	void Start ()
@@ -16,24 +23,25 @@ public class Level_Generator : MonoBehaviour {
         GenerateLevel();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     /// <summary>
     /// This method generates the level by iterating over all pixels
     /// </summary>
     private void GenerateLevel()
     {
-        // Iterate over every pixel in the levelmap
-        for(int x =0; x < levelmap.width; x++)
+        // Generate all killzones before load any levelobjects
+        GenerateKillZones();
+
+        // Iterate over every pixel in the levelmap (Column after Column)
+        for (int x = 0; x < levelmap.width; x++)
         {
-            for(int y=0; y < levelmap.height;y++)
+            for (int y = 0; y < levelmap.height; y++)
             {
+                // For every pixel of the levelmap generate that designated object
                 GenerateObjects(x, y);
             }
         }
     }
+
     /// <summary>
     /// This method generates objects out of prefabs at the given position
     /// </summary>
@@ -52,6 +60,7 @@ public class Level_Generator : MonoBehaviour {
         {
             return;
         }
+
         //for every assigend color in colorassignment, create gameobject
         foreach(ColorToPreFab color in colorassignment)
         {
@@ -63,10 +72,118 @@ public class Level_Generator : MonoBehaviour {
                 // Clone the Prefab at the actual position with no changes in transform and rotation
                 Instantiate(color.PreFab, position, Quaternion.identity, transform);
         
-                
             }
         }
     }
 
+    /// <summary>
+    /// This script generates killzones all around the level
+    /// </summary>
+    public void GenerateKillZones()
+    {
+        // Generate a killzone for every direction
+        for(int i=0; i <4; i++)
+        {
+            // Generate a new killzone object
+            GameObject killzone = new GameObject("Killzone");
 
+            // Position the killzone
+            killzone.transform.position = KillzonePosition(i);
+
+            // Add a BoxCollider to the killzone
+            BoxCollider2D killzoneBox = killzone.AddComponent<BoxCollider2D>();
+
+            // Resize the killzone
+            killzoneBox.size = KillzoneSize(i);
+
+            // Add so much damage to the killzone, that the player will instantly die
+            killzone.AddComponent<Damage>().objectdamage = 200;
+        }
+    }
+
+  
+    /// <summary>
+    /// This method gives the killzone position for each direction 
+    /// </summary>
+    /// <param name="direction_number">Direction (N:0,S:1,E:2,W:3)</param>
+    /// <returns>Vector of the killzone position</returns>
+    private Vector3 KillzonePosition(int direction_number)
+    {
+        /*
+         * Hold the vector for the killzone 
+         * At start killzoneVector should be 0,0,0
+         */
+        Vector3 killzoneVector = Vector3.zero;
+
+        // Switch between dircetion 
+        switch(direction_number)
+        {
+            // North
+            case 0:
+                // Vector = Half of map width, map height +2, 0 @ z-axis
+                killzoneVector = new Vector3(levelmap.width/2,levelmap.height+2,0);
+                break;
+
+            // South
+            case 1:
+                // Vector = half of map width, -1 (under last row), 0 @ z-axis
+                killzoneVector = new Vector3(levelmap.width / 2, -1, 0);
+                break;
+
+            // East
+            case 2:
+                // Vector = map width +1 , half of map heigth, 0 @ z-axis
+                killzoneVector = new Vector3(levelmap.width + 1, levelmap.height/2,0);
+                break;   
+            
+            // West
+            case 3:
+                // Vector = -1 (before first column), half of map height, 0 @ z-axis
+                killzoneVector = new Vector3(-1,levelmap.height/2,0);
+                break;
+            
+            // Invalid Value
+            default:
+                Debug.LogError("Invalid input");
+                break;
+        }
+        // return of the position for the killzone
+        return killzoneVector;
+    }
+
+    /// <summary>
+    /// This method chose the right size for the bounding box of the killzone and returns it as Vector2
+    /// </summary>
+    /// <param name="direction_number">Direction (N:0,S:1,E:2,W:3)</param>
+    /// <returns>Vector of the size of the killzone</returns>
+    private Vector2 KillzoneSize(int direction_number)
+    {
+        // Holds the standard value of the killzone size
+        Vector2 killzoneSize = Vector2.zero;
+
+        // if an empty cases is chosen, the next higher number is executed
+        switch (direction_number)
+        {
+            // For Cases North and South
+            case 0:           
+            case 1:
+                // Size is 3 times the width of the levelmap and 0.1f in height
+                killzoneSize = new Vector2(levelmap.width * 3, 0.1f);
+                break;
+
+            // For Cases East and West
+            case 2:
+            case 3:
+                // Size is 0.1f in width and 3 times the height of the levelmap
+                killzoneSize = new Vector2(0.1f,levelmap.height*3);
+                break;
+            
+            // If a case out of a range of 0-3 occures
+            default:
+                Debug.LogError("Invalid input");
+                break;
+        }
+        // return the right killZoneSize Vector2
+        return killzoneSize;
+    }
 }
