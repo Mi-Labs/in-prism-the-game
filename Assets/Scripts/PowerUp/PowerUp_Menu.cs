@@ -76,11 +76,13 @@ public class PowerUp_Menu : MonoBehaviour {
         if (!powerupCanvas.activeSelf)
         {
             OpenMenu();
+            Time.timeScale = 0;
             Debug.Log("Opened Canvas");
         }
         else
         {
             CloseMenu();
+            Time.timeScale = 1;
             Debug.Log("Closed Canvas");
         }
     }

@@ -12,6 +12,9 @@ using UnityEditor;
 [System.Serializable]
 public class World_Config : MonoBehaviour {
 
+    // Holds the only instance for script
+    public static World_Config instance = null;
+
     // Values for Boost
     [Header("Boost-Values")]
     public bool isavailableBoost;
@@ -63,6 +66,23 @@ public class World_Config : MonoBehaviour {
     // @Load of this Object -> Should never be destroyed when loaded
     private void Awake()
     {
+        /* Singleton Pattern */
+
+        // If no other instance is there -> save this instance
+        if(instance == null)
+        {
+            instance = this;
+        }
+
+        // if another instance is already there -> destroy this
+        else if(instance !=this)
+        {
+            Destroy(gameObject);
+        }
+
+
+        /* DontDestroyOnLoad */
+
         DontDestroyOnLoad(this);
     }
 

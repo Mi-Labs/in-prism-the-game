@@ -33,15 +33,14 @@ public class Player_Movement : MonoBehaviour {
 
         //Initalize Rigidbody of Player
         rgb2D = GetComponent<Rigidbody2D>();
+
+        //Set the boostfactor on standard
         boostfactor = standardboostfactor;
+
+        //Set the jumpfactor on standard
         jumpfactor = standardjumpfactor;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     /// <summary>
     /// This function moves the player horizontally
     /// </summary>
@@ -73,8 +72,10 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void SetBoostSpeedToStandard()
     {
+        // Set the boostfactor to standard
         boostfactor = standardboostfactor;
-        Debug.Log("Boost is on standard value");
+
+        //Debug.Log("Boost is on standard value");
     }
 
 
@@ -83,7 +84,9 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void SetJumpFactorToStandard()
     {
+        // Set the jumpfactor to standard
         jumpfactor = standardjumpfactor;
-        Debug.Log("Jump is on standard value");
+
+        //Debug.Log("Jump is on standard value");
     }
 }

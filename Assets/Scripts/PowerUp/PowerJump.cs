@@ -58,9 +58,6 @@ public class PowerJump : MonoBehaviour, IPowerUp {
         timer = config.timer;
      }
 
-    // Update is called once per frame
-    void Update() { }
-
     /// <summary>
     ///  Cooldown-Mechanic. Starts the spezific cooldown
     /// </summary>
@@ -94,6 +91,7 @@ public class PowerJump : MonoBehaviour, IPowerUp {
             // Debug.Log("PowerUp is not ready");
         }
     }
+
     /// <summary>
     /// This method start the action of the powerUp (also a countdown)
     /// </summary>

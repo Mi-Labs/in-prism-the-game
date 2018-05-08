@@ -12,7 +12,10 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 
 public class World_Stats : MonoBehaviour {
-    
+
+    // Holds the only instance for script
+    public static World_Stats instance = null;
+
     //Save all levelstats in Array
     public Level_Stats[] level;
 
@@ -34,6 +37,20 @@ public class World_Stats : MonoBehaviour {
     //Is called when Script is loaded the first time
     private void Awake()
     {
+        /* Singleton Pattern */
+
+        // If no other instance is there -> save this instance
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        // if another instance is already there -> destroy this
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         //This gameObject should not be destroyed on scene change.
         DontDestroyOnLoad(this);
 

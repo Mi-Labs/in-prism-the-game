@@ -126,6 +126,10 @@ public class Player_Control : MonoBehaviour {
                             {
                             jump_active = true;
                             }
+                            else if(HasPlayerBeenTouched(mytouch))
+                            {
+                            powerupmenu_trigger = true;
+                            }
     
                                                      
                             break;
@@ -176,5 +180,26 @@ public class Player_Control : MonoBehaviour {
             powerupscript.ToogleMenu();
         }
 
-    }  
+    } 
+    
+    public RaycastHit2D GetTouchHit2D(Touch mytouch)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(mytouch.position);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        return hit;
+    }
+
+    private bool HasPlayerBeenTouched(Touch mytouch)
+    {
+        RaycastHit2D hit = GetTouchHit2D(mytouch);
+
+        if(hit && hit.collider.transform.CompareTag("Player"))
+        {
+            Debug.Log("Player was touched");
+            return true;
+            
+        }
+        return false;
+    }
+
 }
