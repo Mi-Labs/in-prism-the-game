@@ -18,6 +18,11 @@ public class Player_Movement : MonoBehaviour {
     //Factor for boost powerup
     public float boostfactor;
 
+    /*
+     *  If true     -> Player has contact with another gameObject
+     *  If false    -> Player has no contact with another gameObject
+     */
+    private bool is_Grounded;
 
     // Constants
 
@@ -60,11 +65,16 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        //Create movementVector2
-        Vector2 movement = new Vector2(0f, jumppower*jumpfactor);
+        // If there is a collision with another gameObject, Jump is available
+       if(is_Grounded)
+        {
+            //Create movementVector2
+            Vector2 movement = new Vector2(0f, jumppower * jumpfactor);
 
-        //Add movement to rgb2D
-        rgb2D.AddForce(movement);
+            //Add movement to rgb2D
+            rgb2D.AddForce(movement);
+        }
+
     }
 
     /// <summary>
@@ -88,5 +98,23 @@ public class Player_Movement : MonoBehaviour {
         jumpfactor = standardjumpfactor;
 
         //Debug.Log("Jump is on standard value");
+    }
+
+    /// <summary>
+    /// This mehtod is called, if the player enter a collison
+    /// </summary>
+    /// <param name="collision">Collision with another rigidbody</param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        is_Grounded = true;
+    }
+
+    /// <summary>
+    /// This method is called, if the player leave the collision
+    /// </summary>
+    /// <param name="collision">Collision with another rigidbody</param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        is_Grounded = false;
     }
 }
