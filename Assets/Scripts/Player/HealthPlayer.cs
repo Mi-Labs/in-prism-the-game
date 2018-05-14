@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class HealthPlayer : MonoBehaviour {
 
-<<<<<<< HEAD
-=======
 
     /* Variables */
 
->>>>>>> NightMasking
     // Holds the current amount of lifepoints
     private int lifepoints;
 
@@ -20,13 +17,10 @@ public class HealthPlayer : MonoBehaviour {
     // Holds the status of invulnerability
     private bool isInvulnerable;
 
-<<<<<<< HEAD
-=======
 
 
     /* Methods */
 
->>>>>>> NightMasking
 	// Use this for initialization
 	void Start ()
     {
