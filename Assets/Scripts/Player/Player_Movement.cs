@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 public class Player_Movement : MonoBehaviour {
 
+=======
+
+public class Player_Movement : MonoBehaviour {
+
+    /* Variables */
+
+>>>>>>> NightMasking
     //Rigidbody Player-Object
     private Rigidbody2D rgb2D;
 
@@ -18,11 +26,14 @@ public class Player_Movement : MonoBehaviour {
     //Factor for boost powerup
     public float boostfactor;
 
+<<<<<<< HEAD
     /*
      *  If true     -> Player has contact with another gameObject
      *  If false    -> Player has no contact with another gameObject
      */
     private bool is_Grounded;
+=======
+>>>>>>> NightMasking
 
     // Constants
 
@@ -33,6 +44,11 @@ public class Player_Movement : MonoBehaviour {
     private const float standardjumpfactor = 1.0f;
 
 
+<<<<<<< HEAD
+=======
+    /* Methods */
+
+>>>>>>> NightMasking
     // Use this for initialization
     void Start () {
 
@@ -65,6 +81,7 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
+<<<<<<< HEAD
         // If there is a collision with another gameObject, Jump is available
        if(is_Grounded)
         {
@@ -75,6 +92,13 @@ public class Player_Movement : MonoBehaviour {
             rgb2D.AddForce(movement);
         }
 
+=======
+        //Create movementVector2
+        Vector2 movement = new Vector2(0f, jumppower*jumpfactor);
+
+        //Add movement to rgb2D
+        rgb2D.AddForce(movement);
+>>>>>>> NightMasking
     }
 
     /// <summary>
@@ -88,7 +112,10 @@ public class Player_Movement : MonoBehaviour {
         //Debug.Log("Boost is on standard value");
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> NightMasking
     /// <summary>
     /// This method sets the jumpfactor to standard (1x)
     /// </summary>
@@ -99,6 +126,7 @@ public class Player_Movement : MonoBehaviour {
 
         //Debug.Log("Jump is on standard value");
     }
+<<<<<<< HEAD
 
     /// <summary>
     /// This mehtod is called, if the player enter a collison
@@ -117,4 +145,6 @@ public class Player_Movement : MonoBehaviour {
     {
         is_Grounded = false;
     }
+=======
+>>>>>>> NightMasking
 }

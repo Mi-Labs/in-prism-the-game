@@ -85,8 +85,15 @@ public class Invulnerablity : MonoBehaviour, IPowerUp {
     {
         if (isAvailable)
         {
+<<<<<<< HEAD
             GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToogleMenu();
 
+=======
+            // Find the PowerUpMenu and then close it
+            GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToogleMenu();
+
+            // Start the PowerUpAction
+>>>>>>> NightMasking
             PowerUpAction();
         }
         else
