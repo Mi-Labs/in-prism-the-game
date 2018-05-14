@@ -12,8 +12,8 @@ public class Level_Stats : MonoBehaviour {
     private bool is_complete;
 
     // Holds time that has passed since the scene has started
-    [SerializeField]
-    private float leveltime;
+    //[SerializeField]
+    //private float leveltime;
 
     //Holds the amount of saved spheres
     [SerializeField]
@@ -26,7 +26,7 @@ public class Level_Stats : MonoBehaviour {
 	void Update ()
     {
         //updates the leveltime
-        leveltime = Time.timeSinceLevelLoad;	
+       // leveltime = Time.timeSinceLevelLoad;	
 	}
 
     /**

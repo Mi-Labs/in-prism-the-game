@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player_Movement : MonoBehaviour {
+
+    /* Variables */
 
     //Rigidbody Player-Object
     private Rigidbody2D rgb2D;
@@ -27,6 +30,8 @@ public class Player_Movement : MonoBehaviour {
     // Constant jump factor
     private const float standardjumpfactor = 1.0f;
 
+
+    /* Methods */
 
     // Use this for initialization
     void Start () {
@@ -77,7 +82,6 @@ public class Player_Movement : MonoBehaviour {
 
         //Debug.Log("Boost is on standard value");
     }
-
 
     /// <summary>
     /// This method sets the jumpfactor to standard (1x)

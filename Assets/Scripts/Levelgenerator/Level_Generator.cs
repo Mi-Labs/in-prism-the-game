@@ -15,7 +15,7 @@ public class Level_Generator : MonoBehaviour {
 
 
 
-    /* Methods*/
+    /* Methods */
 
 	// Use this for initialization
 	void Start ()
@@ -52,26 +52,25 @@ public class Level_Generator : MonoBehaviour {
         // Get the color of every pixel
         Color pixelcolor = levelmap.GetPixel(x, y);
 
-        //Transform the color into color32 (better readability)
+        // Transform the color into color32 (better readability)
         Color32 pixelcolor32 = pixelcolor;
 
-        //if there is no alpha -> do nothing
+        // If there is no alpha -> do nothing
         if(pixelcolor32.a == 0)
         {
             return;
         }
 
-        //for every assigend color in colorassignment, create gameobject
+        // For every assigend color in colorassignment, create GameObject
         foreach(ColorToPreFab color in colorassignment)
         {
             if(color.colorPreFab.Equals(pixelcolor32))
             {
-                //Hold actual position of found pixel
+                // Hold actual position of found pixel
                 Vector2 position = new Vector2(x, y);
 
                 // Clone the Prefab at the actual position with no changes in transform and rotation
                 Instantiate(color.PreFab, position, Quaternion.identity, transform);
-        
             }
         }
     }
@@ -147,7 +146,7 @@ public class Level_Generator : MonoBehaviour {
                 Debug.LogError("Invalid input");
                 break;
         }
-        // return of the position for the killzone
+        // Return of the position for the killzone
         return killzoneVector;
     }
 
@@ -161,7 +160,7 @@ public class Level_Generator : MonoBehaviour {
         // Holds the standard value of the killzone size
         Vector2 killzoneSize = Vector2.zero;
 
-        // if an empty cases is chosen, the next higher number is executed
+        // If an empty cases is chosen, the next higher number is executed
         switch (direction_number)
         {
             // For Cases North and South
@@ -183,7 +182,7 @@ public class Level_Generator : MonoBehaviour {
                 Debug.LogError("Invalid input");
                 break;
         }
-        // return the right killZoneSize Vector2
+        // Return the right killZoneSize Vector2
         return killzoneSize;
     }
 }
