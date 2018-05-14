@@ -7,7 +7,7 @@ public class flowMoveTest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Log(Camera.main.gameObject);
-        Camera.main.gameObject.GetComponent<CameraFlow>().enabled=true; //aktivates the smooth camera follow
+        Camera.main.gameObject.AddComponent<CameraFlow>().enabled=true; //aktivates the smooth camera follow
 	}
 	
 	// Update is called once per frame

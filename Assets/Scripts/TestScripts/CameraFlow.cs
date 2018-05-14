@@ -8,8 +8,12 @@ using UnityEngine;
         public float yMargin = 1f; // Distance in the y axis the player can move before the camera follows.
         public float xSmooth = 8f; // How smoothly the camera catches up with it's target movement in the x axis.
         public float ySmooth = 8f; // How smoothly the camera catches up with it's target movement in the y axis.
-        public Vector2 maxXAndY; // The maximum x and y coordinates the camera can have.
-        public Vector2 minXAndY; // The minimum x and y coordinates the camera can have.
+                                   // The maximum x and y coordinates the camera can have.
+    public GameObject levelGen;
+    public float maxX = 50;  // The maximum x and y coordinates the camera can have.
+    public float maxY = 50;
+    public float minX = 0.1f; // The minimum x and y coordinates the camera can have.
+    public float minY = 0.1f;
     public Vector2 offset;
         private Transform m_Player; // Reference to the player's transform.
 
@@ -18,8 +22,9 @@ using UnityEngine;
         {
             // Setting up the reference.
             m_Player = GameObject.FindGameObjectWithTag("Player").transform;
-           // Debug.Log("Player_transform was found");
+        // Debug.Log("Player_transform was found");
         // Save camera z position
+        levelGen = GameObject.Find("LevelGenerator");
         float cameraZ = transform.position.z;
 
         // Save the position of the player (only x and y)
@@ -38,6 +43,8 @@ using UnityEngine;
 
         // Calculate offset => Position camera - Position player
         //offset = transform.position - m_Player.transform.position;
+        maxX = levelGen.GetComponent<Level_Generator>().levelmap.width-(levelGen.GetComponent<Level_Generator>().levelmap.width/10);
+        maxY = levelGen.GetComponent<Level_Generator>().levelmap.height;
     }
 
 
@@ -66,9 +73,9 @@ using UnityEngine;
             // By default the target x and y coordinates of the camera are it's current x and y coordinates.
             float targetX = m_Player.position.x;
             float targetY = m_Player.position.y;
-        Debug.Log(m_Player.position.x);
-            Debug.Log(m_Player.position.y);
-        /*
+        //Debug.Log(m_Player.position.x);
+          //  Debug.Log(m_Player.position.y);
+        
             // If the player has moved beyond the x margin...
             if (CheckXMargin())
             {
@@ -84,9 +91,10 @@ using UnityEngine;
             }
             
             // The target x and y coordinates should not be larger than the maximum or smaller than the minimum.
-            targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
-            targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
-            */
+            targetX = Mathf.Clamp(targetX, minX, maxX);
+            
+            targetY = Mathf.Clamp(targetY, minY, maxY);
+            
             // Set the camera's position to the target position with the same z component.
             this.transform.position = new Vector3(targetX, targetY, transform.position.z);
         }
