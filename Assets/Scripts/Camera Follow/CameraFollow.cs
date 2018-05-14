@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+<<<<<<< HEAD
+public class CameraFollow : MonoBehaviour {
+
+    // Holds the player object
+    public GameObject player;
+
+    // Holds the offset between camera and player
+    private Vector3 offset;
+
+	// Use this for initialization
+	void Start()
+=======
 /// <summary>
 ///  This script allows the camera to follow the player
 /// </summary>
@@ -46,6 +58,7 @@ public class CameraFollow : MonoBehaviour {
 
     // Use this for initialization
     void Start()
+>>>>>>> NightMasking
     {
         // Call method CheckForPlayer
         CheckForPlayer();
@@ -65,6 +78,21 @@ public class CameraFollow : MonoBehaviour {
         // Set the calculated camera position to the position of this gameObject
         transform.position = newCameraPosition;
 
+<<<<<<< HEAD
+        // Calculate offset => Position camera - Position player
+        offset = transform.position - player.transform.position;
+        
+	}
+	
+	// Update is called after all other calculation are finisihed
+	void LateUpdate ()
+    {
+        // Change position
+        transform.position = player.transform.position + offset;
+	}
+
+    /// <summary>
+=======
         // Search for the level generator object and assign it.
         levelgenerator = GameObject.Find("LevelGenerator");
 
@@ -159,6 +187,7 @@ public class CameraFollow : MonoBehaviour {
 
 
     /// <summary>
+>>>>>>> NightMasking
     /// This method checks for a gameobject with the tag "Player"
     /// If no such object is found, the script will be disabled
     /// </summary>

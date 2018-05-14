@@ -2,6 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
+public class Player_ColorEffect : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {}
+
+	
+	// Update is called once per frame
+	void Update () {}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<Coloration>().ActivateColor();
+=======
 /// <summary>
 ///  This script should be attached to the player
 ///  When active, it should activate every Coloration Script on every GameObject
@@ -26,5 +40,6 @@ public class Player_ColorEffect : MonoBehaviour {
             // Activate the coloration
             coleration.ActivateColor();
         }
+>>>>>>> NightMasking
     }
 }

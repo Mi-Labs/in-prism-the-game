@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Control : MonoBehaviour {
+<<<<<<< HEAD
+    
+=======
 
     /* Variables */
 
+>>>>>>> NightMasking
     //this field holds the player gameobject
     private GameObject player;
 
@@ -25,12 +29,21 @@ public class Player_Control : MonoBehaviour {
     //If trigger for powerupmenu is activated -> true
     private bool powerupmenu_trigger;
 
+<<<<<<< HEAD
+    
+
+
+
+	// Use this for initialization
+	void Start ()
+=======
 
 
     /* Methods */
 
     // Use this for initialization
     void Start ()
+>>>>>>> NightMasking
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
@@ -41,6 +54,12 @@ public class Player_Control : MonoBehaviour {
         {
             Debug.Log("Script nicht gefunden!");
         }
+<<<<<<< HEAD
+
+     
+
+=======
+>>>>>>> NightMasking
 	}
 
     // Update is called once per frame
@@ -146,6 +165,10 @@ public class Player_Control : MonoBehaviour {
                             Debug.Log("Error, no regular TouchPhase");
                             break;
                     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> NightMasking
             }
         }
     #endif
@@ -160,12 +183,20 @@ public class Player_Control : MonoBehaviour {
 
         if (left_active)
         {
+<<<<<<< HEAD
+            movescript.MovePlayer(-1f);
+=======
             movescript.MovePlayer(-1.0f);
+>>>>>>> NightMasking
         }
 
         if (right_active)
         {
+<<<<<<< HEAD
+            movescript.MovePlayer(1f);
+=======
             movescript.MovePlayer(1.0f);
+>>>>>>> NightMasking
         }
         if (jump_active)
         {

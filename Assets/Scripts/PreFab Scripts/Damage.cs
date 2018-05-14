@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
+<<<<<<< HEAD
+    // Holds the damage for one collission with player
+    public int objectdamage; 
+
+    /// <summary>
+    /// This method is called, when a collison with the gameObject attachted to this script happend
+    /// </summary>
+    /// <param name="collision">The collission which is caused</param>
+=======
     /* Variables */
 
     // Holds the damage for one collission with player
@@ -17,6 +26,7 @@ public class Damage : MonoBehaviour {
     /// This method is called, when a collison with the GameObject attachted to this script happend
     /// </summary>
     /// <param name="collision">The collision which is caused</param>
+>>>>>>> NightMasking
     public void OnCollisionEnter2D(Collision2D collision)
     {
         // Debug.Log("Collison Found");
@@ -35,7 +45,11 @@ public class Damage : MonoBehaviour {
 
             //Debug.Log(objectdamage + "ObjDmg");
 
+<<<<<<< HEAD
+            //Debug.Log(maxlife + "maxlife");
+=======
             // Debug.Log(maxlife + "maxlife");
+>>>>>>> NightMasking
 
             // Calculate the damage
             float damage = ((float)objectdamage / (float)maxlife)*100.0f;

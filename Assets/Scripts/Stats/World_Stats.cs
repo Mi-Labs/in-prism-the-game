@@ -55,6 +55,11 @@ public class World_Stats : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         level = new Level_Stats[5];
+<<<<<<< HEAD
+       // powerup_boost = false;
+        powerup_powerjump = false;
+=======
+>>>>>>> NightMasking
     }
 
     // Use this for initialization
