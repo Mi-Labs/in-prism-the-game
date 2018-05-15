@@ -1507,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &991382770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1596,8 +1596,8 @@ MonoBehaviour:
   colorassignment:
   - colorPreFab:
       serializedVersion: 2
-      rgba: 4294922496
-    PreFab: {fileID: 1703995403581956, guid: 72a33fcbe5e8d0f44a59ab79f80206f4, type: 2}
+      rgba: 4278190335
+    PreFab: {fileID: 1589015883305270, guid: e563defabff89e84ca307977c317ded3, type: 2}
   - colorPreFab:
       serializedVersion: 2
       rgba: 4278190080
@@ -1610,6 +1610,10 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4278255360
     PreFab: {fileID: 1653635561483006, guid: 0c6d39887bb6e514fae4b7f15478924f, type: 2}
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286591231
+    PreFab: {fileID: 1758809198963578, guid: 7cc99187abd4c544cba49c6297d1eaa0, type: 2}
 --- !u!4 &1130654981
 Transform:
   m_ObjectHideFlags: 0
