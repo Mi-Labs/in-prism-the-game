@@ -55,8 +55,6 @@ public class World_Stats : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         level = new Level_Stats[5];
-       // powerup_boost = false;
-        powerup_powerjump = false;
     }
 
     // Use this for initialization

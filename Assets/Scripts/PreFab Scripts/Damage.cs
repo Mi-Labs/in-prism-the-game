@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
+    /* Variables */
+
     // Holds the damage for one collission with player
     public int objectdamage; 
 
+
+
+    /* Methods */
+
     /// <summary>
-    /// This method is called, when a collison with the gameObject attachted to this script happend
+    /// This method is called, when a collison with the GameObject attachted to this script happend
     /// </summary>
-    /// <param name="collision">The collission which is caused</param>
+    /// <param name="collision">The collision which is caused</param>
     public void OnCollisionEnter2D(Collision2D collision)
     {
         // Debug.Log("Collison Found");
@@ -29,7 +35,7 @@ public class Damage : MonoBehaviour {
 
             //Debug.Log(objectdamage + "ObjDmg");
 
-            //Debug.Log(maxlife + "maxlife");
+            // Debug.Log(maxlife + "maxlife");
 
             // Calculate the damage
             float damage = ((float)objectdamage / (float)maxlife)*100.0f;

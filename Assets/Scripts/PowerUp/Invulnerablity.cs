@@ -85,8 +85,10 @@ public class Invulnerablity : MonoBehaviour, IPowerUp {
     {
         if (isAvailable)
         {
+            // Find the PowerUpMenu and then close it
             GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToogleMenu();
 
+            // Start the PowerUpAction
             PowerUpAction();
         }
         else

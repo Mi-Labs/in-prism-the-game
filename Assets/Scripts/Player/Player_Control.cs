@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Control : MonoBehaviour {
-    
+
+    /* Variables */
+
     //this field holds the player gameobject
     private GameObject player;
 
@@ -23,12 +25,12 @@ public class Player_Control : MonoBehaviour {
     //If trigger for powerupmenu is activated -> true
     private bool powerupmenu_trigger;
 
-    
 
 
+    /* Methods */
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
@@ -39,9 +41,6 @@ public class Player_Control : MonoBehaviour {
         {
             Debug.Log("Script nicht gefunden!");
         }
-
-     
-
 	}
 
     // Update is called once per frame
@@ -147,7 +146,6 @@ public class Player_Control : MonoBehaviour {
                             Debug.Log("Error, no regular TouchPhase");
                             break;
                     }
-
             }
         }
     #endif
@@ -162,12 +160,12 @@ public class Player_Control : MonoBehaviour {
 
         if (left_active)
         {
-            movescript.MovePlayer(-1f);
+            movescript.MovePlayer(-1.0f);
         }
 
         if (right_active)
         {
-            movescript.MovePlayer(1f);
+            movescript.MovePlayer(1.0f);
         }
         if (jump_active)
         {

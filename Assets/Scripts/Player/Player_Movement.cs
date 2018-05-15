@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player_Movement : MonoBehaviour {
+
+    /* Variables */
 
     //Rigidbody Player-Object
     private Rigidbody2D rgb2D;
@@ -12,11 +15,14 @@ public class Player_Movement : MonoBehaviour {
 
     public float jumpfactor;
 
-    //acceleration for movement
+    // Acceleration for movement
     public float acceleration = 1.5f;
 
-    //Factor for boost powerup
+    // Factor for boost powerup
     public float boostfactor;
+
+    // If the player has an collision with something-> true, else false
+    private bool isGrounded;
 
 
     // Constants
@@ -27,6 +33,8 @@ public class Player_Movement : MonoBehaviour {
     // Constant jump factor
     private const float standardjumpfactor = 1.0f;
 
+
+    /* Methods */
 
     // Use this for initialization
     void Start () {
@@ -60,11 +68,15 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        //Create movementVector2
-        Vector2 movement = new Vector2(0f, jumppower*jumpfactor);
+        if(isGrounded)
+        {
+            //Create movementVector2
+            Vector2 movement = new Vector2(0f, jumppower * jumpfactor);
 
-        //Add movement to rgb2D
-        rgb2D.AddForce(movement);
+            //Add movement to rgb2D
+            rgb2D.AddForce(movement);
+        }
+        
     }
 
     /// <summary>
@@ -78,7 +90,6 @@ public class Player_Movement : MonoBehaviour {
         //Debug.Log("Boost is on standard value");
     }
 
-
     /// <summary>
     /// This method sets the jumpfactor to standard (1x)
     /// </summary>
@@ -88,5 +99,24 @@ public class Player_Movement : MonoBehaviour {
         jumpfactor = standardjumpfactor;
 
         //Debug.Log("Jump is on standard value");
+    }
+
+    /// <summary>
+    ///  This method is called, when the parent GameObject collids with another object
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true;
+    }
+
+
+    /// <summary>
+    /// This method is called, when the collision of the parent GameObject and another Object is over
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
     }
 }
