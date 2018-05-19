@@ -9,7 +9,7 @@ public class Invulnerablity : MonoBehaviour, IPowerUp {
 
 
     // Hold the time, that this powerUp is active
-    private int activetime;
+    private int m_activetime;
 
     // Hold the time that this powerUp needs to cool down
     private int cooldowntime;
@@ -40,9 +40,9 @@ public class Invulnerablity : MonoBehaviour, IPowerUp {
     {
         //Get the world config, with data for this powerup
         World_Config config = GameObject.Find("World_Config").GetComponent<World_Config>();
-
+       
         // Set activetime
-        activetime = config.activetime_jump;
+        m_activetime = config.activetime_jump;
 
         // Set cooldowntime
         cooldowntime = config.cooldowntime_jump;
@@ -105,7 +105,7 @@ public class Invulnerablity : MonoBehaviour, IPowerUp {
         //Debug.Log("PowerUpAction started");
 
         // Start timer with the active power up time
-        StartTimer(activetime);
+        StartTimer(m_activetime);
 
         // Toggle the invulnerablity in the health script
         player.GetComponent<HealthPlayer>().ToogleIsInvulnerable(true);
