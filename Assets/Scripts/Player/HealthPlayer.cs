@@ -11,7 +11,7 @@ public class HealthPlayer : MonoBehaviour {
     // Holds the current amount of lifepoints
     private int lifepoints;
 
-    // maximal healthpoints of the player
+    // maximal health points of the player
     private const int maxlifepoints = 100;
 
     // Holds the status of invulnerability
@@ -32,7 +32,7 @@ public class HealthPlayer : MonoBehaviour {
 	}
 
     /// <summary>
-    /// This method decreases the lifepoint with the given parameter
+    /// This method decreases the life point with the given parameter
     /// </summary>
     /// <param name="damage">The amount of lifepoints, that should be decreased</param>
     public void DecreaseLife(int damage)
@@ -46,13 +46,13 @@ public class HealthPlayer : MonoBehaviour {
 
             //Debug.Log("LifeP" + lifepoints);
 
-            // Change the text on the lifebar
+            // Change the text on the life bar
             ChangeLifeBar();
 
             // If the lifepoints are below zero, reset this scene
             if (lifepoints <= 0)
             {
-                // Get the buildindex of the active scence
+                // Get the build index of the active scence
                 int activescene = SceneManager.GetActiveScene().buildIndex;
 
                 // Reload the scence

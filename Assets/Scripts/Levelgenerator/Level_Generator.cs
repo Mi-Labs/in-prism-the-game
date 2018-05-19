@@ -10,7 +10,7 @@ public class Level_Generator : MonoBehaviour {
     // Holds map of the level
     public Texture2D levelmap;
 
-    // Holds array with all ColorToPrefab assigments
+    // Holds array with all ColorToPrefab assignments
     public ColorToPreFab[] colorassignment;
 
 
@@ -28,7 +28,7 @@ public class Level_Generator : MonoBehaviour {
     /// </summary>
     private void GenerateLevel()
     {
-        // Generate all killzones before load any levelobjects
+        // Generate all kill zones before load any level objects
         GenerateKillZones();
 
         // Iterate over every pixel in the levelmap (Column after Column)
@@ -61,7 +61,7 @@ public class Level_Generator : MonoBehaviour {
             return;
         }
 
-        //for every assigend color in colorassignment, create gameobject
+        // For every assigned color in colorassignment, create GameObject
         foreach(ColorToPreFab color in colorassignment)
         {
             if(color.colorPreFab.Equals(pixelcolor32))
@@ -77,7 +77,7 @@ public class Level_Generator : MonoBehaviour {
     }
 
     /// <summary>
-    /// This script generates killzones all around the level
+    /// This script generates kill zones all around the level
     /// </summary>
     public void GenerateKillZones()
     {
@@ -96,8 +96,11 @@ public class Level_Generator : MonoBehaviour {
             // Resize the killzone
             killzoneBox.size = KillzoneSize(i);
 
-            // Add so much damage to the killzone, that the player will instantly die
-            killzone.AddComponent<Damage>().objectdamage = 200;
+            // Enable isTrigger on the collider
+            killzoneBox.isTrigger = enabled;
+
+            // Add Killzone script to it
+            killzone.AddComponent<Killzone>();
         }
     }
 
@@ -115,7 +118,7 @@ public class Level_Generator : MonoBehaviour {
          */
         Vector3 killzoneVector = Vector3.zero;
 
-        // Switch between dircetion 
+        // Switch between direction 
         switch(direction_number)
         {
             // North
@@ -132,7 +135,7 @@ public class Level_Generator : MonoBehaviour {
 
             // East
             case 2:
-                // Vector = map width +1 , half of map heigth, 0 @ z-axis
+                // Vector = map width +1 , half of map height, 0 @ z-axis
                 killzoneVector = new Vector3(levelmap.width + 1, levelmap.height/2,0);
                 break;   
             
@@ -178,7 +181,7 @@ public class Level_Generator : MonoBehaviour {
                 killzoneSize = new Vector2(0.1f,levelmap.height*3);
                 break;
             
-            // If a case out of a range of 0-3 occures
+            // If a case out of a range of 0-3 occurs
             default:
                 Debug.LogError("Invalid input");
                 break;

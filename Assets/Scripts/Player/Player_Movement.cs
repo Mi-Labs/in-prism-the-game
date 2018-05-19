@@ -13,40 +13,44 @@ public class Player_Movement : MonoBehaviour {
     //Jump-Strength
     public float jumppower;
 
+    //Jump factor
     public float jumpfactor;
 
     // Acceleration for movement
     public float acceleration = 1.5f;
 
-    // Factor for boost powerup
+    // Factor for boost power up
     public float boostfactor;
 
-    // If the player has an collision with something-> true, else false
-    private bool isGrounded;
+
 
 
     // Constants
 
     // Constant boost factor
-    private const float standardboostfactor = 1.0f;
+    private const float m_standardboostfactor = 1.0f;
 
     // Constant jump factor
-    private const float standardjumpfactor = 1.0f;
+    private const float m_standardjumpfactor = 1.0f;
 
+    private bool m_canJump;
 
     /* Methods */
 
     // Use this for initialization
     void Start () {
 
-        //Initalize Rigidbody of Player
+        //Initialize Rigidbody of Player
         rgb2D = GetComponent<Rigidbody2D>();
 
-        //Set the boostfactor on standard
-        boostfactor = standardboostfactor;
+        // Set the boostfactor on standard
+        boostfactor = m_standardboostfactor;
 
-        //Set the jumpfactor on standard
-        jumpfactor = standardjumpfactor;
+        // Set the jumpfactor on standard
+        jumpfactor = m_standardjumpfactor;
+
+        // Initialize m_canJump
+        m_canJump = false;
 	}
 	
     /// <summary>
@@ -68,15 +72,15 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        if(isGrounded)
+        // If there is no y-velocity ...
+        if(m_canJump)
         {
             //Create movementVector2
             Vector2 movement = new Vector2(0f, jumppower * jumpfactor);
 
             //Add movement to rgb2D
             rgb2D.AddForce(movement);
-        }
-        
+        }     
     }
 
     /// <summary>
@@ -85,7 +89,7 @@ public class Player_Movement : MonoBehaviour {
     public void SetBoostSpeedToStandard()
     {
         // Set the boostfactor to standard
-        boostfactor = standardboostfactor;
+        boostfactor = m_standardboostfactor;
 
         //Debug.Log("Boost is on standard value");
     }
@@ -96,27 +100,17 @@ public class Player_Movement : MonoBehaviour {
     public void SetJumpFactorToStandard()
     {
         // Set the jumpfactor to standard
-        jumpfactor = standardjumpfactor;
+        jumpfactor = m_standardjumpfactor;
 
         //Debug.Log("Jump is on standard value");
     }
 
     /// <summary>
-    ///  This method is called, when the parent GameObject collids with another object
+    /// Is called every frame
     /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        isGrounded = true;
-    }
-
-
-    /// <summary>
-    /// This method is called, when the collision of the parent GameObject and another Object is over
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
+        // Set m_CanJump to true, if the velocity on y-axis is zero
+        m_canJump = rgb2D.velocity.y == 0;
     }
 }

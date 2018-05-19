@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212627523692804948}
   - component: {fileID: 61137921690237288}
   - component: {fileID: 114254650008602904}
-  - component: {fileID: 50826695244071380}
+  - component: {fileID: 50610402732926384}
   m_Layer: 0
   m_Name: DamageTest
   m_TagString: Untagged
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50826695244071380
+--- !u!50 &50610402732926384
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9f8dddc9537a8449aba91fa3785d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectdamage: 33
+  m_objectdamage: 33
 --- !u!212 &212627523692804948
 SpriteRenderer:
   m_ObjectHideFlags: 1

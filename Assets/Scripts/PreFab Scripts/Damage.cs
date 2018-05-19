@@ -6,41 +6,41 @@ public class Damage : MonoBehaviour {
 
     /* Variables */
 
-    // Holds the damage for one collission with player
-    public int objectdamage; 
+    // Holds the damage for one collision with player
+    public int m_objectdamage; 
 
 
 
     /* Methods */
 
     /// <summary>
-    /// This method is called, when a collison with the GameObject attachted to this script happend
+    /// This method is called, when a collision with the GameObject attached to this script happened
     /// </summary>
     /// <param name="collision">The collision which is caused</param>
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D _collision)
     {
-        // Debug.Log("Collison Found");
+         // Debug.Log("Collision Found");
 
-        // Get the gameObject which is attached to this collission  
-        GameObject hit = collision.gameObject;
+        // Get the gameObject which is attached to this collision  
+        GameObject hit = _collision.gameObject;
 
-        // If the other collission object is the player - do this script
-        if(hit.tag == "Player")
+        // If the other collision object is the player - do this script
+        if(hit.tag.Equals("Player"))
         {
 
-            //Debug.Log("Player hit me");
+            // Debug.Log("Player hit me");
 
-            //Get the maximum lifepoints for caluclation
+            //Get the maximum lifepoints for calculation
             int maxlife = hit.GetComponent<HealthPlayer>().GetMaxLifePoints();
 
-            //Debug.Log(objectdamage + "ObjDmg");
+            // Debug.Log(m_objectdamage + "ObjDmg");
 
-            // Debug.Log(maxlife + "maxlife");
+            //  Debug.Log(maxlife + "maxlife");
 
             // Calculate the damage
-            float damage = ((float)objectdamage / (float)maxlife)*100.0f;
+            float damage = ((float)m_objectdamage / (float)maxlife)*100.0f;
 
-            //Debug.Log(damage);
+            // Debug.Log(damage);
 
             // Save the damage as Integer
             int outdamage = Mathf.RoundToInt(damage);
@@ -48,7 +48,7 @@ public class Damage : MonoBehaviour {
             // Call damage script to decrease lifepoints with the calculated damage
             hit.GetComponent<HealthPlayer>().DecreaseLife(outdamage);
 
-            //Debug.Log("Decrease with outdamage: " + outdamage);
+            // Debug.Log("Decrease with outdamage: " + outdamage);
 
             //To Do : Visual Warning if player get damage
         }
