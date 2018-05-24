@@ -4,25 +4,37 @@ using UnityEngine;
 
 public class StickyForPlayer : MonoBehaviour {
 
-    private GameObject player;
+    private GameObject m_player;
 
 	// Use this for initialization
 	void Start ()
     {
-        player = this.gameObject;	
+        m_player = this.gameObject;	
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D _collision)
     {
-        FixedJoint fixedJoint = player.AddComponent<FixedJoint>();
-        fixedJoint.anchor = collision.gameObject.transform.position;
-        fixedJoint.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
+        Transform otherCollider = _collision.gameObject.transform;
+
+        //  Debug.Log(this.transform.position);
+        // Debug.Log(otherCollider.position);
+        Vector2 stickyDirection = (Vector2)otherCollider.position - (Vector2)transform.position;
+         Debug.Log(stickyDirection);
+
+        float StickyDirectionX = stickyDirection.x;
+
+        m_player.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+        ConstantForce2D stickyGravity = m_player.GetComponent<ConstantForce2D>();
+
+        if(stickyGravity == null)
+        {
+            m_player.AddComponent<ConstantForce2D>().force = new Vector2(0.0f, -9.8f);
+        }
+        
+        
     }
 
 }
