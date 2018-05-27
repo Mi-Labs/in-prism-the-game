@@ -11,7 +11,7 @@ public class Killzone : MonoBehaviour
     /* Variables */
 
     // Holds the damage that the kill zone should deal
-    public int m_killzone_damage;
+    public int m_killzone_damage = 200;
 
 
 
@@ -24,7 +24,7 @@ public class Killzone : MonoBehaviour
     {
        
         // Find Player, look for maximal health, multiply it with 2 -> sure death of player
-        m_killzone_damage = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthPlayer>().GetMaxLifePoints() * 2;
+        // m_killzone_damage = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthPlayer>().GetMaxLifePoints() * 2;
     }
 
     /// <summary>

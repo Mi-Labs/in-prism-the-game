@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212192417661975864}
   - component: {fileID: 61081617601516858}
   - component: {fileID: 114323245806211036}
-  m_Layer: 0
+  - component: {fileID: 114317383251999820}
+  m_Layer: 8
   m_Name: Underground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,6 +68,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114317383251999820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163650732191456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5b0ae277d57a543ae050b242623a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_topping: {fileID: 1889056933079834, guid: d84acd07c82fb054bbb07ededc85af68, type: 2}
 --- !u!114 &114323245806211036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origincolor: {r: 0.14117648, g: 0.47058824, b: 1, a: 1}
+  origincolor: {r: 0.8679245, g: 0.81944096, b: 0.6918832, a: 1}
 --- !u!212 &212192417661975864
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,6 +105,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -113,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1efe896b63a581d4d8120152db11f5dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58dc58fe9c1d2254d9219c56ae0ae0c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
