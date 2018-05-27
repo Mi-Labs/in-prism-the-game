@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872734, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 709122970}
   m_Layer: 0
   m_Name: World_Config
-  m_TagString: Untagged
+  m_TagString: Config
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -956,6 +956,7 @@ MonoBehaviour:
   extrajumppower: 2
   activetime_sticky: 0
   cooldowntime_sticky: 0
+  m_fakegrafity: 9.8
   activetime_invulnerable: 0
   cooldowntime_invulnerable: 0
   activetime_power_light: 0

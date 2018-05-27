@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 61081617601516858}
   - component: {fileID: 114323245806211036}
   - component: {fileID: 114317383251999820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Underground
-  m_TagString: Underground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

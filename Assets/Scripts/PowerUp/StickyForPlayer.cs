@@ -6,24 +6,31 @@ public class StickyForPlayer : MonoBehaviour {
 
     private GameObject m_player;
 
-    private float m_fakeGravity = 9.8f;
+    private float m_fakeGravity;
 
-    public static ConstantForce2D stickyGravity = null;
+    private static ConstantForce2D stickyGravity = null;
 
 
-    private void Awake()
+    private void Start()
     {
         m_player = this.gameObject;
 
-        if (stickyGravity == null)
-        {
-           stickyGravity = m_player.AddComponent<ConstantForce2D>();
-        }
+        //Get the world config, with data for this power up
+        World_Config config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
+
+        m_fakeGravity = config.m_fakegrafity;
+
+        m_player.GetComponent<Rigidbody2D>().gravityScale = 0;
     }
 
 
     private void OnCollisionEnter2D(Collision2D _collision)
     {
+        if (stickyGravity == null)
+        {
+            stickyGravity = m_player.AddComponent<ConstantForce2D>();
+        }
+
         stickyGravity.enabled = true;
 
         Transform otherCollider = _collision.gameObject.transform;
@@ -37,9 +44,6 @@ public class StickyForPlayer : MonoBehaviour {
         float stickyDirectionY = stickyDirection.y;
 
         bool isInXDirection = CheckForXDirection(stickyDirection);
-
-        m_player.GetComponent<Rigidbody2D>().gravityScale = 0;
-
 
         if (isInXDirection)
         {
@@ -83,4 +87,11 @@ public class StickyForPlayer : MonoBehaviour {
         stickyGravity.force = new Vector2(0.0f, -m_fakeGravity);
     }
 
+    public void DestroyFakeGravity()
+    {
+        m_player.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+
+        Destroy(stickyGravity);
+        Destroy(this);
+    }
 }

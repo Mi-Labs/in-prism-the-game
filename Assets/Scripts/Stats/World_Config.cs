@@ -44,6 +44,8 @@ public class World_Config : MonoBehaviour {
 
     public int cooldowntime_sticky;
 
+    public float m_fakegrafity = 9.8f;
+
     [Space(20)]
 
     // Values for Invulnerablity

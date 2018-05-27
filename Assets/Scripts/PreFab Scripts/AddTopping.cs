@@ -8,26 +8,41 @@ public class AddTopping : MonoBehaviour {
 
     private Vector2 m_castDirection;
 
-	// Use this for initialization
-	void Awake ()
+    private float m_castLength;
+
+    private LayerMask m_undergroundMask;
+
+    // Use this for initialization
+    void Start ()
     {
-        m_castDirection = new Vector2(0.0f, -1.0f);
+        // Set castDirection to upwards
+        m_castDirection = new Vector2(0.0f, 1.0f);
 
-        RaycastHit2D hit = Physics2D.CircleCast(this.gameObject.transform.position, 1.0f, m_castDirection);
+        m_castLength = 0.6f;
 
-        if(hit.collider.gameObject.tag.Equals("Underground"))
+        // Set LayerMask to Layer 8 -> Underground
+        m_undergroundMask = 1 << 8;
+
+        bool thingAbove = CheckIfSomethingAbove();
+
+        // If there isn't anything above, create the topping
+        if(!thingAbove)
         {
-            Vector2 grounddirection=hit.transform.position - this.transform.position;
-            // Debug.Log("Ground below me");
-
-           if(!(grounddirection.y <0.0f))
-            {
-                Instantiate(m_topping, this.transform.position, Quaternion.identity, this.transform);
-            }
-            
+            Instantiate(m_topping, this.transform.position, Quaternion.identity, this.transform);
         }
-    
+            
 	}
-	
+
+    /// <summary>
+    /// This method checks, if a GO on the given layer is above the current GO
+    /// </summary>
+    /// <returns>True, if something is above</returns>
+    private bool CheckIfSomethingAbove()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, m_castDirection, m_castLength, m_undergroundMask);
+
+        // Returns true if there was a object above
+        return (hit.collider != null) ? true : false;
+    }
 
 }
