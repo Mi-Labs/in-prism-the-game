@@ -110,7 +110,12 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     private void Update()
     {
-        // Set m_CanJump to true, if the velocity on y-axis is zero
-        m_canJump = rgb2D.velocity.y == 0;
+        // Get actual velocity of the player on y-axis
+        float velocityY = rgb2D.velocity.y;
+
+        velocityY = Mathf.Abs(velocityY);
+        
+        // If the velocity of the player is between -0.1f and 0.1f, the player can jump
+        m_canJump = (velocityY < 0.1f) ? true : false;
     }
 }
