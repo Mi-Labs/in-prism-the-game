@@ -31,6 +31,9 @@ public class Level_Generator : MonoBehaviour {
         // Generate all kill zones before load any level objects
         GenerateKillZones();
 
+
+        
+
         // Iterate over every pixel in the levelmap (Column after Column)
         for (int x = 0; x < levelmap.width; x++)
         {
@@ -81,11 +84,16 @@ public class Level_Generator : MonoBehaviour {
     /// </summary>
     public void GenerateKillZones()
     {
+        GameObject killzones = new GameObject("Kill Zones");
+        killzones.transform.parent = transform;
+
         // Generate a killzone for every direction
         for(int i=0; i <4; i++)
         {
             // Generate a new killzone object
             GameObject killzone = new GameObject("Killzone");
+
+            killzone.transform.parent =killzones.transform;
 
             // Position the killzone
             killzone.transform.position = KillzonePosition(i);

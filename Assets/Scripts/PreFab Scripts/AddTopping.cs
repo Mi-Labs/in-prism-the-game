@@ -41,6 +41,8 @@ public class AddTopping : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, m_castDirection, m_castLength, m_undergroundMask);
 
+        // Debug.DrawRay(transform.position, m_castDirection,Color.white,15);
+
         // Returns true if there was a object above
         return (hit.collider != null) ? true : false;
     }
