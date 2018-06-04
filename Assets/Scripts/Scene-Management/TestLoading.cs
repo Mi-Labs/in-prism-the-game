@@ -7,7 +7,7 @@ public class TestLoading : MonoBehaviour {
     public bool m_testSceneLoaded = false;
 	
 	// Update is called once per frame
-	void Update ()
+	void Start ()
     {
 		if(!m_testSceneLoaded)
         {

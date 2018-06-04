@@ -50,7 +50,7 @@ public class HealthPlayer : MonoBehaviour {
             ChangeLifeBar();
 
             // If the lifepoints are below zero, reset this scene
-            if (lifepoints <= 0)
+            if (lifepoints <= -1) //Be Aware of a possible Bug
             {
                 GameObject manager = GameObject.FindGameObjectWithTag("SceneManager");
                 manager.GetComponent<LoadMainScene>().ResetLevel();

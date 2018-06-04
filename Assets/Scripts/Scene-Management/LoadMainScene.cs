@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadMainScene : MonoBehaviour {
-
+    private bool m_MainSceneLoaded = false;
     private static System.String m_ActualLevelName;
 
 	IEnumerator AscynchronusGameLevelLoad(System.String _scene)
@@ -22,6 +22,7 @@ public class LoadMainScene : MonoBehaviour {
             if(asyncOp.progress == 0.9f)
             {
                 asyncOp.allowSceneActivation = true;
+                m_MainSceneLoaded = true;
             }
             yield return null;
         }
@@ -62,10 +63,10 @@ public class LoadMainScene : MonoBehaviour {
 
     public void LoadTestLevel()
     {
-        if(SceneManager.GetSceneByName("Level 00-Test") != null)
+        if(!m_MainSceneLoaded)
         {
             LoadExtraScences();
-            LoadGameScene("Level 00-Test");
+            LoadGameScene("Level-0-0");
         }
         
     }
@@ -78,8 +79,11 @@ public class LoadMainScene : MonoBehaviour {
     public void ResetLevel()
     {
         UnloadScence(m_ActualLevelName);
+        m_MainSceneLoaded = false;
         SceneManager.LoadScene(m_ActualLevelName, LoadSceneMode.Additive);
-        
+        m_MainSceneLoaded = true;
+        Debug.Log(m_MainSceneLoaded);
+        Debug.Log(m_ActualLevelName);
     }
 
     private void LoadExtraScences()

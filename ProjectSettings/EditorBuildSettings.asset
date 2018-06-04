@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scences/Level 00-Test.unity
     guid: 187d4d7af564bfa4bbef7a3c18a6bdaa
+  - enabled: 1
+    path: Assets/Scences/Level-00-TheBeginning.unity
+    guid: adf80c8be4929934c8e32748ab6fb5d0
   m_configObjects: {}
