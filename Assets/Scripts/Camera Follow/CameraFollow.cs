@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour {
     /* Variables */
 
     // Holds the player object
-    public GameObject m_player;
+    public static GameObject m_player;
 
     // Distance in the x axis the player can move before the camera follows.
     public float m_xMargin = 10f;
@@ -74,6 +74,7 @@ public class CameraFollow : MonoBehaviour {
     // Update is called after all other calculation are finished
     void LateUpdate ()
     {
+        CheckForPlayer();
         FollowPlayer();   
 	}
 
@@ -183,11 +184,11 @@ public class CameraFollow : MonoBehaviour {
             //Debug.Log("No Player was found");
 
             // Disable the script
-            enabled = false;
+            Destroy(gameObject.GetComponent<CameraFollow>());
         }
         else
         {
-           // Debug.Log("Player found");
+            // Debug.Log("Player found");
         }
     }       
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class HealthPlayer : MonoBehaviour {
 
@@ -52,11 +52,9 @@ public class HealthPlayer : MonoBehaviour {
             // If the lifepoints are below zero, reset this scene
             if (lifepoints <= 0)
             {
-                // Get the build index of the active scence
-                int activescene = SceneManager.GetActiveScene().buildIndex;
-
-                // Reload the scence
-                SceneManager.LoadScene(activescene);
+                GameObject manager = GameObject.FindGameObjectWithTag("SceneManager");
+                manager.GetComponent<LoadMainScene>().ResetLevel();
+                  
             }
         }   
     }
@@ -99,11 +97,11 @@ public class HealthPlayer : MonoBehaviour {
     }
 
     /// <summary>
-    /// This method changes the Value of the lifebar
+    /// This method changes the Value of the life bar
     /// </summary>
     private void ChangeLifeBar()
     {
-        // Get the ReadPlayerTime script and change the value of the lifebar to the actual value
+        // Get the ReadPlayerTime script and change the value of the life bar to the actual value
         this.GetComponent<ReadPlayerTime>().ChangeTextValue();
     }
 
@@ -112,14 +110,7 @@ public class HealthPlayer : MonoBehaviour {
     /// </summary>
     public void ToogleIsInvulnerable(bool status)
     {
-        // If the powerUp Invulnerability is active
-        if(status == true)
-        {
-            isInvulnerable = true;
-        }
-        else
-        {
-            isInvulnerable = false;
-        }
+        isInvulnerable = (status) ? true : false;
+        
     }
 }

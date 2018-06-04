@@ -28,13 +28,13 @@ public class PowerJump : MonoBehaviour, IPowerUp {
     private GameObject timer;
 
     // Holds the player object
-    private GameObject player;
+    private GameObject m_player;
 
 	// Use this for initialization
 	void Start ()
     {
         //Get the world config, with data for this powerup
-        World_Config config = GameObject.Find("World_Config").GetComponent<World_Config>();
+        World_Config config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
 
         // Set activetime
         activetime = config.activetime_jump;
@@ -52,21 +52,21 @@ public class PowerJump : MonoBehaviour, IPowerUp {
         isAvailable = true;
 
         // Find the player and assign it to player
-        player = GameObject.FindGameObjectWithTag("Player");
+        m_player = GameObject.FindGameObjectWithTag("Player");
 
         // Get the prefab-timer
         timer = config.timer;
      }
 
     /// <summary>
-    ///  Cooldown-Mechanic. Starts the spezific cooldown
+    ///  Cooldown-Mechanic. Starts the specific cooldown
     /// </summary>
     public void StartCooldown()
     {
         Debug.Log("Cooldown has started");
 
         // Set boostfactor to normal
-        player.GetComponent<Player_Movement>().SetJumpFactorToStandard();
+        m_player.GetComponent<Player_Movement>().SetJumpFactorToStandard();
 
         // Start Cooldown-Timer
         StartTimer(cooldowntime);
@@ -102,15 +102,17 @@ public class PowerJump : MonoBehaviour, IPowerUp {
         // Start timer with the active power up time
         StartTimer(activetime);
 
+        Debug.Log(m_player);
+
         // Override the standard boostfactor
-         player.GetComponent<Player_Movement>().jumpfactor = jump_strength;
+        m_player.GetComponent<Player_Movement>().SetJumpFactor(jump_strength);
 
         // Set cooldown phase to active
         cooldownIsActive = true;
     }
 
     /// <summary>
-    ///  This method starts a timer with an spezific time to run
+    ///  This method starts a timer with an specific time to run
     /// </summary>
     /// <param name="time">Active Time of the timer, in Seconds</param>
     public void StartTimer(int time)

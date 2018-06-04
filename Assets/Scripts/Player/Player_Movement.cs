@@ -14,7 +14,7 @@ public class Player_Movement : MonoBehaviour {
     public float jumppower;
 
     //Jump factor
-    public float jumpfactor;
+    private float jumpfactor;
 
     // Acceleration for movement
     public float acceleration = 1.5f;
@@ -117,5 +117,10 @@ public class Player_Movement : MonoBehaviour {
         
         // If the velocity of the player is between -0.1f and 0.1f, the player can jump
         m_canJump = (velocityY < 0.1f) ? true : false;
+    }
+
+    public void SetJumpFactor(float _factor)
+    {
+        jumpfactor = _factor;
     }
 }

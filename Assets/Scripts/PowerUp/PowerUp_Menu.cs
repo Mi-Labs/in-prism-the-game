@@ -18,28 +18,36 @@ public class PowerUp_Menu : MonoBehaviour {
         //Create a new array with space for 5 powerups
         powerups = new GameObject[5];
 
+        GameObject powerups_storage = new GameObject("PowerUps");
+        powerups_storage.transform.parent = transform;
+        
         //Generate new GameObjects (for each poweruo)
 
         GameObject boost = new GameObject("Boost");
         // Add boost-script to GameObject 
         boost.AddComponent<Boost>();
+     
         
 
         GameObject powerjump = new GameObject("PowerJump");
         // Add powerjump-script to GameObject 
         powerjump.AddComponent<PowerJump>();
+  
 
         GameObject sticky = new GameObject("Sticky");
         // Add sticky-script to GameObject 
         sticky.AddComponent<Sticky>();
+   
 
         GameObject invulnerablity = new GameObject("Invulnerablity");
         // Add invulnerability-script to GameObject 
         invulnerablity.AddComponent<Invulnerablity>();
+    
 
         GameObject powerlight = new GameObject("PowerLight");
         // Add powerlight-script to GameObject 
         powerlight.AddComponent<Power_Light>();
+
 
         // Get every powerUp on a specific position
         powerups[0] = boost;
@@ -47,6 +55,11 @@ public class PowerUp_Menu : MonoBehaviour {
         powerups[2] = sticky;
         powerups[3] = invulnerablity;
         powerups[4] = powerlight;
+
+        for(int i=0;i<powerups.Length;i++)
+        {
+            powerups[i].transform.parent = powerups_storage.transform;
+        }
     }
     
 

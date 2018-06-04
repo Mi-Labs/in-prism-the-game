@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 /// Also it saves the progress of the player
 /// </summary>
 
-//Makes the stats saveable
+//Makes the stats savable
 [System.Serializable]
 
 public class World_Stats : MonoBehaviour {
@@ -52,7 +52,7 @@ public class World_Stats : MonoBehaviour {
         }
 
         //This gameObject should not be destroyed on scene change.
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         level = new Level_Stats[5];
     }
@@ -66,7 +66,7 @@ public class World_Stats : MonoBehaviour {
 	
 	
     /// <summary>
-    ///  This method activates the avaiblity of the boost
+    ///  This method activates the availability of the boost
     /// </summary>
     public void ActivatePowerUpBoost()
     {
@@ -75,7 +75,7 @@ public class World_Stats : MonoBehaviour {
     }
 
     /// <summary>
-    /// This method activates the availibility of the power jump
+    /// This method activates the availability of the power jump
     /// </summary>
     public void ActivatePowerUpJump()
     {

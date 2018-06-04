@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Underground
   - Config
+  - SceneManager
   layers:
   - Default
   - TransparentFX
