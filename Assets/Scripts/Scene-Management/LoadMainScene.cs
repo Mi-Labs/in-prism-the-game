@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadMainScene : MonoBehaviour {
+
     private bool m_MainSceneLoaded = false;
     private static System.String m_ActualLevelName;
 
@@ -16,7 +17,7 @@ public class LoadMainScene : MonoBehaviour {
 
         while(!asyncOp.isDone)
         {
-            float progress = Mathf.Clamp01(asyncOp.progress / 0.9f);
+            // float progress = Mathf.Clamp01(asyncOp.progress / 0.9f);
             //Debug.Log("Loading progress: " + (progress * 100) + "%");
 
             if(asyncOp.progress == 0.9f)
@@ -46,6 +47,22 @@ public class LoadMainScene : MonoBehaviour {
             yield return null;
         }
     }
+
+    IEnumerator ReloadTheScene(System.String _scene)
+    {
+        yield return null;
+        AsyncOperation unloadAsyncOp = SceneManager.UnloadSceneAsync(_scene);
+        // unloadAsyncOp.allowSceneActivation = false;
+
+        Debug.Log(unloadAsyncOp.progress);
+        if(unloadAsyncOp.isDone)
+        {
+            StartCoroutine(AscynchronusGameLevelLoad(_scene));
+        }
+      
+    }
+
+    
 
     public void LoadGameScene(System.String _scene)
     {
@@ -78,6 +95,7 @@ public class LoadMainScene : MonoBehaviour {
 
     public void ResetLevel()
     {
+        //  StartCoroutine(ReloadTheScene(m_ActualLevelName));
         UnloadScence(m_ActualLevelName);
         m_MainSceneLoaded = false;
         SceneManager.LoadScene(m_ActualLevelName, LoadSceneMode.Additive);
