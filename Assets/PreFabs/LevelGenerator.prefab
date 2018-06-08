@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4104424696276344}
   - component: {fileID: 114358330726220206}
+  - component: {fileID: 114544211631143638}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -73,3 +74,14 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4290838402
     PreFab: {fileID: 1323270372038098, guid: ea1ac68613379d844a4fa1e7cf58f23e, type: 2}
+--- !u!114 &114544211631143638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543889249563162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d14e21e5f4e17468e7ecb6b63c8c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

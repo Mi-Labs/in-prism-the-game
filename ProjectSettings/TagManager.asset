@@ -7,6 +7,8 @@ TagManager:
   - Underground
   - Config
   - SceneManager
+  - LifePointDisplay
+  - PowerUpMenu
   layers:
   - Default
   - TransparentFX

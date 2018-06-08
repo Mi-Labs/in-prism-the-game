@@ -17,7 +17,7 @@ public class Coloration : MonoBehaviour {
     // Holds boolean (if true -> color should be applied to GO)
     private bool m_IsColorful;
 
-    private Vector2 m_RaycastDirectionY;
+    // private Vector2 m_RaycastDirectionY;
 
 
     /* Methods */
@@ -27,7 +27,7 @@ public class Coloration : MonoBehaviour {
     {
         m_IsColorful = false;
 
-        m_RaycastDirectionY = new Vector2(0.0f, 1.0f);
+        //   m_RaycastDirectionY = new Vector2(0.0f, 1.0f);
 
 	}
 

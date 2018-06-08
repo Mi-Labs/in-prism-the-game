@@ -123,9 +123,10 @@ GameObject:
   - component: {fileID: 376127450}
   - component: {fileID: 376127452}
   - component: {fileID: 376127451}
+  - component: {fileID: 376127453}
   m_Layer: 5
   m_Name: LifePlayerText
-  m_TagString: Untagged
+  m_TagString: LifePointDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,13 +181,24 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 100
 --- !u!222 &376127452
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376127449}
+--- !u!114 &376127453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376127449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e375a8865fa05140a16c14a0f202107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1134964352
 GameObject:
   m_ObjectHideFlags: 0

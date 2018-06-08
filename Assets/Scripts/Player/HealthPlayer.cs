@@ -17,7 +17,7 @@ public class HealthPlayer : MonoBehaviour {
     // Holds the status of invulnerability
     private bool isInvulnerable;
 
-
+    private static ChangeLifeDisplay m_LifeDisplayScript = null;
 
     /* Methods */
 
@@ -35,26 +35,34 @@ public class HealthPlayer : MonoBehaviour {
     /// This method decreases the life point with the given parameter
     /// </summary>
     /// <param name="damage">The amount of lifepoints, that should be decreased</param>
-    public void DecreaseLife(int damage)
+    public void DecreaseLife(int _damage)
     {
+        // Debug.Log("Method DecreaseLife was called with "+ _damage +" Damage!");
+
         if(!isInvulnerable)
         {
-            //Debug.Log("Damage " + damage);
-
-            // Calculate the lifepoints, that are left after the decrease
-            lifepoints = lifepoints - damage;
-
-            //Debug.Log("LifeP" + lifepoints);
+            // Check if with the new life point value is greater than zero
+            if(lifepoints - _damage < 0)
+            {
+                lifepoints = 0;
+            }
+            else
+            {
+                // Calculate the lifepoints, that are left after the decrease
+                lifepoints = lifepoints - _damage;
+            }
 
             // Change the text on the life bar
-            ChangeLifeBar();
+            ChangeLifeBar(lifepoints);
 
-            // If the lifepoints are below zero, reset this scene
-            if (lifepoints <= -1) //Be Aware of a possible Bug
+            // If the lifepoints are below or zero, reset this scene
+            if (lifepoints <= 0) //Be Aware of a possible Bug
             {
                 GameObject manager = GameObject.FindGameObjectWithTag("SceneManager");
                 manager.GetComponent<LoadMainScene>().ResetLevel();
-                  
+
+                // Reset the life points to maximum after reset
+                ResetLifePoints();  
             }
         }   
     }
@@ -62,11 +70,11 @@ public class HealthPlayer : MonoBehaviour {
     /// <summary>
     /// This method increases the lifepoints of the player with the given parameter
     /// </summary>
-    /// <param name="life">The amount of lifepoints, that should be added</param>
-    public void IncreaseLife(int life)
+    /// <param name="_life">The amount of lifepoints, that should be added</param>
+    public void IncreaseLife(int _life)
     {
-        //If the lifepoints + the parameter are more ore equal of the maximal lifepoint time -> set lifepoints to maximum
-        if(lifepoints + life >= maxlifepoints)
+        //If the lifepoints + the parameter are more ore equal of the maximal life point time -> set lifepoints to maximum
+        if(lifepoints + _life >= maxlifepoints)
         {
             // Set lifepoints to maximum
             lifepoints = maxlifepoints;
@@ -74,9 +82,12 @@ public class HealthPlayer : MonoBehaviour {
         else
         {
             // Add the parameter value to the lifepoints
-            lifepoints =+ life;
+            lifepoints =+ _life;
         }
+        // Change displayed lifepoints
+        ChangeLifeBar(lifepoints);
     }
+
 
     /// <summary>
     /// This method gives the current lifepoints
@@ -99,10 +110,14 @@ public class HealthPlayer : MonoBehaviour {
     /// <summary>
     /// This method changes the Value of the life bar
     /// </summary>
-    private void ChangeLifeBar()
+    private void ChangeLifeBar(int _lifepoints)
     {
-        // Get the ReadPlayerTime script and change the value of the life bar to the actual value
-        this.GetComponent<ReadPlayerTime>().ChangeTextValue();
+        if(m_LifeDisplayScript == null)
+        {
+            m_LifeDisplayScript = GameObject.FindGameObjectWithTag("LifePointDisplay").GetComponent<ChangeLifeDisplay>();
+        }
+
+        m_LifeDisplayScript.SetActualContent(_lifepoints.ToString());
     }
 
     /// <summary>
@@ -112,5 +127,13 @@ public class HealthPlayer : MonoBehaviour {
     {
         isInvulnerable = (status) ? true : false;
         
+    }
+
+    /// <summary>
+    /// This method resets the lifepoints to the maximum / startvalue;
+    /// </summary>
+    private void ResetLifePoints()
+    {
+        IncreaseLife(maxlifepoints);
     }
 }

@@ -8,11 +8,23 @@ using UnityEngine;
 /// </summary>
 public class CameraStartUp : MonoBehaviour {
 
+    private static CameraFollow m_FollowScript = null;
+
 	// Use this for initialization
 	void Start ()
     {
-        // Add Script CameraFollow to main camera
-        Camera.main.gameObject.AddComponent<CameraFollow>();
+        m_FollowScript = Camera.main.GetComponent<CameraFollow>();
+
+        if(m_FollowScript == null)
+        {
+            Camera.main.gameObject.AddComponent<CameraFollow>(); 
+        }
+        else
+        {
+            Debug.Log("Follow script was already there");
+        }
+        
+        
         // Destroy this script
         Destroy(this);
 	}

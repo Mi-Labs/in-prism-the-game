@@ -17,7 +17,7 @@ public class World_Config : MonoBehaviour {
 
     // Values for Boost
     [Header("Boost-Values")]
-    public bool isavailableBoost;
+    public bool isAvailableBoost;
 
     public int activetimeBoost = 2;
 
@@ -30,6 +30,8 @@ public class World_Config : MonoBehaviour {
 
     //  Values for Power-Jump
     [Header("Power-Jump-Values")]
+    public bool isAvailablePowerJump;
+
     public int activetime_jump = 3;
 
     public int cooldowntime_jump = 3;
@@ -40,6 +42,8 @@ public class World_Config : MonoBehaviour {
 
     // Values for Sticky
     [Header("Sticky-Values")]
+    public bool isAvailableSticky;
+
     public int activetime_sticky;
 
     public int cooldowntime_sticky;
@@ -50,6 +54,8 @@ public class World_Config : MonoBehaviour {
 
     // Values for Invulnerablity
     [Header("Invulnerablity-Values")]
+
+    public bool isAvailableInvulnerability;
     public int activetime_invulnerable;
 
     public int cooldowntime_invulnerable;
@@ -58,7 +64,11 @@ public class World_Config : MonoBehaviour {
 
     // Values for Power_Light
     [Header("Power_Light-Values")]
+
+    public bool isAvailablePowerLight;
+
     public int activetime_power_light;
+
     public int cooldowntime_power_light;
 
     [Space(20)]
@@ -83,9 +93,6 @@ public class World_Config : MonoBehaviour {
         }
 
 
-        /* DontDestroyOnLoad */
-
-        DontDestroyOnLoad(this);
     }
 
 }

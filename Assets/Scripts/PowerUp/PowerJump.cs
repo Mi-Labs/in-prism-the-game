@@ -102,7 +102,7 @@ public class PowerJump : MonoBehaviour, IPowerUp {
         // Start timer with the active power up time
         StartTimer(activetime);
 
-        Debug.Log(m_player);
+        // Debug.Log(m_player);
 
         // Override the standard boostfactor
         m_player.GetComponent<Player_Movement>().SetJumpFactor(jump_strength);
@@ -115,13 +115,15 @@ public class PowerJump : MonoBehaviour, IPowerUp {
     ///  This method starts a timer with an specific time to run
     /// </summary>
     /// <param name="time">Active Time of the timer, in Seconds</param>
-    public void StartTimer(int time)
+    public void StartTimer(int _time)
     {
+        
+
         // Generate a cloned timer as GameObject
-        GameObject timerClone = Instantiate(timer, this.transform.position, Quaternion.identity, this.transform) as GameObject;
+        GameObject timerClone = Instantiate(timer, transform.position, Quaternion.identity, transform) as GameObject;
 
         // Start the timer with the given parameter
-        timerClone.SendMessage("StartTimer", time);
+        timerClone.BroadcastMessage("StartTimer", _time);
 
         //Debug.Log("Started Timer with " + time + " seconds");
     }
