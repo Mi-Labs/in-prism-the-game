@@ -75,7 +75,7 @@ public class Sticky : MonoBehaviour, IPowerUp {
     {
         if (m_isAvailable)
         {
-            GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToogleMenu();
+            GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToggleMenu();
 
             PowerUpAction();
         }

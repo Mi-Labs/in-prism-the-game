@@ -18,7 +18,6 @@ public class PowerUp_Menu : MonoBehaviour {
         // Register the PowerUpMenu in the player
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Control>().AddPowerUpMenu();
 
-
         m_powerupCanvas = gameObject.GetComponentInChildren<Canvas>();
 
         //Create a new array with space for 5 powerups
@@ -31,78 +30,78 @@ public class PowerUp_Menu : MonoBehaviour {
             powerups[i] = buttons[i].gameObject;
         }
 
-        AddPowerUpScripts();
-        
+        CheckForVisiblePowerUps();     
     }
     
 
     /// <summary>
-    /// This method toogle the powerupmenu screen
+    /// This method checks, what powerUps are available for the player
     /// </summary>
-    void ToggleCanvas(bool _status)
+    private void CheckForVisiblePowerUps()
     {
-        Debug.Log("CanvasToogle: " + _status);
-        m_powerupCanvas.enabled = (_status) ? true: false;
-      
+        // Find config data
+        World_Config config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
+
+        // Create a bool array for status of availability of powerups
+        bool[] availablePowerups = new bool[5];
+
+        // Fill the array
+        availablePowerups[0] = config.isAvailableBoost;
+        availablePowerups[1] = config.isAvailablePowerJump;
+        availablePowerups[2] = config.isAvailablePowerLight;
+        availablePowerups[3] = config.isAvailableSticky;
+        availablePowerups[4] = config.isAvailableInvulnerability;
+
+        // Iterate through the array
+        for (int i=0;i < availablePowerups.Length;i++)
+        {
+            // If a powerUp is available -> Make it visible
+            if(availablePowerups[i])
+            {
+                MakePowerUpVisible(i);
+            }
+        }
     }
 
 
-    public void MakePowerUpVisible(System.String _name)
-    {
-        if (_name.Equals("Boost"))
-        {
-            powerups[0].GetComponent<Image>().enabled = true;
-        }
-        else if (_name.Equals("PowerJump"))
-        {
-            powerups[1].GetComponent<Image>().enabled = true;
-        }
-        else if (_name.Equals("PowerLight"))
-        {
-            powerups[2].GetComponent<Image>().enabled = true;
-        }
-        else if (_name.Equals("Sticky"))
-        {
-            powerups[3].GetComponent<Image>().enabled = true;
-        }
-        else if (_name.Equals("Invulnerablity"))
-        {
-            powerups[4].GetComponent<Image>().enabled = true;
-        }
+    /// <summary>
+    /// This method toggle the powerup-menu screen
+    /// </summary>
+    void ToggleCanvas(bool _status)
+    { 
+        m_powerupCanvas.enabled = (_status) ? true: false;   
     }
 
     /// <summary>
-    /// This method toggles between an active and an inactive powerupmenu screen
+    /// This method makes a specific powerup visible
     /// </summary>
-    public void ToogleMenu()
+    /// <param name="_powerupNumber">Number of the powerup</param>
+    public void MakePowerUpVisible(int _powerupNumber)
     {
-        // if the canvas is deactivated -> do this
+        if(_powerupNumber >=0 && _powerupNumber <5)
+        {
+            powerups[_powerupNumber].SendMessage("MakePowerUpVisible");
+        }
+    }
+
+
+    /// <summary>
+    /// This method toggles between an active and an inactive powerup-menu screen
+    /// </summary>
+    public void ToggleMenu()
+    {
+        // If the canvas is deactivated...
         if(!m_powerupCanvas.enabled)
         {
             ToggleCanvas(true);
-           // Time.timeScale = 0.1f;
-          //  Debug.Log("Opened Canvas");
         }
         else
         {
             ToggleCanvas(false);
-          //  Time.timeScale = 1.0f;
-            // Debug.Log("Closed Canvas");
-        }
+        }   
     }
 
-
-
-    private void AddPowerUpScripts()
-    {
-        powerups[0].AddComponent<Boost>();
-        powerups[1].AddComponent<PowerJump>();
-        powerups[2].AddComponent<Power_Light>();
-        powerups[3].AddComponent<Sticky>();
-        powerups[4].AddComponent<Invulnerablity>();
-    }
     
-
     /// <summary>
     /// This method starts the powerup action that is assigned to the specific powerup
     /// </summary>
@@ -110,36 +109,10 @@ public class PowerUp_Menu : MonoBehaviour {
     public void StartPowerUP(int _number)
     {
         // Check if number is in the correct range
-        if(_number < powerups.Length && _number >= 0)
+        if(_number >= 0  && _number < powerups.Length)
         {
-           switch(_number)
-            {
-                case 0:
-                    powerups[_number].GetComponent<Boost>().StartPowerUp();
-                    break;
-
-                case 1:
-                    powerups[_number].GetComponent<PowerJump>().StartPowerUp();
-                    break;
-
-                case 2:
-                    powerups[_number].GetComponent<Power_Light>().StartPowerUp();
-                    break;
-
-                case 3:
-                    powerups[_number].GetComponent<Sticky>().StartPowerUp();
-                    break;
-
-                case 4:
-                    powerups[_number].GetComponent<Invulnerablity>().StartPowerUp();
-                    break;
-
-                default:
-                    //if the number is invalid -> throw IndexOutofRange
-                    throw new System.IndexOutOfRangeException();
-            }
+            powerups[_number].SendMessage("StartPowerUp");
         }
-        // if number is incorrect
         else
         {
             throw new System.IndexOutOfRangeException();

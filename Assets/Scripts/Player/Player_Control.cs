@@ -7,7 +7,7 @@ public class Player_Control : MonoBehaviour {
     /* Variables */
 
     //this field holds the player gameobject
-    private GameObject player;
+    private GameObject m_player;
 
     [SerializeField]
     private Player_Movement movescript;
@@ -172,7 +172,7 @@ public class Player_Control : MonoBehaviour {
         //if the powerupmenu_trigger is active -> toggle the screen
         if (powerupmenu_trigger)
         {
-            m_Powerupscript.ToogleMenu();
+            m_Powerupscript.ToggleMenu();
         }
 
     } 

@@ -221,18 +221,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aba6794e67539243a7cf0893adfb02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isavailableBoost: 0
+  isAvailableBoost: 1
   activetimeBoost: 2
   cooldowntimeBoost: 10
   strenghtBoost: 2
+  isAvailablePowerJump: 1
   activetime_jump: 3
-  cooldowntime_jump: 3
+  cooldowntime_jump: 30
   extrajumppower: 2
+  isAvailableSticky: 1
   activetime_sticky: 0
   cooldowntime_sticky: 0
   m_fakegrafity: 9.8
+  isAvailableInvulnerability: 0
   activetime_invulnerable: 0
   cooldowntime_invulnerable: 0
+  isAvailablePowerLight: 0
   activetime_power_light: 0
   cooldowntime_power_light: 0
   timer: {fileID: 1317252620715778, guid: 3eef986f197811b4192de264fea1b2ec, type: 2}
@@ -277,11 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: []
-  powerup_boost: 1
-  powerup_powerjump: 1
-  powerup_powerlight: 0
-  powerup_invulnerable: 0
-  powerup_sticky: 0
 --- !u!4 &841998683
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using System;
 /// </summary>
 public class CameraFollow : MonoBehaviour {
 
-    /* Variables */
+    /* Fields */
 
     // Holds the player object
     public static GameObject m_player;
@@ -41,7 +41,6 @@ public class CameraFollow : MonoBehaviour {
     private float m_minY;
 
 
-
     /* Methods */
 
     // Use this for initialization
@@ -56,20 +55,22 @@ public class CameraFollow : MonoBehaviour {
         // Save the position of the player (only x and y)
         Vector2 positionPlayer = (Vector2)m_player.transform.position;
 
-        // Calculate the new CameraPosition (x and y of the player)
+        // Calculate the new camera position (x and y of the player)
         Vector3 newCameraPosition = positionPlayer;
 
-        // Replace the z-position of the new CameraPosition with the saved camera z-position
+        // Replace the z-position of the new camera position with the saved camera z-position
         newCameraPosition.z = cameraZ;
 
-        // Set the calculated camera position to the position of this gameObject
+        // Set the calculated camera position to the position of this GO
         transform.position = newCameraPosition;
 
         // Search for the level generator object and assign it.
         m_levelgenerator = GameObject.Find("LevelGenerator");
 
+        // Calculate the camera bounds
         CalculateCameraBounds();
     }
+
 
     // Update is called after all other calculation are finished
     void LateUpdate ()
@@ -78,29 +79,6 @@ public class CameraFollow : MonoBehaviour {
         FollowPlayer();   
 	}
 
-    private void CalculateCameraBounds()
-    {
-
-        // Hold the width of the level locally
-        float levelmap_width = m_levelgenerator.GetComponent<Level_Generator>().levelmap.width;
-
-        // Hold the height of the level locally
-        float levelmap_heigth = m_levelgenerator.GetComponent<Level_Generator>().levelmap.height;
-
-        // Get the extend of the camera
-        float vertical_extend = GetComponent<Camera>().orthographicSize;
-        float horizontal_extend = vertical_extend * Screen.width / Screen.height;
-        
-        // Calculate the maximal camera x-position 
-        m_maxX = levelmap_width -horizontal_extend;
-
-        // Calculate the maximal camera y-position
-        m_maxY = levelmap_heigth - vertical_extend;
-
-        // Init minX and minY
-        m_minX = horizontal_extend;
-        m_minY = vertical_extend;
-    }
 
     /// <summary>
     ///  This method calculates the actual player position and makes the camera follow it
@@ -109,36 +87,27 @@ public class CameraFollow : MonoBehaviour {
     {
         // Make the player coordinates the target coordinates for the new camera position
         float targetX = m_player.transform.position.x;
-
         float targetY = m_player.transform.position.y;
 
         // If the player has moved beyond the x margin 
         if (CheckXMargin())
         {
-            /*
-             *  The targetX coordinate should be a calculated point between camera and player position
-             *  To avoid camera jumps, the xSmooth affects this
-             */
+             // The targetX coordinate should be a calculated point between camera and player position
+             // To avoid camera jumps, the xSmooth affects this
             targetX = Mathf.Lerp(this.transform.position.x, m_player.transform.position.x, m_xSmooth * Time.deltaTime);
         }
 
         if (CheckYMargin())
         {
-            /*
-             *  The targetY coordinate should be a calculated point between camera and player position
-             *  To avoid camera jumps, the ySmooth affects this
-             */
+            // The targetY coordinate should be a calculated point between camera and player position
+            // To avoid camera jumps, the ySmooth affects this
             targetX = Mathf.Lerp(this.transform.position.y, m_player.transform.position.y, m_ySmooth * Time.deltaTime);
         }
 
-
-        /*
-         *  The target coordinates shouldn't be larger than the maximum or smaller than the minimum
-         *  By using Mathf, this will be the case
-         *  If the value is > max, then it should be the max
-         *  If the value is < min, then it should be the min
-         *  If the value is in between, the value will be returned
-         */
+        // The target coordinates shouldn't be larger than the maximum or smaller than the minimum
+        // If the value is > max, then it should be the max
+        // If the value is < min, then it should be the min
+        // If the value is in between, the value will be returned
         targetX = Mathf.Clamp(targetX, m_minX, m_maxX);
         targetY = Mathf.Clamp(targetY, m_minY, m_maxY);
 
@@ -157,6 +126,7 @@ public class CameraFollow : MonoBehaviour {
         return Mathf.Abs(transform.position.x - m_player.transform.position.x) > m_xMargin;
     }
 
+
     /// <summary>
     ///  This method checks, if the distance between the camera and the player 
     ///  along the y axis is greater then the y margin
@@ -170,25 +140,46 @@ public class CameraFollow : MonoBehaviour {
 
 
     /// <summary>
-    /// This method checks for a game object with the tag "Player"
+    /// This method checks for a GO with the tag "Player"
     /// If no such object is found, the script will be disabled
     /// </summary>
     private void CheckForPlayer()
     {
-        // Search for Game object with Tag "Player" and save the result in variable player
+        // Search for GO with Tag "Player" and save the result in variable player
         m_player = GameObject.FindGameObjectWithTag("Player");
 
         // If no player is found
         if (!m_player)
         {
-            //Debug.Log("No Player was found");
-
             // Disable the script
             Destroy(gameObject.GetComponent<CameraFollow>());
         }
-        else
-        {
-            // Debug.Log("Player found");
-        }
-    }       
+    }
+
+
+    /// <summary>
+    /// This method calculates the area, where the camera should move
+    /// </summary>
+    private void CalculateCameraBounds()
+    {
+        // Hold the width of the level locally
+        float levelmap_width = m_levelgenerator.GetComponent<Level_Generator>().levelmap.width;
+
+        // Hold the height of the level locally
+        float levelmap_heigth = m_levelgenerator.GetComponent<Level_Generator>().levelmap.height;
+
+        // Get the extend of the camera
+        float vertical_extend = GetComponent<Camera>().orthographicSize;
+        float horizontal_extend = vertical_extend * Screen.width / Screen.height;
+
+        // Calculate the maximal camera x-position 
+        m_maxX = levelmap_width - horizontal_extend;
+
+        // Calculate the maximal camera y-position
+        m_maxY = levelmap_heigth - vertical_extend;
+
+        // Init minX and minY
+        m_minX = horizontal_extend;
+        m_minY = vertical_extend;
+    }
 }
