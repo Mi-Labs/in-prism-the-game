@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_origincolor: {r: 0.764151, g: 0.24150053, b: 0.48572907, a: 1}
+  m_standardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!212 &212192417661975864
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4f9e455eab598d4b953b764ced376e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

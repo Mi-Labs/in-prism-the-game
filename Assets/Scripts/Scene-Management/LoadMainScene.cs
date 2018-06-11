@@ -83,7 +83,7 @@ public class LoadMainScene : MonoBehaviour {
         if(!m_MainSceneLoaded)
         {
             LoadExtraScences();
-            LoadGameScene("Level-0-0");
+            LoadGameScene("Level-2-1");
         }
         
     }

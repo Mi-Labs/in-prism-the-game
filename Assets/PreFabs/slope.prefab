@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4675906699336628}
   - component: {fileID: 212422185250351300}
   - component: {fileID: 60001740582208592}
+  - component: {fileID: 114711456882000548}
   m_Layer: 0
   m_Name: slope
   m_TagString: Untagged
@@ -114,6 +115,18 @@ PolygonCollider2D:
       - {x: 4.509779, y: -0.49603772}
       - {x: 4.509779, y: 3.5039623}
       - {x: 4.494154, y: 3.5039623}
+--- !u!114 &114711456882000548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1900411352969050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_standardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!212 &212422185250351300
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +142,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4f9e455eab598d4b953b764ced376e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

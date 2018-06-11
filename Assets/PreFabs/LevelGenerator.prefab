@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d211370ba367af141bb1403f9d12d1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelmap: {fileID: 2800000, guid: a49b502bce78891419d940071cee4f02, type: 3}
+  levelmap: {fileID: 2800000, guid: 65bfb5a6f528ca74493bfdbc923b9b76, type: 3}
   colorassignment:
   - colorPreFab:
       serializedVersion: 2
@@ -61,7 +61,7 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4278190080
-    PreFab: {fileID: 1163650732191456, guid: 53de6dc247ed5b84c8ed01701883ee76, type: 2}
+    PreFab: {fileID: 1693321450339534, guid: da2af18b750344844a0cc253f3636fc7, type: 2}
   - colorPreFab:
       serializedVersion: 2
       rgba: 4278255615

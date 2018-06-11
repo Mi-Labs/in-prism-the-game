@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scences/ManagementScene.unity
+    path: Assets/~Repository/ManagementScene.unity
     guid: e03dd5b13e971e240b60138f7320ae35
   - enabled: 1
     path: Assets/Scences/LifeCanvas.unity
@@ -32,9 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scences/World/Level-1-4.unity
     guid: e8de78fc1590d39428d32d98ab943753
-  - enabled: 1
-    path: Assets/Scences/World/Level-1-5.unity
-    guid: 3959febcd7d28a74797c23173ec0b9d5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scences/World/Level-2-1.unity
     guid: 5b1c4f8956ef3944d8709879efe38ed8

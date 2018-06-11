@@ -12,7 +12,7 @@ public class PowerUp_Menu : MonoBehaviour {
     [SerializeField]
     public GameObject[] powerups;
 
-    
+
     void Start()
     {
         // Register the PowerUpMenu in the player
@@ -23,16 +23,17 @@ public class PowerUp_Menu : MonoBehaviour {
         //Create a new array with space for 5 powerups
         powerups = new GameObject[5];
 
-        Button[] buttons = gameObject.GetComponentsInChildren<Button>(); 
+        Button[] buttons = gameObject.GetComponentsInChildren<Button>();
 
-        for(int i=0; i < buttons.Length;i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             powerups[i] = buttons[i].gameObject;
         }
 
-        CheckForVisiblePowerUps();     
+        CheckForVisiblePowerUps();
+
+        ToggleCanvas(false);
     }
-    
 
     /// <summary>
     /// This method checks, what powerUps are available for the player
