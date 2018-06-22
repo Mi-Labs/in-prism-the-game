@@ -7,13 +7,13 @@ public class Player_Control : MonoBehaviour {
     /* Variables */
 
     //this field holds the player gameobject
-    private GameObject player;
+    private GameObject m_player;
 
     [SerializeField]
     private Player_Movement movescript;
 
     [SerializeField]
-    private PowerUp_Menu powerupscript; 
+    private static PowerUp_Menu m_Powerupscript = null;
 
     private bool left_active;
 
@@ -34,13 +34,6 @@ public class Player_Control : MonoBehaviour {
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
-
-        powerupscript = GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>();
-
-        if(powerupscript == null)
-        {
-            Debug.Log("Script nicht gefunden!");
-        }
 	}
 
     // Update is called once per frame
@@ -74,7 +67,11 @@ public class Player_Control : MonoBehaviour {
 
         jump_active = Input.GetKeyDown(KeyCode.Space);
 
-        powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
+        if(m_Powerupscript != null)
+        {
+            powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
+        }
+        
 
        
             
@@ -175,14 +172,14 @@ public class Player_Control : MonoBehaviour {
         //if the powerupmenu_trigger is active -> toggle the screen
         if (powerupmenu_trigger)
         {
-            powerupscript.ToogleMenu();
+            m_Powerupscript.ToggleMenu();
         }
 
     } 
     
-    public RaycastHit2D GetTouchHit2D(Touch mytouch)
+    public RaycastHit2D GetTouchHit2D(Touch _mytouch)
     {
-        Ray ray = Camera.main.ScreenPointToRay(mytouch.position);
+        Ray ray = Camera.main.ScreenPointToRay(_mytouch.position);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
         return hit;
     }
@@ -198,6 +195,15 @@ public class Player_Control : MonoBehaviour {
             
         }
         return false;
+    }
+
+    public void AddPowerUpMenu()
+    {
+        m_Powerupscript = GameObject.FindGameObjectWithTag("PowerUpMenu").GetComponent<PowerUp_Menu>();
+        if(m_Powerupscript == null)
+        {
+            Debug.LogError("PowerUp_Menu still not found");
+        }
     }
 
 }

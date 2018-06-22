@@ -21,7 +21,7 @@ public class Boost : MonoBehaviour, IPowerUp {
      * true = player can use this powerUp
      * false = player can't use this powerUp
      */
-    private bool isAvailable;
+    private bool m_IsInteractable;
 
     /* Hold the status of cooldown
      * true = Cooldown is active 
@@ -34,6 +34,9 @@ public class Boost : MonoBehaviour, IPowerUp {
 
     // Holds the player object
     private GameObject player;
+
+    private PowerUpInteraction m_interaction;
+
 
     // Use this for initialization
     void Start ()
@@ -48,7 +51,7 @@ public class Boost : MonoBehaviour, IPowerUp {
         cooldowntime = config.cooldowntimeBoost;
 
         // Set is_available // Currently for tests -> normal activation trough powerupmenu
-        isAvailable = true;
+        m_IsInteractable = true;
 
         // Set boost strength
         boost_strength = config.strenghtBoost;
@@ -61,46 +64,27 @@ public class Boost : MonoBehaviour, IPowerUp {
 
         // Get the prefab-timer
         timer = config.timer;
+
+        m_interaction = GetComponent<PowerUpInteraction>();
+
+        // @Start the powerUp should be interactable
+        m_IsInteractable = true;
+
+        m_interaction.ToggleInteractibility(m_IsInteractable);
     }
 
-	
-	// Update is called once per frame
-	void Update () {}
-
-
-    /// <summary>
-    ///  Cooldown-Mechanic. Starts the spezific cooldown
-    /// </summary>
-    public void StartCooldown()
-    {    
-        Debug.Log("Cooldown has started");
-
-        // Set boostfactor to normal
-        player.GetComponent<Player_Movement>().SetBoostSpeedToStandard();
-
-        // Start Cooldown-Timer
-        StartTimer(cooldowntime);
-
-        // Set cooldownphase to not active
-        cooldownIsActive = false;
-    }
 
     /// <summary>
     /// If this powerup is not in cooldown and available -> PowerUPAction
     /// </summary>
     public void StartPowerUp()
     {
-        if(isAvailable)
+        if(m_IsInteractable)
         {
-            // Close PowerUpMenu Screen
-            GameObject.Find("PowerUpMenu").GetComponent<PowerUp_Menu>().ToogleMenu();
+            SendMessageUpwards("ToggleMenu");
 
             // Start the PowerUp mechanic
             PowerUpAction();
-        }
-       else
-        {
-            // Debug.Log("PowerUp is not ready");
         }
     }
 
@@ -131,10 +115,11 @@ public class Boost : MonoBehaviour, IPowerUp {
         GameObject timerClone = Instantiate(timer, this.transform.position, Quaternion.identity, this.transform) as GameObject;
 
         // Start the timer with the given parameter
-        timerClone.SendMessage("StartTimer", time);
+        timerClone.BroadcastMessage("StartTimer", time);
 
         //Debug.Log("Started Timer with " + time + " seconds");
     }
+
 
     /// <summary>
     ///  If the time of the timer is up, then this method should be called.
@@ -146,16 +131,36 @@ public class Boost : MonoBehaviour, IPowerUp {
         {
             // Start the cooldown timer
             StartCooldown();
-
+            
             // Make the powerUp unavailable for the player
-            isAvailable = false;
+            m_IsInteractable = false;
         }
         else
         {
             // Make the powerUp available again
-            isAvailable = true;
-
-            // Debug.Log("Boost is ready again");
+            m_IsInteractable = true;
         }
+
+        m_interaction.ToggleInteractibility(m_IsInteractable);
+    }
+    
+
+    /// <summary>
+    ///  Cooldown-Mechanic. Starts the specific cooldown
+    /// </summary>
+    public void StartCooldown()
+    {
+        // Debug.Log("Cooldown has started");
+
+        // Set boostfactor to normal
+        player.GetComponent<Player_Movement>().SetBoostSpeedToStandard();
+
+        // Start Cooldown-Timer
+        StartTimer(cooldowntime);
+
+        m_interaction.StartCoolDownGraphic(cooldowntime);
+
+        // Set cooldownphase to not active
+        cooldownIsActive = false;
     }
 }

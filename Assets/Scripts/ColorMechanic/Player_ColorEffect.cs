@@ -8,23 +8,33 @@ using UnityEngine;
 /// </summary>
 public class Player_ColorEffect : MonoBehaviour {
 
+    public float m_CastRadius;
 
     /* Methods */
+
+
 
     /// <summary>
     ///  This method is called, if the player collids with an GameObject
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D _collision)
     {
-        // Get Coloration script attachted on the collison partner
-        Coloration coleration = collision.gameObject.GetComponent<Coloration>();
+        RaycastHit2D[] hits = Physics2D.CircleCastAll((Vector2)gameObject.transform.position, m_CastRadius, Vector2.one);
 
-        // If there is a Coloration script ...
-        if(coleration != null)
+
+        foreach (RaycastHit2D hit in hits)
         {
-            // Activate the coloration
-            coleration.ActivateColor();
+            // Get Coloration script attachted on the collison partner
+            Coloration coleration = hit.collider.gameObject.GetComponent<Coloration>();
+
+            // If there is a Coloration script ...
+            if (coleration != null)
+            {
+                // Activate the coloration
+                coleration.ActivateColor();
+            }
         }
+
     }
 }

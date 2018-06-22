@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212590120755361862}
   - component: {fileID: 95681456628427034}
   - component: {fileID: 114597714220089094}
+  - component: {fileID: 114456943682257174}
   m_Layer: 0
   m_Name: MovingPlattform
   m_TagString: Untagged
@@ -86,6 +87,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114456943682257174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1323270372038098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_standardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &114597714220089094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,7 +127,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4f9e455eab598d4b953b764ced376e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

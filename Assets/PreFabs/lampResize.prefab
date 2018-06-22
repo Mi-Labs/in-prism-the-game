@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 331694854441475332}
   - component: {fileID: 70162794748133180}
   - component: {fileID: 114920382598375306}
+  - component: {fileID: 114322332009745822}
   m_Layer: 0
   m_Name: lampResize
   m_TagString: Untagged
@@ -58,6 +59,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.4921875}
   m_Size: {x: 0.390625, y: 1.96875}
   m_Direction: 0
+--- !u!114 &114322332009745822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758809198963578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_standardMaterial: {fileID: 2100000, guid: a4f9e455eab598d4b953b764ced376e6, type: 2}
 --- !u!114 &114920382598375306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,8 +96,9 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a4f9e455eab598d4b953b764ced376e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +141,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
