@@ -8,11 +8,6 @@ namespace GameManagement
 {
     public class SceneManagerMenuScene : SceneManagerScene
     {
-        public void SwitchToPlay()
-        {
-            m_Manager.SwitchToScene(Manager.EScene.Play);
-        }
-
         public void SwitchToLevel(int _SceneId)
         {
             m_Manager.SwitchToScene(_SceneId);

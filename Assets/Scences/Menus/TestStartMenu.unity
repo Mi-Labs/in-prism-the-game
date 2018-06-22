@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 16995050}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1583,6 +1583,7 @@ GameObject:
   - component: {fileID: 1351326126}
   - component: {fileID: 1351326128}
   - component: {fileID: 1351326127}
+  - component: {fileID: 1351326129}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1645,6 +1646,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351326125}
+--- !u!114 &1351326129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1351326125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6096d93fdd13cc04481059b010b37bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1359508500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,9 +1883,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 16995050}
-        m_MethodName: SwitchToLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1351326129}
+        m_MethodName: StartLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

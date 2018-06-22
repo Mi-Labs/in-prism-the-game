@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using GameManagement;
 
 public class HealthPlayer : MonoBehaviour {
 
-
-    /* Variables */
+    /* Fields */
 
     // Holds the current amount of lifepoints
     private int lifepoints;
@@ -19,11 +18,18 @@ public class HealthPlayer : MonoBehaviour {
 
     private static ChangeLifeDisplay m_LifeDisplayScript = null;
 
+    // private World_Stats stats;
+
+    private SceneManagerPlayScene m_ManagerPlay;
+
+
     /* Methods */
 
 	// Use this for initialization
 	void Start ()
     {
+        // stats = GameObject.FindGameObjectWithTag("Statistic").GetComponent<World_Stats>();
+
         // On Start the lifepoints should be at maximum
         lifepoints = maxlifepoints;
 
@@ -58,11 +64,11 @@ public class HealthPlayer : MonoBehaviour {
             // If the lifepoints are below or zero, reset this scene
             if (lifepoints <= 0) //Be Aware of a possible Bug
             {
-                GameObject manager = GameObject.FindGameObjectWithTag("SceneManager");
-                manager.GetComponent<LoadMainScene>().ResetLevel();
-
                 // Reset the life points to maximum after reset
-                ResetLifePoints();  
+                ResetLifePoints();
+
+                // Resets the Level
+                ResetLevel();
             }
         }   
     }
@@ -98,6 +104,7 @@ public class HealthPlayer : MonoBehaviour {
         return lifepoints;
     }
 
+
     /// <summary>
     /// This method gives the maximal lifepoints
     /// </summary>
@@ -106,6 +113,7 @@ public class HealthPlayer : MonoBehaviour {
     {
         return maxlifepoints;
     }
+
 
     /// <summary>
     /// This method changes the Value of the life bar
@@ -116,7 +124,6 @@ public class HealthPlayer : MonoBehaviour {
         {
             m_LifeDisplayScript = GameObject.FindGameObjectWithTag("LifePointDisplay").GetComponent<ChangeLifeDisplay>();
         }
-
         m_LifeDisplayScript.SetActualContent(_lifepoints.ToString());
     }
 
@@ -125,9 +132,9 @@ public class HealthPlayer : MonoBehaviour {
     /// </summary>
     public void ToogleIsInvulnerable(bool status)
     {
-        isInvulnerable = (status) ? true : false;
-        
+        isInvulnerable = (status) ? true : false;        
     }
+
 
     /// <summary>
     /// This method resets the lifepoints to the maximum / startvalue;
@@ -136,4 +143,20 @@ public class HealthPlayer : MonoBehaviour {
     {
         IncreaseLife(maxlifepoints);
     }
+
+
+    /// <summary>
+    /// This method resets the level
+    /// </summary>
+    private void ResetLevel()
+    {
+        // Find Scene Controller
+        m_ManagerPlay = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneManagerPlayScene>();
+
+        // Reset Scene
+        m_ManagerPlay.ResetScene();
+
+        // Sets player to start position
+        gameObject.GetComponent<Player_Position>().SetPlayerToStartPosition();
+    }  
 }

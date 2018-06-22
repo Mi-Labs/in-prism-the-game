@@ -23,6 +23,7 @@ public class Level_Generator : MonoBehaviour {
         GenerateLevel();
 	}
 	
+
     /// <summary>
     /// This method generates the level by iterating over all pixels
     /// </summary>
@@ -30,9 +31,6 @@ public class Level_Generator : MonoBehaviour {
     {
         // Generate all kill zones before load any level objects
         GenerateKillZones();
-
-
-        
 
         // Iterate over every pixel in the levelmap (Column after Column)
         for (int x = 0; x < levelmap.width; x++)
@@ -74,7 +72,6 @@ public class Level_Generator : MonoBehaviour {
 
                 // Clone the Prefab at the actual position with no changes in transform and rotation
                 Instantiate(color.PreFab, position, Quaternion.identity, transform);
-        
             }
         }
     }
@@ -109,6 +106,9 @@ public class Level_Generator : MonoBehaviour {
 
             // Add Killzone script to it
             killzone.AddComponent<Killzone>();
+
+            // Add tag to GO
+            killzone.tag = "Killzone";
         }
     }
 

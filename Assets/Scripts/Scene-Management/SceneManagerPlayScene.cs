@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 namespace GameManagement 
 {
-
     public class SceneManagerPlayScene : SceneManagerScene
     {
 
@@ -18,7 +17,6 @@ namespace GameManagement
         {
             LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
 
     }
 

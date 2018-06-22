@@ -17,14 +17,50 @@ namespace GameManagement
         private EScene m_CurrentScene = 0;
         [SerializeField]
         private EScene m_NextScene = 0;
-        
 
 
 
         public enum EScene : int
         {
-            Menu = 0,
-            Play, NumberOfScenes,Base = -1
+            Base = 0,            
+            Menu = 1,
+            Ocean1 = 3,
+            Ocean2 = 4,
+            Ocean3 = 5,
+            Ocean4 = 6,
+            Desert1 =7,
+            Desert2 = 8,
+            Desert3 = 9,
+            Desert4 = 10,
+            Desert5 = 11,
+            Jungle1 = 12,
+            Jungle2 = 13,
+            Jungle3 = 14,
+            Jungle4 = 15,
+            Jungle5 = 16,
+            Forest1 = 17,
+            Forest2 = 18,
+            Forest3 = 19,
+            Forest4 = 20,
+            Forest5 = 21,
+            Underground1 = 22,
+            Underground2 = 23,
+            Underground3 = 24,
+            Underground4 = 25,
+            Underground5 = 26,
+            Vulcan1 = 27,
+            Vulcan2 = 28,
+            Vulcan3 = 29,
+            Vulcan4 = 30,
+            Vulcan5 = 31,
+            Night1 = 32,
+            Night2 = 33,
+            Night3 = 34,
+            Night4 = 35,
+            Night5 = 36,
+            Night6 = 37,
+            Night7 = 38,
+            NumberOfScenes = 41
         };
 
 
@@ -98,6 +134,11 @@ namespace GameManagement
 #else
         Application.Quit();
         #endif
+        }
+
+        public EScene GetCurrentScene()
+        {
+            return m_CurrentScene;
         }
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - SceneManager
   - LifePointDisplay
   - PowerUpMenu
+  - Statistic
+  - Killzone
   layers:
   - Default
   - TransparentFX
