@@ -22,13 +22,7 @@ public class Coloration : MonoBehaviour {
     void Start ()
     {
         m_IsColorful = false;
-
-        //   m_RaycastDirectionY = new Vector2(0.0f, 1.0f);
-
-        
 	}
-
-
     
 
     /// <summary>
@@ -46,17 +40,20 @@ public class Coloration : MonoBehaviour {
     /// </summary>
     public void ActivateColor()
     {
-
-        // Change the color of this GameObjects SpriteRenderer to the assigned color
-        SpriteRenderer[] spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
-
-        foreach(SpriteRenderer renderer in spriteRenderers)
+        if(!m_IsColorful)
         {
-            renderer.material = m_standardMaterial;
-        }
+            // Change the color of this GameObjects SpriteRenderer to the assigned color
+            SpriteRenderer[] spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 
-        // Set the colorfulness to true
-        m_IsColorful = true;
+            foreach (SpriteRenderer renderer in spriteRenderers)
+            {
+                renderer.material = m_standardMaterial;
+            }
+
+            // Set the colorfulness to true
+            m_IsColorful = true;
+        }   
     }
 
+    
 }

@@ -20,13 +20,14 @@ public class Player_ColorEffect : MonoBehaviour {
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D _collision)
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll((Vector2)gameObject.transform.position, m_CastRadius, Vector2.one);
+        // Find all objects in the give radius
+        Collider2D[] hits = Physics2D.OverlapCircleAll((Vector2) _collision.collider.transform.position, m_CastRadius);
 
-
-        foreach (RaycastHit2D hit in hits)
+        // For every found object
+        foreach (Collider2D hit in hits)
         {
             // Get Coloration script attachted on the collison partner
-            Coloration coleration = hit.collider.gameObject.GetComponent<Coloration>();
+            Coloration coleration = hit.gameObject.GetComponent<Coloration>();
 
             // If there is a Coloration script ...
             if (coleration != null)
