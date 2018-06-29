@@ -65,14 +65,18 @@ public class Level_Generator : MonoBehaviour {
         // For every assigned color in colorassignment, create GameObject
         foreach(ColorToPreFab color in colorassignment)
         {
-            if(color.colorPreFab.Equals(pixelcolor32))
+            if(color.m_isActive)
             {
-                //Hold actual position of found pixel
-                Vector2 position = new Vector2(x, y);
+                if (color.colorPreFab.Equals(pixelcolor32))
+                {
+                    //Hold actual position of found pixel
+                    Vector2 position = new Vector2(x, y);
 
-                // Clone the Prefab at the actual position with no changes in transform and rotation
-                Instantiate(color.PreFab, position, Quaternion.identity, transform);
+                    // Clone the Prefab at the actual position with no changes in transform and rotation
+                    Instantiate(color.PreFab, position, Quaternion.identity, transform);
+                }
             }
+
         }
     }
 

@@ -8,9 +8,12 @@ using UnityEngine;
 public class ColorToPreFab
 {
     //public field (Holds selected color)
+    [ColorHTMLProperty]
     public Color32 colorPreFab;
   
     //public field (Holds the PreFab, thats assigned to the color)
     public GameObject PreFab;
+
+    public bool m_isActive;
 
 }
