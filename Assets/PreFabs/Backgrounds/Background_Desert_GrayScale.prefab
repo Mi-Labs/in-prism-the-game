@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4256435267115392}
   - component: {fileID: 212924675543814962}
   m_Layer: 0
-  m_Name: Background_Desert_GrayScale
+  m_Name: Background_Desert_Gray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,6 +532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: 0
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 0
 --- !u!114 &114505152418003876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.2
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!114 &114719072024939032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,6 +562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.5
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!114 &114874077460774522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,6 +577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.3
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!212 &212072606460197252
 SpriteRenderer:
   m_ObjectHideFlags: 1
