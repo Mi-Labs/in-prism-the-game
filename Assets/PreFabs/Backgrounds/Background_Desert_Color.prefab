@@ -532,6 +532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.3
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!114 &114443632914361660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.5
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!114 &114644874592572738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,6 +562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: -0.2
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 1
 --- !u!114 &114648452821088916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,6 +577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_backgroundSize: 30
+  m_ParallaxSpeed: 0
+  m_IsScrolling: 1
+  m_ParallaxEnabled: 0
 --- !u!212 &212026090295686192
 SpriteRenderer:
   m_ObjectHideFlags: 1

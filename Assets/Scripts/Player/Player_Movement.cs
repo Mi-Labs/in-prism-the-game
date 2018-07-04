@@ -22,18 +22,22 @@ public class Player_Movement : MonoBehaviour {
     // Factor for boost power up
     public float boostfactor;
 
+    private LayerMask m_undergroundLayer = 1 << 8;
 
+    private float m_circleRadius;
+
+    private bool m_canJump;
 
 
     // Constants
 
     // Constant boost factor
-    private const float m_standardboostfactor = 1.0f;
+    private const float k_standardboostfactor = 1.0f;
 
     // Constant jump factor
-    private const float m_standardjumpfactor = 1.0f;
+    private const float k_standardjumpfactor = 1.0f;
 
-    private bool m_canJump;
+
 
     /* Methods */
 
@@ -44,13 +48,15 @@ public class Player_Movement : MonoBehaviour {
         rgb2D = GetComponent<Rigidbody2D>();
 
         // Set the boostfactor on standard
-        boostfactor = m_standardboostfactor;
+        boostfactor = k_standardboostfactor;
 
         // Set the jumpfactor on standard
-        jumpfactor = m_standardjumpfactor;
+        jumpfactor = k_standardjumpfactor;
 
         // Initialize m_canJump
         m_canJump = false;
+
+        m_circleRadius = GetComponent<CircleCollider2D>().radius + 0.1f;
 	}
 	
     /// <summary>
@@ -89,7 +95,7 @@ public class Player_Movement : MonoBehaviour {
     public void SetBoostSpeedToStandard()
     {
         // Set the boostfactor to standard
-        boostfactor = m_standardboostfactor;
+        boostfactor = k_standardboostfactor;
 
         //Debug.Log("Boost is on standard value");
     }
@@ -100,7 +106,7 @@ public class Player_Movement : MonoBehaviour {
     public void SetJumpFactorToStandard()
     {
         // Set the jumpfactor to standard
-        jumpfactor = m_standardjumpfactor;
+        jumpfactor = k_standardjumpfactor;
 
         //Debug.Log("Jump is on standard value");
     }
@@ -110,14 +116,22 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     private void Update()
     {
-        // Get actual velocity of the player on y-axis
-        float velocityY = rgb2D.velocity.y;
+        m_canJump = false;
 
-        velocityY = Mathf.Abs(velocityY);
-        
-        // If the velocity of the player is between -0.1f and 0.1f, the player can jump
-        m_canJump = (velocityY < 0.1f) ? true : false;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_circleRadius, m_undergroundLayer);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+         //   Debug.Log(colliders[i].gameObject.name);
+
+            if (colliders[i].gameObject != gameObject)
+            {
+           //     Debug.Log("Player can jump");
+                m_canJump = true;
+            }
+        }
     }
+
 
     public void SetJumpFactor(float _factor)
     {

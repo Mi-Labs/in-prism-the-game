@@ -12,6 +12,7 @@ public class Coloration : MonoBehaviour {
     /* Fields */
 
     // Holds boolean (if true -> color should be applied to GO)
+    [SerializeField]
     private bool m_IsColorful;
 
     public Material m_standardMaterial;
