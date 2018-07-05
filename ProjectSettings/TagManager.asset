@@ -11,6 +11,8 @@ TagManager:
   - PowerUpMenu
   - Statistic
   - Killzone
+  - LevelSave
+  - LevelGenerator
   layers:
   - Default
   - TransparentFX

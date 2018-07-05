@@ -7,7 +7,9 @@ using UnityEngine;
 ///  When active, it should activate every Coloration Script on every GameObject
 /// </summary>
 public class Player_ColorEffect : MonoBehaviour {
+    
 
+    [Range(0.1f,2.0f)]
     public float m_CastRadius;
 
     /* Methods */

@@ -44,8 +44,6 @@ public class ParallaxScrolling : MonoBehaviour {
 
         // Initalize various fields
         m_LastCameraX = m_CameraTransform.position.x;
-        m_LeftIndex = 0;
-        m_RightIndex = m_Layers.Length - 1;
         m_ViewZone = 10.0f;
 
         // Create an array with all children of this GO
@@ -53,8 +51,11 @@ public class ParallaxScrolling : MonoBehaviour {
         for (int i = 0;i < transform.childCount;i++)
         {
             m_Layers[i] = transform.GetChild(i);
-        }     
-	}
+        }
+
+        m_LeftIndex = 0;
+        m_RightIndex = m_Layers.Length - 1;
+    }
 
     private void Update()
     {

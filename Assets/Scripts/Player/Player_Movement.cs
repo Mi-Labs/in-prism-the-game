@@ -7,6 +7,16 @@ public class Player_Movement : MonoBehaviour {
 
     /* Variables */
 
+    // Acceleration for movement
+    [Range(1,5)]
+    public float m_acceleration;
+
+    // Factor for boost power up
+    public float boostfactor;
+
+    [Range(1,10)]
+    public float m_fallMultiplier;
+
     //Rigidbody Player-Object
     private Rigidbody2D rgb2D;
 
@@ -16,11 +26,7 @@ public class Player_Movement : MonoBehaviour {
     //Jump factor
     private float jumpfactor;
 
-    // Acceleration for movement
-    public float acceleration = 1.5f;
 
-    // Factor for boost power up
-    public float boostfactor;
 
     private LayerMask m_undergroundLayer = 1 << 8;
 
@@ -44,18 +50,13 @@ public class Player_Movement : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        //Initialize Rigidbody of Player
+        //Initialize fields
         rgb2D = GetComponent<Rigidbody2D>();
-
-        // Set the boostfactor on standard
         boostfactor = k_standardboostfactor;
-
-        // Set the jumpfactor on standard
         jumpfactor = k_standardjumpfactor;
-
-        // Initialize m_canJump
         m_canJump = false;
-
+        m_acceleration = 1.5f;
+        m_fallMultiplier = 3.0f;
         m_circleRadius = GetComponent<CircleCollider2D>().radius + 0.1f;
 	}
 	
@@ -63,10 +64,10 @@ public class Player_Movement : MonoBehaviour {
     /// This function moves the player horizontally
     /// </summary>
     /// <param name="direction">This param decides, if the movment is to the left (-1) or to the right(1)</param>
-    public void MovePlayer(float direction)
+    public void MovePlayer(float _direction)
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(direction*acceleration*boostfactor, 0);
+        Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor, 0);
 
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
@@ -129,6 +130,11 @@ public class Player_Movement : MonoBehaviour {
            //     Debug.Log("Player can jump");
                 m_canJump = true;
             }
+        }
+        // If the player is falling, add some extra force
+        if(rgb2D.velocity.y < 0)
+        {
+            rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
         }
     }
 
