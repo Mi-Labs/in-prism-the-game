@@ -53,6 +53,8 @@ public class Coloration : MonoBehaviour {
 
             // Set the colorfulness to true
             m_IsColorful = true;
+
+            gameObject.GetComponent<ChangedValues>().ColorChanged(true);
         }   
     }
 

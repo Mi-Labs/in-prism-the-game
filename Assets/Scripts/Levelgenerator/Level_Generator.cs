@@ -21,6 +21,7 @@ public class Level_Generator : MonoBehaviour {
 	void Start ()
     {
         GenerateLevel();
+        ApplyChanges();
 	}
 	
 
@@ -78,6 +79,37 @@ public class Level_Generator : MonoBehaviour {
             }
 
         }
+    }
+
+    public void ApplyChanges()
+    {
+        WorldLevelGO worldLevelGO = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldLevelGO>();
+
+        GO_Listing actualLevelChanges = null;
+
+        foreach(GO_Listing goList in worldLevelGO.m_levelList)
+        {
+            if(gameObject.scene.buildIndex.Equals(goList.m_levelnumber))
+            {
+                actualLevelChanges = goList;
+                break;
+            }
+        }
+
+        if(actualLevelChanges != null)
+        {
+            foreach (GameObject go in actualLevelChanges.m_GOList)
+            {
+                GameObject inLevel = Physics2D.OverlapCircle(go.transform.position, 0.1f).gameObject;
+
+                ChangedValues changes = inLevel.GetComponent<ChangedValues>();
+                if(changes.m_IsColorful)
+                {
+                    go.GetComponent<Coloration>().ActivateColor();
+                }
+            }
+        }
+        
     }
 
     /// <summary>

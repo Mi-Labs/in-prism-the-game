@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4256435267115392}
   - component: {fileID: 212924675543814962}
   m_Layer: 0
-  m_Name: Background_Desert_Gray
+  m_Name: Background_Desert_GrayScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

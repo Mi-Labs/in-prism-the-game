@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GO_Listing {
 
-    private List<GameObject> m_GOList = new List<GameObject>();
+    public List<GameObject> m_GOList = new List<GameObject>();
+
+    public int m_levelnumber;
 
     public void SaveLevelStat()
     {
@@ -13,20 +16,29 @@ public class GO_Listing {
         {
             GameObject levelgen = GameObject.FindGameObjectWithTag("LevelGenerator");
 
-            Transform[] levelElements = levelgen.GetComponentsInChildren<Transform>();
+            ChangedValues[] levelElements = levelgen.GetComponentsInChildren<ChangedValues>();
 
-            foreach (Transform t in levelElements)
+            foreach (ChangedValues change in levelElements)
             {
-                m_GOList.Add(t.gameObject);
+                if(change.m_IsChanged)
+                {
+                    m_GOList.Add(change.gameObject);
+                }
             }
+
+            m_levelnumber = levelgen.scene.buildIndex;
         }
         else
         {
             m_GOList.Clear();
+            SaveLevelStat();
         }
 
     }
 
+    /// <summary>
+    /// This method prints out all elements in the List
+    /// </summary>
     public void PrintGOList()
     {
         int i = 1;
@@ -38,12 +50,12 @@ public class GO_Listing {
         Debug.Log(m_GOList.Count);
     }
     
-    public List<GameObject> GetGOLevelList()
+    public GO_Listing GetGOLevelList()
     {
-        if(m_GOList.Count == 0)
+        if (m_GOList.Count == 0)
         {
             SaveLevelStat();
         }
-        return m_GOList;
+        return this;
     }
 }

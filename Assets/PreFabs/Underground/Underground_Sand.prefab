@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61270507616265838}
   - component: {fileID: 114849138424935608}
   - component: {fileID: 114357576545934604}
+  - component: {fileID: 114552990598896316}
   m_Layer: 8
   m_Name: Underground_Sand
   m_TagString: Untagged
@@ -79,7 +80,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsColorful: 0
   m_standardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &114552990598896316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693321450339534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846e1a88a375f8f42a22850e8e3e333c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsChanged: 0
+  m_IsColorful: 0
+  m_CageStatus: 0
 --- !u!114 &114849138424935608
 MonoBehaviour:
   m_ObjectHideFlags: 1
