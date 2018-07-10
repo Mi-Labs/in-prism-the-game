@@ -84,7 +84,7 @@ public class Level_Generator : MonoBehaviour {
     public void ApplyChanges()
     {
 
-        WorldObjectSave wos =GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
+        WorldObjectSave wos = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
 
         LevelSave actualLevel = null;
 
