@@ -3,32 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class WorldLevelGO : MonoBehaviour {
+public class WorldLevelGO {
 
-    public List<GO_Listing> m_levelList; 
+	public List<LevelSave> m_levelList = new List<LevelSave>();
 
-    public bool m_IsSaving;
+    private static WorldLevelGO m_instance = null;
 
-    private void Awake()
+    public static WorldLevelGO Instance
     {
-        m_IsSaving = false;
-        m_levelList = new List<GO_Listing>();
-    }
-
-    public void AddLevelStat()
-    {
-        GO_Listing actual_Level = new GO_Listing();
-        m_levelList.Add(actual_Level.GetGOLevelList());
-    }
-
-    private void Update()
-    {
-        if(m_IsSaving)
+        get
         {
-            AddLevelStat();
-            m_IsSaving = false;
+            return m_instance == null ? new WorldLevelGO() : WorldLevelGO.m_instance;
         }
     }
+
+
+    public void AddLevelStat(LevelSave _save)
+    {
+		if (m_levelList.Count != 0) 
+		{
+			if (m_levelList.Contains(_save))
+            {
+				m_levelList.Remove (_save);
+				m_levelList.Add (_save);
+			} else {
+				m_levelList.Add (_save);
+			}
+		}
+    }
+
 
 
 }

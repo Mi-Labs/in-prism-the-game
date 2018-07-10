@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731203, g: 0.3807408, b: 0.3587277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,7 +123,7 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.size
-      value: 9
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 4104424696276344, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
       propertyPath: m_LocalPosition.x
@@ -165,22 +165,22 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[4].colorPreFab.rgba
-      value: 4278255360
+      value: 4294960128
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[2].colorPreFab.rgba
-      value: 4292252672
+      value: 4287020544
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[3].colorPreFab.rgba
-      value: 4285415168
+      value: 4293776384
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[5].colorPreFab.rgba
-      value: 4285595861
+      value: 4278255360
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -191,7 +191,7 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[6].colorPreFab.rgba
-      value: 4280162019
+      value: 4283965193
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -202,7 +202,7 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[7].colorPreFab.rgba
-      value: 4282263040
+      value: 4294960144
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -213,7 +213,7 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[8].colorPreFab.rgba
-      value: 4278239169
+      value: 4282335512
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -240,13 +240,1255 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[2].m_isActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[3].m_isActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[5].m_isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[9].colorPreFab.rgba
+      value: 4284455704
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[9].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[10].colorPreFab.rgba
+      value: 4285765150
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[10].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[11].colorPreFab.rgba
+      value: 4294960160
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[11].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[12].colorPreFab.rgba
+      value: 4281119266
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[12].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[13].colorPreFab.rgba
+      value: 4280229669
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[13].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[14].colorPreFab.rgba
+      value: 4294960176
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[14].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[15].colorPreFab.rgba
+      value: 4282321974
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[15].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[16].colorPreFab.rgba
+      value: 4281808700
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[16].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[17].colorPreFab.rgba
+      value: 4286684476
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[17].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[18].colorPreFab.rgba
+      value: 4288519751
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[18].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[19].colorPreFab.rgba
+      value: 4287716938
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[19].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[20].colorPreFab.rgba
+      value: 4280821844
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[20].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[21].colorPreFab.rgba
+      value: 4280887380
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[21].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[22].colorPreFab.rgba
+      value: 4264110164
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[22].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[23].colorPreFab.rgba
+      value: 4283790420
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[23].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[24].colorPreFab.rgba
+      value: 4283855956
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[24].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[25].colorPreFab.rgba
+      value: 4280624487
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[25].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[26].colorPreFab.rgba
+      value: 4287847273
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[26].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[27].colorPreFab.rgba
+      value: 4289476211
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[27].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[28].colorPreFab.rgba
+      value: 4280776819
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[28].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[29].colorPreFab.rgba
+      value: 4280842355
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[29].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[30].colorPreFab.rgba
+      value: 4284455795
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[30].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[31].colorPreFab.rgba
+      value: 4286094965
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[31].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[32].colorPreFab.rgba
+      value: 4284700535
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[32].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[33].colorPreFab.rgba
+      value: 4286426489
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[33].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[34].colorPreFab.rgba
+      value: 4283461762
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[34].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[35].colorPreFab.rgba
+      value: 4283527298
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[35].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[36].colorPreFab.rgba
+      value: 4287153283
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[36].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[37].colorPreFab.rgba
+      value: 4289423750
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[37].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[38].colorPreFab.rgba
+      value: 4284328592
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[38].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[39].colorPreFab.rgba
+      value: 4290433168
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[39].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[40].colorPreFab.rgba
+      value: 4281742993
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[40].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[41].colorPreFab.rgba
+      value: 4280163990
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[41].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[42].colorPreFab.rgba
+      value: 4288519581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[42].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[43].colorPreFab.rgba
+      value: 4280783776
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[43].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[44].colorPreFab.rgba
+      value: 4288807076
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[44].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[45].colorPreFab.rgba
+      value: 4289703855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[45].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[46].colorPreFab.rgba
+      value: 4280188597
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[46].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[47].colorPreFab.rgba
+      value: 4280254133
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[47].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[48].colorPreFab.rgba
+      value: 4281237173
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[48].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[49].colorPreFab.rgba
+      value: 4283330747
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[49].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[50].colorPreFab.rgba
+      value: 4283396283
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[50].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[51].colorPreFab.rgba
+      value: 4286282689
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[51].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[52].colorPreFab.rgba
+      value: 4286282689
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[52].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[53].colorPreFab.rgba
+      value: 4280340421
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[53].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[54].colorPreFab.rgba
+      value: 4285665478
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[54].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[55].colorPreFab.rgba
+      value: 4283171528
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[55].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[56].colorPreFab.rgba
+      value: 4292694751
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[56].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[57].colorPreFab.rgba
+      value: 4292760287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[57].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[58].colorPreFab.rgba
+      value: 4292825823
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[58].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[59].colorPreFab.rgba
+      value: 4294922975
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[59].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[60].colorPreFab.rgba
+      value: 4294923231
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[60].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[61].colorPreFab.rgba
+      value: 4278249958
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[61].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[62].colorPreFab.rgba
+      value: 4261472742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[62].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[63].colorPreFab.rgba
+      value: 4278190335
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[63].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[64].colorPreFab.rgba
+      value: 4294705407
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[64].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[65].colorPreFab.rgba
+      value: 4294705407
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[65].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[66].colorPreFab.rgba
+      value: 4294770943
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[66].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[67].colorPreFab.rgba
+      value: 4278210303
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[67].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[68].colorPreFab.rgba
+      value: 4278255615
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[68].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[69].colorPreFab.rgba
+      value: 4279173120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[69].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[70].colorPreFab.rgba
+      value: 4279752200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[70].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[71].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[71].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[72].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[72].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[73].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[73].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[74].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[74].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[75].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[75].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[76].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[76].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[77].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[77].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[78].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[78].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[79].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[79].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[80].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[80].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[81].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[81].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[82].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[82].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[83].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[83].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[84].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[84].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[85].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[85].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[86].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[86].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[87].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[87].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[88].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[88].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[89].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[89].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[90].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[90].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[91].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[91].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[92].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[92].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[93].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[93].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[94].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[94].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[95].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[95].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[96].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[96].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[97].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[97].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[98].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[98].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[99].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[99].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[100].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[100].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[101].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[101].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[102].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[102].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[103].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[103].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[104].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[104].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[105].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[105].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[106].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[106].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[107].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[107].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[108].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[108].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[109].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[109].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[110].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[110].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[111].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[111].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[112].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[112].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[113].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[113].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[114].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[114].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[115].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[115].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[116].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[116].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[117].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[117].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[118].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[118].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[119].colorPreFab.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[119].PreFab
+      value: 
+      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[9].m_isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[0].colorPreFab.rgba
+      value: 4294901760
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[0].PreFab
+      value: 
+      objectReference: {fileID: 1900411352969050, guid: 8898c9624e523174b94af57d32d00595,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
   m_IsPrefabParent: 0

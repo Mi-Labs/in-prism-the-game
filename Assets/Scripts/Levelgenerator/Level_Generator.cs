@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Level_Generator : MonoBehaviour {
 
@@ -14,11 +15,10 @@ public class Level_Generator : MonoBehaviour {
     public ColorToPreFab[] colorassignment;
 
 
-
     /* Methods*/
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         GenerateLevel();
         ApplyChanges();
@@ -83,34 +83,34 @@ public class Level_Generator : MonoBehaviour {
 
     public void ApplyChanges()
     {
-        WorldLevelGO worldLevelGO = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldLevelGO>();
 
-        GO_Listing actualLevelChanges = null;
+        WorldObjectSave wos =GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
 
-        foreach(GO_Listing goList in worldLevelGO.m_levelList)
+        LevelSave actualLevel = null;
+
+        foreach(LevelSave save in wos.GetLevelSaves())
         {
-            if(gameObject.scene.buildIndex.Equals(goList.m_levelnumber))
+            if(gameObject.scene.buildIndex.Equals(save.m_levelnumber))
             {
-                actualLevelChanges = goList;
+                Debug.Log("Found level save");
+                actualLevel = save;
                 break;
             }
         }
 
-        if(actualLevelChanges != null)
+        if(actualLevel != null)
         {
-            foreach (GameObject go in actualLevelChanges.m_GOList)
+            foreach (Vector2Ser pos in actualLevel.m_colorChangedObjectPosition)
             {
-                GameObject inLevel = Physics2D.OverlapCircle(go.transform.position, 0.1f).gameObject;
+                Vector2 position = pos.GetVector2();
+                GameObject inLevel = Physics2D.OverlapCircle(position, 0.1f).gameObject;
 
-                ChangedValues changes = inLevel.GetComponent<ChangedValues>();
-                if(changes.m_IsColorful)
-                {
-                    go.GetComponent<Coloration>().ActivateColor();
-                }
+                inLevel.GetComponent<Coloration>().ActivateColor();
+                Debug.Log("Recolored: " + position.ToString());
             }
-        }
-        
+        }   
     }
+
 
     /// <summary>
     /// This script generates kill zones all around the level

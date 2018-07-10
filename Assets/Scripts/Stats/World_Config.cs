@@ -96,8 +96,3 @@ public class World_Config : MonoBehaviour {
     }
 
 }
-
-
-
-
-	

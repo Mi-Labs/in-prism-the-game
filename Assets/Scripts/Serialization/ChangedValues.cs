@@ -11,12 +11,15 @@ public class ChangedValues : MonoBehaviour {
 
     public int m_CageStatus;
 
+    public Vector2 m_GOPosition;
+
 	// Use this for initialization
 	void Start ()
     {
         m_IsChanged = false;
         m_CageStatus = 3;
         m_IsColorful = false;
+        m_GOPosition = (Vector2)gameObject.transform.position;
 	}
 	
     public void ColorChanged(bool _status)
