@@ -14,14 +14,20 @@ public class Player_Movement : MonoBehaviour {
     // Factor for boost power up
     public float boostfactor;
 
-    [Range(1,10)]
+    //Jump-Strength
+    public float jumppower;
+
+    [Space]
+    [Header("Fall Multiplier (Experimental)")]
+    [Range(1, 10)]
     public float m_fallMultiplier;
+
+    public bool m_ActivateFallMultiplier;
 
     //Rigidbody Player-Object
     private Rigidbody2D rgb2D;
 
-    //Jump-Strength
-    public float jumppower;
+
 
     //Jump factor
     private float jumpfactor;
@@ -131,11 +137,15 @@ public class Player_Movement : MonoBehaviour {
                 m_canJump = true;
             }
         }
-        // If the player is falling, add some extra force
-        if(rgb2D.velocity.y < 0)
+        if(m_ActivateFallMultiplier)
         {
-            rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
+            // If the player is falling, add some extra force
+            if (rgb2D.velocity.y < 0)
+            {
+                rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
+            }
         }
+
     }
 
 

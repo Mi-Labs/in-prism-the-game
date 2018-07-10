@@ -11,15 +11,14 @@ using UnityEngine.SceneManagement;
 //Makes the stats savable
 [System.Serializable]
 
-public class World_Stats : MonoBehaviour {
+public class World_Stats : MonoBehaviour
+{
 
     // Holds the only instance for script
     public static World_Stats instance = null;
 
-    //Save all levelstats in Array
-    // public Level_Stats[] level;
 
-    public int m_NumberOfDeaths;
+    public GlobalStatistics m_Stats;
 
     //Is called when Script is loaded the first time
     private void Awake()
@@ -38,23 +37,6 @@ public class World_Stats : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //This gameObject should not be destroyed on scene change.
-        //DontDestroyOnLoad(this);
-
-       // level = new Level_Stats[5];
-
-        m_NumberOfDeaths = 0;
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-        ////assign the actual levelstats in the level[]
-        //level[SceneManager.GetActiveScene().buildIndex] = GameObject.FindObjectOfType<Level_Stats>(); 
-	}
-
-	
-	
-  
 }
 

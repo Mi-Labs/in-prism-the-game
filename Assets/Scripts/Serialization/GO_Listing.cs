@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class GO_Listing {
 
-    public List<GameObject> m_GOList = new List<GameObject>();
+    public List<ChangedValues> m_GOList = new List<ChangedValues>();
 
     public int m_levelnumber;
 
@@ -22,7 +22,7 @@ public class GO_Listing {
             {
                 if(change.m_IsChanged)
                 {
-                    m_GOList.Add(change.gameObject);
+                    m_GOList.Add(change);
                 }
             }
 
@@ -42,9 +42,9 @@ public class GO_Listing {
     public void PrintGOList()
     {
         int i = 1;
-        foreach(GameObject go in m_GOList)
+        foreach(ChangedValues cv in m_GOList)
         {
-            Debug.Log(i+": " + go.name);
+            Debug.Log(i+": " + cv.gameObject.name);
             i++;
         }
         Debug.Log(m_GOList.Count);

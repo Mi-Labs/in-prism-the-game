@@ -13,7 +13,7 @@ TagManager:
   - Killzone
   - LevelSave
   - LevelGenerator
-  - JSONSerialize
+  - Serializer
   layers:
   - Default
   - TransparentFX
