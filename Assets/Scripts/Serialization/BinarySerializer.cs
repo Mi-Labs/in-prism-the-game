@@ -6,19 +6,20 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class BinarySerializer : MonoBehaviour {
 
-    private static string m_FilePath; 
+    private static string m_FilePathSaveGame;
+    private static string m_FilePathStats;
 
     private static WorldSave m_Save;
 
-    // private static GlobalStatistics m_stats;
+    private static StatisticsSave m_Stats;
 
     private void Awake()
     {
-        m_FilePath = Path.Combine(Application.persistentDataPath, "game.save");
-        Debug.Log(m_FilePath);
+        m_FilePathSaveGame = Path.Combine(Application.persistentDataPath, "game.save");
+        m_FilePathStats = Path.Combine(Application.persistentDataPath, "game.stats");
     }
 
-    public static void Save(WorldSave _save)
+    public static void SaveGame(WorldSave _save)
     {
         m_Save = _save;
         BinaryFormatter bf = new BinaryFormatter();
@@ -29,7 +30,7 @@ public class BinarySerializer : MonoBehaviour {
     {
         if(m_Save != null)
         {
-            using (FileStream stream = new FileStream(m_FilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (FileStream stream = new FileStream(m_FilePathSaveGame, FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                 _bf.Serialize(stream, m_Save);
             }
@@ -37,11 +38,11 @@ public class BinarySerializer : MonoBehaviour {
         }
     }
 
-    public static void Load()
+    public static void LoadSaveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
 
-        if (!LoadSave(bf))
+        if (!LoadSaveGame(bf))
         {
             Debug.Log("No saved data found");
         }
@@ -49,47 +50,79 @@ public class BinarySerializer : MonoBehaviour {
         {
             WorldObjectSave worldObjectSave = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
             worldObjectSave.LoadLevelList(m_Save);
-        }
-        
-        
+        }   
     }
 
-    private static bool LoadSave(BinaryFormatter bf)
+    private static bool LoadSaveGame(BinaryFormatter bf)
     {
-        if (!File.Exists(m_FilePath))
+        if (!File.Exists(m_FilePathSaveGame))
         {
-            Debug.Log(m_FilePath);
             return false;
         }
 
-        using (FileStream stream = new FileStream(m_FilePath, FileMode.Open, FileAccess.Read))
+        using (FileStream stream = new FileStream(m_FilePathSaveGame, FileMode.Open, FileAccess.Read))
         {
             m_Save = bf.Deserialize(stream) as WorldSave;
         }
 
         return true;
     }
-    // public void Serialize(WorldLevelGO _save)
-    //{
-    //    if(_save != null)
-    //    {
 
-    //        BinaryFormatter bf = new BinaryFormatter();
-    //        FileStream stream = new FileStream(FILE_PATH, FileMode.Create);
-    //        bf.Serialize(stream, m_Save);
-    //        stream.Close();
 
-    //    }
+    /* Methods for saving stats */
 
-    //}
+    public static void SaveStats(StatisticsSave _stats)
+    {
+        m_Stats = _stats;
+        BinaryFormatter bf = new BinaryFormatter();
+        SaveStatistics(bf);
+    }
 
-    //public void Deserialize()
-    //{
-    //    if(File.)
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    FileStream stream = new FileStream(FILE_PATH, FileMode.Open);
-    //    m_Save = bf.Deserialize(stream) as WorldLevelGO;
-    //    stream.Close();
-    //    Debug.Log("Level deserialized");
-    //}
+    private static void SaveStatistics(BinaryFormatter _bf)
+    {
+        if (m_Stats != null)
+        {
+            using (FileStream stream = new FileStream(m_FilePathStats, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                _bf.Serialize(stream, m_Stats);
+            }
+            Debug.Log("Statistics are serialized");
+        }
+    }
+
+    public static void LoadStats()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+
+        if (!LoadStats(bf))
+        {
+            Debug.Log("No saved data found");
+        }
+        else
+        {
+            World_Stats worldObjectSave = GameObject.FindGameObjectWithTag("Statistics").GetComponent<World_Stats>();
+            worldObjectSave.LoadStats(m_Stats);
+        }
+    }
+
+    /// <summary>
+    /// This method deserialize the saved stats
+    /// </summary>
+    /// <param name="bf">BinaryFormatter for deserializing </param>
+    /// <returns>Returns false, if there is no file</returns>
+    private static bool LoadStats(BinaryFormatter bf)
+    {
+        // If there is no existing file, return false
+        if (!File.Exists(m_FilePathStats))
+        {
+            return false;
+        }
+
+        // Deserialize saved statistics
+        using (FileStream stream = new FileStream(m_FilePathStats, FileMode.Open, FileAccess.Read))
+        {
+            m_Stats = bf.Deserialize(stream) as StatisticsSave;
+        }
+        return true;
+    }
 }

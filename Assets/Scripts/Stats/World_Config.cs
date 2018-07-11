@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-
+﻿using UnityEngine;
 
 /// <summary>
 ///  This class stores all values for boost and maybe some other values
@@ -86,13 +82,10 @@ public class World_Config : MonoBehaviour {
             instance = this;
         }
 
-        // if another instance is already there -> destroy this
+        // If another instance is already there -> destroy this
         else if(instance !=this)
         {
             Destroy(gameObject);
         }
-
-
     }
-
 }

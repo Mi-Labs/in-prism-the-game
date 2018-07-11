@@ -1,22 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelFinish : MonoBehaviour {
 
+    /* Methods */
+    
+    /// <summary>
+    /// Is called, when the box collider is triggered
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Touched the end");
-        
-
+        // Create a new Level Save
         LevelSave levelSave = new LevelSave();
+
+        // Save all changed colors
         levelSave.FillColorList();
 
+        // Get WorldObjectSave Object
         WorldObjectSave worldObjectSave = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
 
+        // Add Levelsave to WorldObjectSave
         worldObjectSave.AddLevelSave(levelSave);
 
-
-        BinarySerializer.Save(worldObjectSave.SaveData());
+        // Save Game
+        BinarySerializer.SaveGame(worldObjectSave.SaveData());
     }
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
+﻿using UnityEngine;
 
 public class Level_Generator : MonoBehaviour {
 
@@ -21,7 +18,9 @@ public class Level_Generator : MonoBehaviour {
     void Start ()
     {
         GenerateLevel();
+        GenerateToppings();
         ApplyChanges();
+        
 	}
 	
 
@@ -81,41 +80,62 @@ public class Level_Generator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// This method apply the changes from the save game
+    /// </summary>
     public void ApplyChanges()
     {
-
+        // Find the saved data
         WorldObjectSave wos = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();
 
+        // Hold the save for this level
         LevelSave actualLevel = null;
 
+        // Search for a save for this level
         foreach(LevelSave save in wos.GetLevelSaves())
         {
+            // When there is an entry for this level assign this data to actualLevel
             if(gameObject.scene.buildIndex.Equals(save.m_levelnumber))
-            {
-                Debug.Log("Found level save");
+            { 
                 actualLevel = save;
                 break;
             }
         }
 
+        // If there is a saved level
         if(actualLevel != null)
         {
+            // Get every object in the level and apply the colorchange to this
             foreach (Vector2Ser pos in actualLevel.m_colorChangedObjectPosition)
             {
                 Vector2 position = pos.GetVector2();
                 GameObject inLevel = Physics2D.OverlapCircle(position, 0.1f).gameObject;
 
                 inLevel.GetComponent<Coloration>().ActivateColor();
-                Debug.Log("Recolored: " + position.ToString());
             }
         }   
+    }
+
+    /// <summary>
+    /// This method generates all toppings for the level
+    /// </summary>
+    private void GenerateToppings()
+    {
+        // Get all objects which should have a topping
+        AddTopping[] toppings = gameObject.GetComponentsInChildren<AddTopping>();
+        
+        // Generate for all found GO a topping
+        foreach(AddTopping topping in toppings)
+        {
+            topping.GenerateTopping();
+        }
     }
 
 
     /// <summary>
     /// This script generates kill zones all around the level
     /// </summary>
-    public void GenerateKillZones()
+    private void GenerateKillZones()
     {
         GameObject killzones = new GameObject("Kill Zones");
         killzones.transform.parent = transform;
