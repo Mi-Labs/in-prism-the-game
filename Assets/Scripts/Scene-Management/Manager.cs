@@ -92,9 +92,14 @@ namespace GameManagement
             {
                 m_CurrentScene = m_NextScene;
 
-                SceneManager.LoadScene((int)m_NextScene, LoadSceneMode.Additive);
+                AsyncOperation async;
 
-                SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)m_NextScene));
+                async = SceneManager.LoadSceneAsync((int)m_NextScene, LoadSceneMode.Additive);
+                
+                if(async.isDone)
+                {
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int) m_NextScene));
+                }              
             }
         }
 

@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
-using GameManagement;
+using UnityEngine.SceneManagement;
 
 public class Player_Position : MonoBehaviour {
 
@@ -9,13 +8,16 @@ public class Player_Position : MonoBehaviour {
 
     public Vector3 m_StartPosition;
 
-    private static Manager m_SceneManager;
 
 	// Use this for initialization
 	void Start ()
     {
         m_player = gameObject;
-        m_SceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Manager>();
+
+        if (!CheckIfPlayerShouldMove())
+        {
+            FreezePlayer();
+        }
 	}
     
     private void Update()
@@ -46,16 +48,6 @@ public class Player_Position : MonoBehaviour {
     {
         return m_player.transform.position;
     }
-
-
-    /// <summary>
-    /// This method freezes the players position
-    /// </summary>
-    public void FreezePlayer()
-    {
-        m_player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-    }
-
 
     /// <summary>
     /// This method sets the start position for the player
@@ -89,22 +81,38 @@ public class Player_Position : MonoBehaviour {
         }
     }
 
-
     /// <summary>
     ///  This method checks if the player should move
     /// </summary>
     /// <returns></returns>
     private bool CheckIfPlayerShouldMove()
     {
-        int scenenumber = (int)m_SceneManager.GetCurrentScene();
+        List<int> loadedScences = new List<int>();
 
-        if(scenenumber > 2 && scenenumber <= (int)Manager.EScene.NumberOfScenes)
+        for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            return true;
+            Scene scene = SceneManager.GetSceneAt(i);
+            loadedScences.Add(scene.buildIndex);
+        }
+
+        foreach(int scene in loadedScences)
+        {
+            if(scene >= 2)
+            {
+                return true;
+            }
         }
         return false;
     }
 
+    /// <summary>
+    /// This method freezes the players position
+    /// </summary>
+    public void FreezePlayer()
+    {
+        m_player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        m_player.GetComponent<SpriteRenderer>().enabled = false;
+    }
 
     /// <summary>
     /// This method let the player move again
@@ -112,5 +120,6 @@ public class Player_Position : MonoBehaviour {
     public void UnfreezePlayer()
     {
         m_player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        m_player.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
