@@ -18,7 +18,9 @@ namespace GameManagement
         [SerializeField]
         private EScene m_NextScene = 0;
 
+        private bool m_RePlaying;
 
+        private bool m_SceneIsLoaded;
 
         public enum EScene : int
         {
@@ -81,6 +83,8 @@ namespace GameManagement
             yield return LoadScene;
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)m_CurrentScene));
+
+            m_SceneIsLoaded = true;
         }
 
 
@@ -101,6 +105,10 @@ namespace GameManagement
                     SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int) m_NextScene));
                 }              
             }
+
+            // Init variable
+            m_RePlaying = false;
+            m_SceneIsLoaded = false;
         }
 
 
@@ -109,7 +117,21 @@ namespace GameManagement
         {
             if(m_NextScene != m_CurrentScene)
             {
-                StartCoroutine(OnTransition(m_NextScene));
+                StartCoroutine(OnTransition(m_NextScene));     
+            }
+            if (m_SceneIsLoaded)
+            {
+                Level_Generator levelgen = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<Level_Generator>();
+                if (m_RePlaying)
+                {
+                    levelgen.LoadLevel(true);
+                }
+                else
+                {
+                    levelgen.LoadLevel(false);
+                }
+                m_RePlaying = false;
+                m_SceneIsLoaded = false;
             }
         }
 
@@ -124,9 +146,10 @@ namespace GameManagement
 
         // -----------------------------------------------------------------------------
 
-        public void SwitchToScene(int _SceneID)
+        public void SwitchToScene(int _SceneID, bool _Replaying)
         {
             SwitchToScene((Manager.EScene)_SceneID);
+            m_RePlaying = _Replaying;
         }
 
         /// <summary>

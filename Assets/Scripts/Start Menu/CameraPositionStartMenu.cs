@@ -28,7 +28,7 @@ namespace StartMenu
 
         private void SetCameraToStart()
         {
-            m_Camera.orthographicSize = 2.75f;
+           // m_Camera.orthographicSize = 2.75f;
             float orthograficSize = m_Camera.orthographicSize;
             float startY = orthograficSize;
             float startX = orthograficSize * m_Camera.aspect;

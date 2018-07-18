@@ -15,7 +15,8 @@ namespace GameManagement
 
         public void ResetScene()
         {
-            LoadScene(SceneManager.GetActiveScene().buildIndex);
+            int buildindex = SceneManager.GetActiveScene().buildIndex;
+            LoadScene(buildindex, true);
         }
 
     }

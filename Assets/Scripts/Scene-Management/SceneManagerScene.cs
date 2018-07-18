@@ -22,9 +22,9 @@ namespace GameManagement
             m_Manager = GameObject.FindGameObjectWithTag(m_ManagerTag).GetComponentInChildren<Manager>();
         }
 
-        public void LoadScene(int _SceneId)
+        public void LoadScene(int _SceneId, bool _replaying)
         {
-            m_Manager.SwitchToScene(_SceneId);
+            m_Manager.SwitchToScene(_SceneId,_replaying);
         }
 
         public void LoadScene(Manager.EScene _SceneId)

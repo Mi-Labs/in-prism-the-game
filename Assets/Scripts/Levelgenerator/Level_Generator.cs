@@ -17,12 +17,19 @@ public class Level_Generator : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        //GenerateLevel();
+        //GenerateToppings();
+    }
+	
+    public void LoadLevel(bool _again)
+    {
         GenerateLevel();
         GenerateToppings();
-        ApplyChanges();
-        
-	}
-	
+        if (_again)
+        {
+            ApplyChanges();
+        }
+    }
 
     /// <summary>
     /// This method generates the level by iterating over all pixels
