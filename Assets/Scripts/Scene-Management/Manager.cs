@@ -26,6 +26,7 @@ namespace GameManagement
         {
             Base = 0,            
             Menu = 1,
+            TestMenu = 2,
             Ocean1 = 3,
             Ocean2 = 4,
             Ocean3 = 5,

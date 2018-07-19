@@ -8,15 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scences/BasicScene.unity
     guid: 6c7e9080c0a43c943bc562886cd3f792
-  - enabled: 0
-    path: Assets/Scences/Menus/TestStartMenu.unity
-    guid: 043bbc182373ebf42a747f842c59ff9a
   - enabled: 1
     path: Assets/Scences/Menus/StartMenu.unity
     guid: 2ef2db71f15de254f97b2f985dc6236c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scences/World/0-Start/Level-0-0.unity
     guid: adf80c8be4929934c8e32748ab6fb5d0
+  - enabled: 1
+    path: Assets/Scences/Menus/TestStartMenu.unity
+    guid: 043bbc182373ebf42a747f842c59ff9a
   - enabled: 1
     path: Assets/Scences/World/1-Ocean/Level-1-1.unity
     guid: a7a6ae744332e5945bdf9bcbf6e97bbe

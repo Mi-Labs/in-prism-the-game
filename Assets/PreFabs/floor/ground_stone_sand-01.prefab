@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4927899627432920}
   - component: {fileID: 212524630719382240}
   - component: {fileID: 114060611660344010}
+  - component: {fileID: 114658732395352864}
   m_Layer: 0
   m_Name: ground_stone_sand-01
   m_TagString: Untagged
@@ -53,6 +54,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_topping: {fileID: 1083569872906218, guid: 12dfde2bcd32c45feb96fb1a99b97999, type: 2}
+--- !u!114 &114658732395352864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1403662955450716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89647edc6d6a8ef428c41a9cc90e05de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Soundeffect: {fileID: 0}
+  m_MoreBoundingVolume: 0
 --- !u!212 &212524630719382240
 SpriteRenderer:
   m_ObjectHideFlags: 1

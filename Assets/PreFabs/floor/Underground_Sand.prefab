@@ -96,6 +96,7 @@ MonoBehaviour:
   m_IsChanged: 0
   m_IsColorful: 0
   m_CageStatus: 0
+  m_GOPosition: {x: 0, y: 0}
 --- !u!114 &114849138424935608
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -39,59 +39,59 @@ public class LevelChoose : MonoBehaviour {
     }
 
 
-    ///// <summary>
-    ///// This method starts the choosen level
-    ///// </summary>
-    //public void StartLevel()
-    //{
-    //    int chooselevel = 0;
+    /// <summary>
+    /// This method starts the choosen level
+    /// </summary>
+    public void StartLevel()
+    {
+        int chooselevel = 0;
 
-    //    // Get the world number
-    //    switch(m_WorldDropdown.value)
-    //    {
-    //        // Ocean
-    //        case 0:
-    //            chooselevel = 3;
-    //            break;
+        // Get the world number
+        switch (m_WorldDropdown.value)
+        {
+            // Ocean
+            case 0:
+                chooselevel = 3;
+                break;
 
-    //        // Desert
-    //        case 1:
-    //            chooselevel = 7;
-    //            break;
+            // Desert
+            case 1:
+                chooselevel = 7;
+                break;
 
-    //        // Jungle
-    //        case 2:
-    //            chooselevel = 12;
-    //            break;
-            
-    //        // Forest
-    //        case 3:
-    //            chooselevel = 17;
-    //            break;
+            // Jungle
+            case 2:
+                chooselevel = 12;
+                break;
 
-    //        // Underground
-    //        case 4:
-    //            chooselevel = 22;
-    //            break;
+            // Forest
+            case 3:
+                chooselevel = 17;
+                break;
 
-    //        // Vulcan
-    //        case 5:
-    //            chooselevel = 27;
-    //            break;
+            // Underground
+            case 4:
+                chooselevel = 22;
+                break;
 
-    //        // Night
-    //        case 6:
-    //            chooselevel = 32;
-    //            break;
+            // Vulcan
+            case 5:
+                chooselevel = 27;
+                break;
 
-    //        default:
-    //            Debug.Log("Invalid input");
-    //            break;
-    //    }
-    //    // Add single levelnumber
-    //    chooselevel += m_LevelDropdown.value;
+            // Night
+            case 6:
+                chooselevel = 32;
+                break;
 
-    //    // Switch to the level
-    //    m_MenuManager.SwitchToLevel(chooselevel);
-    //}
+            default:
+                Debug.Log("Invalid input");
+                break;
+        }
+        // Add single levelnumber
+        chooselevel += m_LevelDropdown.value;
+
+        // Switch to the level
+        m_MenuManager.SwitchToLevel(chooselevel,true);
+    }
 }
