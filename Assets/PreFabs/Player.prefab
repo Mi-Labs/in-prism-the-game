@@ -109,8 +109,8 @@ MonoBehaviour:
   m_acceleration: 0
   boostfactor: 1
   jumppower: 200
-  m_fallMultiplier: 0
-  m_ActivateFallMultiplier: 0
+  m_fallMultiplier: 1.8
+  m_ActivateFallMultiplier: 1
 --- !u!114 &114452100654332612
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1824,21 +1824,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_ActivateFallMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_fallMultiplier
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 212132335828080954, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e6500ba08d2e2e4aa1a857422318989, type: 2}
   m_IsPrefabParent: 0

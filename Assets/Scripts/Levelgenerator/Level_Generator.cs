@@ -5,10 +5,14 @@ public class Level_Generator : MonoBehaviour {
 
     /* Variables */
 
+    public bool m_Activate_SkyKillzone;
+
     // Holds map of the level
+    [Space]
     public Texture2D levelmap;
 
     // Holds array with all ColorToPrefab assignments
+    [Space]
     public ColorToPreFab[] colorassignment;
 
 
@@ -17,8 +21,7 @@ public class Level_Generator : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        //GenerateLevel();
-        //GenerateToppings();
+
     }
 	
     public void LoadLevel(bool _again)
@@ -145,10 +148,19 @@ public class Level_Generator : MonoBehaviour {
     private void GenerateKillZones()
     {
         GameObject killzones = new GameObject("Kill Zones");
+
         killzones.transform.parent = transform;
 
         // Generate a killzone for every direction
-        for(int i=0; i <4; i++)
+        int i = 0;
+
+        // If the sky killzone shouldn't be active
+        if(!m_Activate_SkyKillzone)
+        {
+            i = 1;
+        }
+
+        while(i < 4)
         {
             // Generate a new killzone object
             GameObject killzone = new GameObject("Killzone");
@@ -172,6 +184,8 @@ public class Level_Generator : MonoBehaviour {
 
             // Add tag to GO
             killzone.tag = "Killzone";
+
+            i++;
         }
     }
 
