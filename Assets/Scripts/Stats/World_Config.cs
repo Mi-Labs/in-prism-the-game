@@ -71,6 +71,13 @@ public class World_Config : MonoBehaviour {
     [Header("PreFab Timer")]
     public GameObject timer;
 
+    [Space(20)]
+    [Header("Textbox")]
+    public GameObject m_TextCanvas;
+
+    [Range(0.2f,0.6f)]
+    public float m_Textspeed = 0.3f;
+
     // @Load of this Object -> Should never be destroyed when loaded
     private void Awake()
     {

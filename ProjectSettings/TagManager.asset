@@ -15,6 +15,7 @@ TagManager:
   - LevelGenerator
   - Serializer
   - StartMenuPanel
+  - TextboxPanel
   layers:
   - Default
   - TransparentFX

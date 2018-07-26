@@ -61,7 +61,6 @@ public class Player_Movement : MonoBehaviour {
         boostfactor = k_standardboostfactor;
         jumpfactor = k_standardjumpfactor;
         m_canJump = false;
-        m_acceleration = 1.5f;
         m_fallMultiplier = 3.0f;
         m_circleRadius = GetComponent<CircleCollider2D>().radius + 0.1f;
 	}

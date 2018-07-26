@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LevelFinish : MonoBehaviour {
+public class SaveLevelData : MonoBehaviour {
 
     /* Methods */
     

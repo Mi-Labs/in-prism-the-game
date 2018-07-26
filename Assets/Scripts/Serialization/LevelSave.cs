@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class LevelSave {
 
-	public List<Vector2Ser> m_colorChangedObjectPosition = new List<Vector2Ser> ();
+    /* Fields */
+
+    public List<Vector2Ser> m_colorChangedObjectPosition = new List<Vector2Ser> ();
 
     public int m_levelnumber = GameObject.FindGameObjectWithTag("LevelGenerator").scene.buildIndex;
 
-	/// <summary>
-	/// Add a position of an colorchanged object to the list
-	/// </summary>
-	/// <param name="_position">Position of the object, that should be listed</param>
-	public void AddColorChange(Vector2 _position)
+
+    /* Methods */
+
+    /// <summary>
+    /// Add a position of an colorchanged object to the list
+    /// </summary>
+    /// <param name="_position">Position of the object, that should be listed</param>
+    public void AddColorChange(Vector2 _position)
 	{
         if(!CheckIfSaved(_position))
         {

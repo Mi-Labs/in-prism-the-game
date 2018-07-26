@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 61309471321756874}
   - component: {fileID: 212357834651006930}
   - component: {fileID: 114463709843151130}
-  - component: {fileID: 114119644104592550}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -69,23 +68,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
---- !u!114 &114119644104592550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455700051096712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7371c7ce450c5449f27b8917a8bd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Textbox: {fileID: 114601053141310988, guid: 9e2024e08def11743b5328090c5b0ffd,
-    type: 2}
-  m_ShownText:
-  - This is the end
-  - My friend!
-  m_TimeToNextText: 0
 --- !u!114 &114463709843151130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,6 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838c3c0c2b1ec3e49adde3e97462ef4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text:
+  - This is the end!
+  - My friend!
 --- !u!114 &114869712071929380
 MonoBehaviour:
   m_ObjectHideFlags: 1
