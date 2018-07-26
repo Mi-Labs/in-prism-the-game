@@ -16,7 +16,7 @@ public class HealthPlayer : MonoBehaviour {
     // Holds the status of invulnerability
     private bool isInvulnerable;
 
-    private static ChangeLifeDisplay m_LifeDisplayScript = null;
+    private ChangeLifeFilling m_FillingScript;
 
     // private World_Stats stats;
 
@@ -28,13 +28,13 @@ public class HealthPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        // stats = GameObject.FindGameObjectWithTag("Statistic").GetComponent<World_Stats>();
-
         // On Start the lifepoints should be at maximum
         lifepoints = maxlifepoints;
 
         // Set isInvulnerable to false -> only true when powerup is active
         isInvulnerable = false;
+
+        m_FillingScript = gameObject.GetComponentInChildren<ChangeLifeFilling>();
 	}
 
     /// <summary>
@@ -120,11 +120,7 @@ public class HealthPlayer : MonoBehaviour {
     /// </summary>
     private void ChangeLifeBar(int _lifepoints)
     {
-        if(m_LifeDisplayScript == null)
-        {
-            m_LifeDisplayScript = GameObject.FindGameObjectWithTag("LifePointDisplay").GetComponent<ChangeLifeDisplay>();
-        }
-        m_LifeDisplayScript.SetActualContent(_lifepoints.ToString());
+        m_FillingScript.SetNewLifePoint(_lifepoints);
     }
 
     /// <summary>

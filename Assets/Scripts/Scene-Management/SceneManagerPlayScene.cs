@@ -19,6 +19,15 @@ namespace GameManagement
             LoadScene(buildindex, true);
         }
 
+        public void LoadScene(int _Scene)
+        {
+            LoadScene(_Scene, false);
+        }
+
+        public void SwitchToHighScore()
+        {
+            LoadScene(Manager.EScene.HighScore);
+        }
     }
 
 }

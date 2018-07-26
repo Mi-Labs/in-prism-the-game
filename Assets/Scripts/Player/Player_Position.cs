@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Position : MonoBehaviour {
 
@@ -112,6 +113,7 @@ public class Player_Position : MonoBehaviour {
     {
         m_player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         m_player.GetComponent<SpriteRenderer>().enabled = false;
+        m_player.GetComponentInChildren<Image>().enabled = false;
     }
 
     /// <summary>
@@ -121,5 +123,6 @@ public class Player_Position : MonoBehaviour {
     {
         m_player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         m_player.GetComponent<SpriteRenderer>().enabled = true;
+        m_player.GetComponentInChildren<Image>().enabled = true;
     }
 }

@@ -63,7 +63,8 @@ namespace GameManagement
             Night5 = 36,
             Night6 = 37,
             Night7 = 38,
-            NumberOfScenes = 41
+            HighScore = 39,
+            NumberOfScenes = 42
         };
 
 
@@ -122,15 +123,20 @@ namespace GameManagement
             }
             if (m_SceneIsLoaded)
             {
-                Level_Generator levelgen = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<Level_Generator>();
-                if (m_RePlaying)
+                GameObject levelgen = GameObject.FindGameObjectWithTag("LevelGenerator");
+                if(levelgen != null)
                 {
-                    levelgen.LoadLevel(true);
+                    Level_Generator generator = levelgen.GetComponent<Level_Generator>();
+                    if (m_RePlaying)
+                    {
+                        generator.LoadLevel(true);
+                    }
+                    else
+                    {
+                        generator.LoadLevel(false);
+                    }
                 }
-                else
-                {
-                    levelgen.LoadLevel(false);
-                }
+               
                 m_RePlaying = false;
                 m_SceneIsLoaded = false;
             }
