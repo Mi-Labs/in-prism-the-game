@@ -10,7 +10,11 @@ public class LevelSave {
 
     public List<Vector2Ser> m_colorChangedObjectPosition = new List<Vector2Ser> ();
 
-    public int m_levelnumber = GameObject.FindGameObjectWithTag("LevelGenerator").scene.buildIndex;
+    public int m_levelnumber;
+
+    public int m_NumberOfDeaths;
+
+    public float m_Leveltime;
 
 
     /* Methods */
@@ -48,6 +52,12 @@ public class LevelSave {
         Debug.Log("All changed objects are listed");
 	}
 
+    public void SaveAllLevelData()
+    {
+        FillColorList();
+        
+    }
+
     private bool CheckIfSaved(Vector2 _position)
     {
         foreach (Vector2Ser pos in m_colorChangedObjectPosition)
@@ -58,5 +68,13 @@ public class LevelSave {
             }
         }
         return false;
+    }
+
+    public void ImportLevelStatistics()
+    {
+        Level_Stats stats = GameObject.FindGameObjectWithTag("GameController").GetComponent<Level_Stats>();
+
+        m_levelnumber = stats.GetLevelNumber();
+        m_NumberOfDeaths = stats.GetNumberOfDeaths();
     }
 }

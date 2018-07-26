@@ -150,8 +150,13 @@ public class HealthPlayer : MonoBehaviour {
     /// </summary>
     private void ResetLevel()
     {
+        GameObject sceneController = GameObject.FindGameObjectWithTag("GameController");
+
         // Find Scene Controller
-        m_ManagerPlay = GameObject.FindGameObjectWithTag("GameController").GetComponent<SceneManagerPlayScene>();
+        m_ManagerPlay = sceneController.GetComponent<SceneManagerPlayScene>();
+
+        // Add death to statistic
+        sceneController.GetComponent<Level_Stats>().AddDeath();
 
         // Reset Scene
         m_ManagerPlay.ResetScene();
