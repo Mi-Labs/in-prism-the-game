@@ -64,7 +64,7 @@ namespace GameManagement
             Night6 = 37,
             Night7 = 38,
             HighScore = 39,
-            NumberOfScenes = 42
+            NumberOfScenes = 40
         };
 
 

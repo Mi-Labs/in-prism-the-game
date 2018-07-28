@@ -207,17 +207,17 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[4].colorPreFab.rgba
-      value: 4294960128
+      value: 4292252672
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[2].colorPreFab.rgba
-      value: 4287020544
+      value: 4280162019
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[3].colorPreFab.rgba
-      value: 4293776384
+      value: 4289950976
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -267,7 +267,7 @@ Prefab:
         type: 2}
       propertyPath: colorassignment.Array.data[4].PreFab
       value: 
-      objectReference: {fileID: 1323270372038098, guid: ea1ac68613379d844a4fa1e7cf58f23e,
+      objectReference: {fileID: 1304047920554538, guid: 29a96d09c5fcdc1479c7d681734dc7b1,
         type: 2}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -282,12 +282,12 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[2].m_isActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[3].m_isActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -1536,6 +1536,23 @@ Prefab:
       propertyPath: colorassignment.Array.data[63].m_isActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[2].PreFab
+      value: 
+      objectReference: {fileID: 1073520641576102, guid: bb4925c214555f347bc343f771091629,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[3].PreFab
+      value: 
+      objectReference: {fileID: 1682849909562750, guid: c94b3b18aac7d6c4d9684c8c20a9f701,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[4].m_isActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
   m_IsPrefabParent: 0
@@ -1581,3 +1598,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1406756488 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1287709044739084, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1406756487}
+--- !u!114 &1406756489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406756488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7357bb952c364b98e0bcc918eb3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsComplete: 0
+  m_Leveltime: 0
+  m_Savedspheres: 0
+  m_NumberOfDeaths: 0
+  m_ActualSceneNumber: 0
