@@ -2287,55 +2287,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 224240682491464662, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224240682491464662, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224240682491464662, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114926445680708994, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275363043309158, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0.1685
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275363043309158, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0.2037
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275363043309158, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275363043309158, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114926445680708994, guid: 4e6500ba08d2e2e4aa1a857422318989,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1872083006563696, guid: 4e6500ba08d2e2e4aa1a857422318989, type: 2}
-      propertyPath: m_TagString
-      value: LifePointDisplay
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e6500ba08d2e2e4aa1a857422318989, type: 2}
   m_IsPrefabParent: 0
@@ -2382,22 +2333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerups: []
---- !u!1 &1851004029 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1872083006563696, guid: 4e6500ba08d2e2e4aa1a857422318989,
-    type: 2}
-  m_PrefabInternal: {fileID: 1706518977}
---- !u!114 &1851004034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1851004029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd982811f95ba734bb2e4c620a7a9063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1996643020
 GameObject:
   m_ObjectHideFlags: 0

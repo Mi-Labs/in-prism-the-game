@@ -124,7 +124,7 @@ public class Player_Movement : MonoBehaviour {
     {
         m_canJump = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_circleRadius, m_undergroundLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_circleRadius);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -132,8 +132,13 @@ public class Player_Movement : MonoBehaviour {
 
             if (colliders[i].gameObject != gameObject)
             {
-           //     Debug.Log("Player can jump");
-                m_canJump = true;
+                bool somethingUnder = CheckIfSomethingUnder(transform.position, colliders[i].gameObject.transform.position);
+
+                if(somethingUnder)
+                {
+                    m_canJump = true;
+                }
+               
             }
         }
         if(m_ActivateFallMultiplier)
@@ -151,5 +156,16 @@ public class Player_Movement : MonoBehaviour {
     public void SetJumpFactor(float _factor)
     {
         jumpfactor = _factor;
+    }
+
+    private bool CheckIfSomethingUnder(Vector3 _position, Vector3 _testPosition)
+    {
+        if(_position.y > _testPosition.y)
+        {
+            return true;
+        }
+
+        return false;
+        
     }
 }

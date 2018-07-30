@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ChangeLifeFilling : MonoBehaviour {
+
+    public float m_RotationFactor = 2;
 
     private GameObject m_player;
     private Image m_LifeImage;
@@ -18,7 +18,15 @@ public class ChangeLifeFilling : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        m_LifeImage.gameObject.GetComponent<RectTransform>().rotation = Quaternion.Euler(transform.rotation.x,transform.rotation.y, m_player.transform.rotation.z);
+        Rigidbody2D rb2D = m_player.GetComponent<Rigidbody2D>();
+
+        m_RotationFactor = rb2D.velocity.x > 0 ? +m_RotationFactor : m_RotationFactor;
+
+        Quaternion newRotation = Quaternion.Euler(transform.rotation.x,transform.rotation.y, m_player.transform.rotation.z+ m_RotationFactor);
+
+        //m_LifeImage.GetComponent<RectTransform>().rotation = newRotation;
+        gameObject.GetComponent<RectTransform>().rotation = newRotation;
+     
 	}
 
     public void SetNewLifePoint(int _newLifePoint)

@@ -14,16 +14,10 @@ public class Player_ColorEffect : MonoBehaviour {
 
     /* Methods */
 
-
-
-    /// <summary>
-    ///  This method is called, if the player collids with an GameObject
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D _collision)
+    private void Update()
     {
         // Find all objects in the give radius
-        Collider2D[] hits = Physics2D.OverlapCircleAll((Vector2) _collision.collider.transform.position, m_CastRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll((Vector2) transform.position, m_CastRadius);
 
         // For every found object
         foreach (Collider2D hit in hits)
@@ -38,6 +32,30 @@ public class Player_ColorEffect : MonoBehaviour {
                 coleration.ActivateColor();
             }
         }
-
     }
+
+    ///// <summary>
+    /////  This method is called, if the player collids with an GameObject
+    ///// </summary>
+    ///// <param name="collision"></param>
+    //private void OnCollisionEnter2D(Collision2D _collision)
+    //{
+    //    // Find all objects in the give radius
+    //    Collider2D[] hits = Physics2D.OverlapCircleAll((Vector2) _collision.collider.transform.position, m_CastRadius);
+
+    //    // For every found object
+    //    foreach (Collider2D hit in hits)
+    //    {
+    //        // Get Coloration script attachted on the collison partner
+    //        Coloration coleration = hit.gameObject.GetComponent<Coloration>();
+
+    //        // If there is a Coloration script ...
+    //        if (coleration != null)
+    //        {
+    //            // Activate the coloration
+    //            coleration.ActivateColor();
+    //        }
+    //    }
+
+    //}
 }
