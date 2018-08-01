@@ -19,7 +19,7 @@ namespace HighScore
             TimeSpan timeSpan = TimeSpan.FromSeconds(m_leveltime);
 
             string timeText = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
-            return "Leveltime: " + timeText + "\n" + " Saved Spheres: " + m_SavedSpheres + "\n" + "Deaths: " + m_NumberofDeaths;
+            return "Leveltime: " + timeText + "\n" + "Saved Spheres: " + m_SavedSpheres + "\n" + "Deaths: " + m_NumberofDeaths;
         }
 
         public void EraseTempStats()

@@ -222,24 +222,24 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[5].colorPreFab.rgba
-      value: 4278255360
+      value: 4292912640
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[5].PreFab
       value: 
-      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+      objectReference: {fileID: 1095283308406196, guid: 2ce8bbe68a7b7f340bd7189047a97bf6,
         type: 2}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[6].colorPreFab.rgba
-      value: 4283965193
+      value: 4284169984
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[6].PreFab
       value: 
-      objectReference: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd,
+      objectReference: {fileID: 1455700051096712, guid: 84dc632719ab02349ae0514913e9a1cd,
         type: 2}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -292,7 +292,7 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[5].m_isActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
@@ -1551,6 +1551,11 @@ Prefab:
     - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
         type: 2}
       propertyPath: colorassignment.Array.data[4].m_isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[6].m_isActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

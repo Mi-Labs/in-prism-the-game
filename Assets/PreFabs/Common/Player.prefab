@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd982811f95ba734bb2e4c620a7a9063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RotationFactor: 2
 --- !u!114 &114413207072401690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_acceleration: 1
   boostfactor: 1
-  jumppower: 175
+  jumppower: 180
   m_fallMultiplier: 1.8
   m_ActivateFallMultiplier: 0
 --- !u!114 &114452100654332612

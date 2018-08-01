@@ -152,7 +152,15 @@ public class HealthPlayer : MonoBehaviour {
         m_ManagerPlay = sceneController.GetComponent<SceneManagerPlayScene>();
 
         // Add death to statistic
-        sceneController.GetComponent<Level_Stats>().AddDeath();
+        if(sceneController.GetComponent<Level_Stats>() != null)
+        {
+            sceneController.GetComponent<Level_Stats>().AddDeath();
+        }
+        else
+        {
+            Debug.Log("No Level stats found");
+        }
+        
 
         // Reset Scene
         m_ManagerPlay.ResetScene();

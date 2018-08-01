@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace HighScore
@@ -18,6 +16,7 @@ namespace HighScore
             m_temp = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<TempStats>();
 
             m_levelstats.text = m_temp.GenerateHighScoreStats();
+
         } 
     }
 }

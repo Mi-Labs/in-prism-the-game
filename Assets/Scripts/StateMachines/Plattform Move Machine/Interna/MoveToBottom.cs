@@ -14,7 +14,7 @@ namespace PlatformMovement
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-
+            Debug.Log("Enter sinking State");
             animator.SetBool("ReachBottom", false);
             m_movingVector = animator.gameObject.GetComponent<PlattformMoving>().GetMovingVector(2);
             m_endPositionTop = animator.gameObject.GetComponent<PlattformMoving>().GetEndPosition(1);

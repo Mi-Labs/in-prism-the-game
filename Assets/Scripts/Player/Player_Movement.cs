@@ -32,10 +32,6 @@ public class Player_Movement : MonoBehaviour {
     //Jump factor
     private float jumpfactor;
 
-
-
-    private LayerMask m_undergroundLayer = 1 << 8;
-
     private float m_circleRadius;
 
     private bool m_canJump;
