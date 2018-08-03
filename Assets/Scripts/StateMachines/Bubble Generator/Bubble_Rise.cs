@@ -43,7 +43,7 @@ namespace BubbleGenerator
                 if (isWayLeft)
                 {
                     // Add RiseVector to actual positon
-                    m_ActualBubble.transform.position += m_RiseVector;
+                    m_ActualBubble.transform.position += m_RiseVector *Time.deltaTime;
                 }
                 else
                 {

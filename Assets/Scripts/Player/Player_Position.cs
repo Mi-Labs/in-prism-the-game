@@ -21,16 +21,6 @@ public class Player_Position : MonoBehaviour {
         }
 	}
     
-    private void Update()
-    {   
-        // Safety check <- If Player is out of Bounds
-        if(m_player.transform.position.y < -100)
-        {
-            // Debug.LogError("Player out of bounds");
-            SetPlayerToStartPosition();
-        }
-    }
-
     /// <summary>
     /// This method sets the player to a specific position
     /// </summary>

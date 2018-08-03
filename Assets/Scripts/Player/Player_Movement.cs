@@ -13,9 +13,12 @@ public class Player_Movement : MonoBehaviour {
 
     // Factor for boost power up
     public float boostfactor;
-
+    [Space]
+    [Header("Jump Attributs")]
     //Jump-Strength
     public float jumppower;
+    [Range(0, 1)]
+    public float m_JumpThresholdX; 
 
     [Space]
     [Header("Fall Multiplier (Experimental)")]
@@ -80,7 +83,6 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        // If there is no y-velocity ...
         if(m_canJump)
         {
             //Create movementVector2
@@ -124,7 +126,6 @@ public class Player_Movement : MonoBehaviour {
 
         for (int i = 0; i < colliders.Length; i++)
         {
-         //   Debug.Log(colliders[i].gameObject.name);
 
             if (colliders[i].gameObject != gameObject)
             {
@@ -137,6 +138,7 @@ public class Player_Movement : MonoBehaviour {
                
             }
         }
+
         if(m_ActivateFallMultiplier)
         {
             // If the player is falling, add some extra force
@@ -156,7 +158,9 @@ public class Player_Movement : MonoBehaviour {
 
     private bool CheckIfSomethingUnder(Vector3 _position, Vector3 _testPosition)
     {
-        if(_position.y > _testPosition.y)
+        bool isNearX = Mathf.Abs(_position.x - _testPosition.x) <= m_JumpThresholdX;
+
+        if(_position.y > _testPosition.y && isNearX)
         {
             return true;
         }

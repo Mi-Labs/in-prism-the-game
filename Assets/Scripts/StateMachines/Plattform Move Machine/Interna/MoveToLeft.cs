@@ -36,7 +36,7 @@ namespace PlatformMovement
             }
             else
             {
-                animator.gameObject.transform.position -= m_movingVector;
+                animator.gameObject.transform.position -= m_movingVector * Time.deltaTime ;
             }
 
         }

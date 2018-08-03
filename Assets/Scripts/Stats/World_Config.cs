@@ -7,7 +7,7 @@
 
 [System.Serializable]
 public class World_Config : MonoBehaviour {
-
+    [HideInInspector]
     // Holds the only instance for script
     public static World_Config instance = null;
 
@@ -77,6 +77,10 @@ public class World_Config : MonoBehaviour {
 
     [Range(0.2f,0.6f)]
     public float m_Textspeed = 0.3f;
+
+    [Space]
+    [Header("Default Sprite Material")]
+    public Material m_DefaultSpriteMaterial;
 
     // @Load of this Object -> Should never be destroyed when loaded
     private void Awake()

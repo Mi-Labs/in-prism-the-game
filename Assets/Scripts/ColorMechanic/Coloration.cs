@@ -1,62 +1,71 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-/// <summary>
-/// This class saves the original color of the GO
-/// -> Must be attached to every object with colorchanging mechanic
-/// </summary>
-public class Coloration : MonoBehaviour {
-
-
-    /* Fields */
-
-    // Holds boolean (if true -> color should be applied to GO)
-    [SerializeField]
-    private bool m_IsColorful;
-
-    public Material m_standardMaterial;
-
-
-    /* Methods */
-
-    void Start ()
-    {
-        m_IsColorful = false;
-	}
-    
-
+namespace ColorChange
+{
     /// <summary>
-    ///  This method gets the status of the colorfulness of the object
+    /// This class saves the original color of the GO
+    /// -> Must be attached to every object with colorchanging mechanic
     /// </summary>
-    /// <returns>The status of the colorfulness</returns>
-    public bool GetIsColorful()
+    public class Coloration : MonoBehaviour
     {
-        return m_IsColorful;
-    }
 
 
-    /// <summary>
-    /// If this method is called, the GO changes to the saved color
-    /// </summary>
-    public void ActivateColor()
-    {
-        if(!m_IsColorful)
+        /* Fields */
+
+        // Holds boolean (if true -> color should be applied to GO)
+        [SerializeField]
+        private bool m_IsColorful;
+
+        private World_Config m_Config;
+
+
+        /* Methods */
+
+        void Start()
         {
-            // Change the color of this GameObjects SpriteRenderer to the assigned color
-            SpriteRenderer[] spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+            m_IsColorful = false;
+            m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
+        }
 
-            foreach (SpriteRenderer renderer in spriteRenderers)
+
+        /// <summary>
+        ///  This method gets the status of the colorfulness of the object
+        /// </summary>
+        /// <returns>The status of the colorfulness</returns>
+        public bool GetIsColorful()
+        {
+            return m_IsColorful;
+        }
+
+
+        /// <summary>
+        /// If this method is called, the GO changes to the saved color
+        /// </summary>
+        public void ActivateColor()
+        {
+            if (!m_IsColorful)
             {
-                renderer.material = m_standardMaterial;
+                // Change the color of this GameObjects SpriteRenderer to the assigned color
+                SpriteRenderer[] spriteRenderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+                foreach (SpriteRenderer renderer in spriteRenderers)
+                {
+                    renderer.material = m_Config.m_DefaultSpriteMaterial;
+                }
+
+                // Set the colorfulness to true
+                m_IsColorful = true;
+
+                if(gameObject.GetComponent<ChangedValues>() != null)
+                {
+                    gameObject.GetComponent<ChangedValues>().ColorChanged(true);
+                }
+                else
+                {
+                    Debug.Log("No Changed Value script on: " + gameObject.name);
+                }
+                
             }
-
-            // Set the colorfulness to true
-            m_IsColorful = true;
-
-            gameObject.GetComponent<ChangedValues>().ColorChanged(true);
-        }   
+        }
     }
-
-    
 }

@@ -79,7 +79,6 @@ namespace StartMenu
 
         private void LevelStart(string _params)
         {
-            Debug.Log(_params);
             controller.GetComponent<SceneManagerMenuScene>().ChooseLevel(_params);
         }
 

@@ -41,7 +41,7 @@ namespace BubbleGenerator
             if(!isScaled)
             {
 
-                m_ActualBubble.transform.localScale += m_ScaleStep;
+                m_ActualBubble.transform.localScale += m_ScaleStep *Time.deltaTime;
             }
             else
             {

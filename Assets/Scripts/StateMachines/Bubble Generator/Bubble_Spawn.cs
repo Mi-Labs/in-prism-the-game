@@ -18,7 +18,6 @@ namespace BubbleGenerator
             if(!animator.GetBool("IsSpawned"))
             {
                 animator.gameObject.GetComponent<BubbleGenerator>().SpawnBubble();
-                Debug.Log("Bubble is spawned");
                 animator.SetBool("IsSpawned", true);
             }             
         }

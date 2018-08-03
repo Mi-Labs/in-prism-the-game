@@ -13,11 +13,13 @@ namespace PlatformMovement
 
         public float m_MoveLength;
 
+        public float m_Offset;
+
         // Holds the startposition of the platform
-        private Vector3 m_startposition;
+        private Vector3 m_Startposition;
 
         // Holds the endposition (Top, Bottom, Left, Right)
-        private Vector3 m_endPositionT, m_endPositionB, m_endPositionL, m_endPositionR = Vector3.zero;
+        private Vector3 m_EndPositionT, m_EndPositionB, m_EndPositionL, m_EndPositionR = Vector3.zero;
 
 
         public enum EDirection : int
@@ -30,12 +32,27 @@ namespace PlatformMovement
 
         public void SetStartPosition(Vector3 _position)
         {
-            m_startposition = _position;
+            if (m_Offset != 0)
+            {
+                if (m_Direction.Equals(EDirection.X_Axis))
+                {
+                    m_Startposition = _position + new Vector3(m_Offset, 0.0f, 0.0f);
+                }
+                else
+                {
+                    m_Startposition = _position + new Vector3(0.0f ,m_Offset, 0.0f);
+                }
+            }
+            else
+            {
+                m_Startposition = _position;
+            }
+ 
         }
 
         public Vector3 GetStartPosition()
         {
-            return m_startposition;
+            return m_Startposition;
         }
 
 
@@ -74,19 +91,19 @@ namespace PlatformMovement
             switch (_direction)
             {
                 case 1:
-                    endPosition = m_endPositionB;
+                    endPosition = m_EndPositionB;
                     break;
 
                 case 2:
-                    endPosition = m_endPositionT;
+                    endPosition = m_EndPositionT;
                     break;
 
                 case 3:
-                    endPosition = m_endPositionL;
+                    endPosition = m_EndPositionL;
                     break;
 
                 case 4:
-                    endPosition = m_endPositionR;
+                    endPosition = m_EndPositionR;
                     break;
 
                 default:
@@ -102,16 +119,16 @@ namespace PlatformMovement
             switch (_direction)
             {
                 case 1:
-                    return m_endPositionB;
+                    return m_EndPositionB;
 
                 case 2:
-                    return m_endPositionT;
+                    return m_EndPositionT;
 
                 case 3:
-                    return m_endPositionL;
+                    return m_EndPositionL;
 
                 case 4:
-                    return m_endPositionR;
+                    return m_EndPositionR;
 
                 default:
                     Debug.LogError("Invalid direction");
@@ -140,13 +157,13 @@ namespace PlatformMovement
         {
             if (m_Direction == EDirection.X_Axis)
             {
-                m_endPositionR = m_startposition + new Vector3(m_MoveLength, 0.0f, 0.0f);
-                m_endPositionL = m_startposition - new Vector3(m_MoveLength, 0.0f, 0.0f);
+                m_EndPositionR = m_Startposition + new Vector3(m_MoveLength, 0.0f, 0.0f);
+                m_EndPositionL = m_Startposition - new Vector3(m_MoveLength, 0.0f, 0.0f);
             }
             else if (m_Direction == EDirection.Y_Axis)
             {
-                m_endPositionT = m_startposition + new Vector3(0.0f, m_MoveLength, 0.0f);
-                m_endPositionB = m_startposition - new Vector3(0.0f, m_MoveLength, 0.0f);
+                m_EndPositionT = m_Startposition + new Vector3(0.0f, m_MoveLength, 0.0f);
+                m_EndPositionB = m_Startposition - new Vector3(0.0f, m_MoveLength, 0.0f);
             }
 
         }

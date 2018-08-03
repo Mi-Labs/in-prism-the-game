@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // Script by https://docs.unity3d.com/ScriptReference/ColorUtility.TryParseHtmlString.html
-
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(ColorHTMLPropertyAttribute))]
 public class ColorHTMLPropertyDrawer : PropertyDrawer
 {
@@ -20,4 +20,5 @@ public class ColorHTMLPropertyDrawer : PropertyDrawer
         property.colorValue = EditorGUI.ColorField(colorField, property.colorValue);
     }
 }
+#endif
 

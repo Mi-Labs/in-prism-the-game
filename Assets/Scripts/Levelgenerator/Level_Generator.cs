@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ColorChange;
 
 public class Level_Generator : MonoBehaviour {
 
@@ -86,7 +87,6 @@ public class Level_Generator : MonoBehaviour {
                     Instantiate(color.PreFab, position, Quaternion.identity, transform);
                 }
             }
-
         }
     }
 
