@@ -13,10 +13,16 @@ namespace PlatformMovement
 
         public float m_MoveLength;
 
+        [Space]
+        [Header("Offset")]
+        public bool m_RandomizeOffset;
+        [Range(0,10)]
         public float m_Offset;
 
         // Holds the startposition of the platform
         private Vector3 m_Startposition;
+
+        private Vector3 m_CenterPosition;
 
         // Holds the endposition (Top, Bottom, Left, Right)
         private Vector3 m_EndPositionT, m_EndPositionB, m_EndPositionL, m_EndPositionR = Vector3.zero;
@@ -31,24 +37,11 @@ namespace PlatformMovement
 
 
         public void SetStartPosition(Vector3 _position)
-        {
-            if (m_Offset != 0)
-            {
-                if (m_Direction.Equals(EDirection.X_Axis))
-                {
-                    m_Startposition = _position + new Vector3(m_Offset, 0.0f, 0.0f);
-                }
-                else
-                {
-                    m_Startposition = _position + new Vector3(0.0f ,m_Offset, 0.0f);
-                }
-            }
-            else
-            {
-                m_Startposition = _position;
-            }
- 
+        {   
+            m_Startposition = _position;
         }
+
+        
 
         public Vector3 GetStartPosition()
         {
@@ -74,9 +67,6 @@ namespace PlatformMovement
 
             return Vector3.zero;
         }
-
-
-        
 
 
         /// <summary>
@@ -138,6 +128,7 @@ namespace PlatformMovement
             return Vector3.zero;
         }
 
+
         public void FlipPlattformLeft(bool _status)
         {
             if(m_ShouldFlipLeft)
@@ -153,22 +144,47 @@ namespace PlatformMovement
             }          
         }
 
-        private void CalculateEndPoints()
+
+        /// <summary>
+        /// This method calulates the center point (if there is an offset)
+        /// </summary>
+        private void CalclulateCenterPoint()
         {
+            if (m_RandomizeOffset)
+            {
+                m_Offset = Random.Range(0.1f, m_Offset);
+            }
+
             if (m_Direction == EDirection.X_Axis)
             {
-                m_EndPositionR = m_Startposition + new Vector3(m_MoveLength, 0.0f, 0.0f);
-                m_EndPositionL = m_Startposition - new Vector3(m_MoveLength, 0.0f, 0.0f);
+                m_CenterPosition = m_Startposition + new Vector3(m_Offset, 0.0f, 0.0f);
+            }
+            else
+            {
+                m_CenterPosition = m_Startposition + new Vector3 (0.0f,m_Offset, 0.0f);
+            }    
+        }
+
+
+        /// <summary>
+        /// This method calculates the end points for the moving platform
+        /// </summary>
+        private void CalculateEndPoints()
+        {
+            CalclulateCenterPoint();
+
+            if (m_Direction == EDirection.X_Axis)
+            {
+                m_EndPositionR = m_CenterPosition + new Vector3(m_MoveLength, 0.0f, 0.0f);
+                m_EndPositionL = m_CenterPosition - new Vector3(m_MoveLength, 0.0f, 0.0f);
             }
             else if (m_Direction == EDirection.Y_Axis)
             {
-                m_EndPositionT = m_Startposition + new Vector3(0.0f, m_MoveLength, 0.0f);
-                m_EndPositionB = m_Startposition - new Vector3(0.0f, m_MoveLength, 0.0f);
+                m_EndPositionT = m_CenterPosition + new Vector3(0.0f, m_MoveLength, 0.0f);
+                m_EndPositionB = m_CenterPosition - new Vector3(0.0f, m_MoveLength, 0.0f);
             }
-
         }
-    }
 
-   
+    }
 }
 

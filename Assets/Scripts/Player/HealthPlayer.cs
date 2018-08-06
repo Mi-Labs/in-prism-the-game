@@ -135,7 +135,7 @@ public class HealthPlayer : MonoBehaviour {
     /// <summary>
     /// This method resets the lifepoints to the maximum / startvalue;
     /// </summary>
-    private void ResetLifePoints()
+    public void ResetLifePoints()
     {
         IncreaseLife(maxlifepoints);
     }
@@ -161,11 +161,15 @@ public class HealthPlayer : MonoBehaviour {
             Debug.Log("No Level stats found");
         }
         
-
         // Reset Scene
         m_ManagerPlay.ResetScene();
 
+        // Reset Life Points
+        ResetLifePoints();
+
         // Sets player to start position
         gameObject.GetComponent<Player_Position>().SetPlayerToStartPosition();
+
+        
     }  
 }

@@ -27,6 +27,8 @@ namespace HighScore
 
                 m_temp.SaveLevelStats(m_stats.GetLevelNumber(), m_stats.GetLevelTime(), m_stats.GetNumberOfDeaths(), m_stats.GetNumberOfSavedSpheres());
 
+                _collision.gameObject.GetComponent<HealthPlayer>().ResetLifePoints();
+
                 m_Controller.GetComponent<SceneManagerPlayScene>().SwitchToHighScore();
             }
         }
