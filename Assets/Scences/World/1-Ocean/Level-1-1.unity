@@ -1608,24 +1608,3 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1406756488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1287709044739084, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1406756487}
---- !u!114 &1406756489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406756488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e7357bb952c364b98e0bcc918eb3ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsComplete: 0
-  m_Leveltime: 0
-  m_Savedspheres: 0
-  m_NumberOfDeaths: 0
-  m_ActualSceneNumber: 0

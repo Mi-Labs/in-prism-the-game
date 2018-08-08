@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Helper;
 
 namespace BubbleGenerator
 {
@@ -36,9 +37,9 @@ namespace BubbleGenerator
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
 
-            bool isScaled = IsFullyScaled(m_ActualBubble.transform.localScale, m_EndSize);
+            bool isScaled = WayCalculation.CalculateWayLeftX(m_ActualBubble.transform.localScale, m_EndSize);
 
-            if(!isScaled)
+            if(isScaled)
             {
 
                 m_ActualBubble.transform.localScale += m_ScaleStep *Time.deltaTime;
@@ -60,11 +61,6 @@ namespace BubbleGenerator
             return new Vector3(_step, _step, 0.0f);
         }
 
-        private bool IsFullyScaled(Vector3 _ActualSize,Vector3 _EndSize)
-        {
-
-            return (Mathf.Abs(_ActualSize.x - _EndSize.x) <= 0.1f) ? true : false;
-        }
 
         private Vector3 GenerateEndSize(float _EndSize)
         {

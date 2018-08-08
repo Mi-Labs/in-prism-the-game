@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Helper;
 
 namespace BubbleGenerator
 {
@@ -38,7 +39,7 @@ namespace BubbleGenerator
             if(m_ActualBubble != null)
             {
                 // Calculate the way left till destruction
-                bool isWayLeft = CalculateWayLeft(m_ActualBubble.transform.position, m_Endpositon);
+                bool isWayLeft = WayCalculation.CalculateWayLeftY(m_ActualBubble.transform.position, m_Endpositon);
                 // If there is way left till destruction...
                 if (isWayLeft)
                 {
@@ -56,18 +57,6 @@ namespace BubbleGenerator
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
-
-
-        /// <summary>
-        /// This method checks, if there is way between the two given points
-        /// </summary>
-        /// <param name="_actualPosition">The actual position of the GO</param>
-        /// <param name="_destination">The destination of the GO</param>
-        /// <returns>True, if there is more than 0.1f way</returns>
-        private bool CalculateWayLeft(Vector3 _actualPosition, Vector3 _destination)
-        {
-            return (Mathf.Abs((_actualPosition.y - _destination.y)) <= 0.1f) ? false : true;
-        }
 
 
         /// <summary>

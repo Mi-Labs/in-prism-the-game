@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Helper;
 
 namespace PlatformMovement
 {
@@ -25,7 +26,7 @@ namespace PlatformMovement
         {
             Vector3 actualPosition = animator.gameObject.transform.position;
 
-            bool isWayLeft = CalculateWayLeft(actualPosition, m_endPositionTop);
+            bool isWayLeft = WayCalculation.CalculateWayLeftY(actualPosition, m_endPositionTop);
 
             if (!isWayLeft)
             {
@@ -41,9 +42,5 @@ namespace PlatformMovement
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
 
-        private bool CalculateWayLeft(Vector3 _actualPosition, Vector3 _destination)
-        {
-            return (Mathf.Abs((_actualPosition.y - _destination.y)) <= 0.1f) ? false : true;
-        }
     }
 }
