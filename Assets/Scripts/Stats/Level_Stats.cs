@@ -9,38 +9,70 @@ public class Level_Stats : MonoBehaviour {
     
     // Holds the status of the level complition
     [SerializeField]
-    private bool is_complete;
+    private bool m_IsComplete;
 
     // Holds time that has passed since the scene has started
-    //[SerializeField]
-    //private float leveltime;
+    [SerializeField]
+    private float m_Leveltime;
 
     //Holds the amount of saved spheres
     [SerializeField]
-    private int savedspheres;
+    private int m_Savedspheres;
 
+    [SerializeField]
+    private int m_NumberOfDeaths;
+
+    [SerializeField]
+    private int m_ActualSceneNumber;
+
+    
 	// Use this for initialization
-	void Start () {}
+	void Start ()
+    {        
+        m_ActualSceneNumber = gameObject.scene.buildIndex;
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
         //updates the leveltime
-       // leveltime = Time.timeSinceLevelLoad;	
+        if (!m_IsComplete)
+        {
+            m_Leveltime = Time.timeSinceLevelLoad;
+        }
+           
 	}
 
-    /**
-     *  Speichermöglichkeit für das Speichern der Farben
-     * 
-    private bool[] colorful;
-
-    public void Savecolors()
+   public float GetLevelTime()
     {
-        GameObject[] go = FindObjectsOfType<GameObject>();
-        foreach(GameObject element in go)
-        {
-            colorful = element.GetComponent<Coloration>().GetIsColorful();
-        }
+        return m_Leveltime;
     }
-    **/
+    
+    public int GetNumberOfDeaths()
+    {
+        return m_NumberOfDeaths;
+    }
+    
+    public void AddDeath()
+    {
+        m_NumberOfDeaths++;
+        GlobalStatistics.IncreaseNumberOfDeath(1);
+        Debug.Log(GlobalStatistics.m_numberOfDeath);
+    }
+
+
+    public int GetNumberOfSavedSpheres()
+    {
+        return m_Savedspheres;
+    }
+
+    public void AddSavedSphere()
+    {
+        m_Savedspheres++;
+    }
+
+    public int GetLevelNumber()
+    {
+        return m_ActualSceneNumber;
+    }
 }

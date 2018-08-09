@@ -1,37 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AddTopping : MonoBehaviour {
 
+    /* Fields */
+
+    // Holds the prefab for the topping
     public GameObject m_topping;
 
+    // Hold the length and direction of the raycast
+    private float m_castLength;
     private Vector2 m_castDirection;
 
-    private float m_castLength;
-
+    // Holds the layer for checking
     private LayerMask m_undergroundMask;
 
-    // Use this for initialization
-    void Start ()
-    {
-        // Set castDirection to upwards
-        m_castDirection = new Vector2(0.0f, 1.0f);
 
+    /* Methods */
+
+   /// <summary>
+   /// This method is called before Start()
+   /// </summary>
+    void Awake ()
+    {
+        // Init cast direction and length
+        m_castDirection = Vector2.up;        
         m_castLength = 0.6f;
 
         // Set LayerMask to Layer 8 -> Underground
-        m_undergroundMask = 1 << 8;
+        m_undergroundMask = 1 << 8;       
+	}
 
+    /// <summary>
+    /// This method generates a topping, if there is nothing above the GO
+    /// </summary>
+    public void GenerateTopping()
+    {
         bool thingAbove = CheckIfSomethingAbove();
 
         // If there isn't anything above, create the topping
-        if(!thingAbove)
+        if (!thingAbove)
         {
             Instantiate(m_topping, this.transform.position, Quaternion.identity, this.transform);
         }
-            
-	}
+    }
 
     /// <summary>
     /// This method checks, if a GO on the given layer is above the current GO
@@ -44,5 +55,4 @@ public class AddTopping : MonoBehaviour {
         // Returns true if there was a object above
         return (hit.collider != null) ? true : false;
     }
-
 }

@@ -7,60 +7,71 @@ public class Player_Movement : MonoBehaviour {
 
     /* Variables */
 
-    //Rigidbody Player-Object
-    private Rigidbody2D rgb2D;
-
-    //Jump-Strength
-    public float jumppower;
-
-    //Jump factor
-    public float jumpfactor;
-
     // Acceleration for movement
-    public float acceleration = 1.5f;
+    [Range(1,5)]
+    public float m_acceleration;
 
     // Factor for boost power up
     public float boostfactor;
+    [Space]
+    [Header("Jump Attributs")]
+    //Jump-Strength
+    public float jumppower;
+    [Range(0, 1)]
+    public float m_JumpThresholdX; 
+
+    [Space]
+    [Header("Fall Multiplier (Experimental)")]
+    [Range(1, 10)]
+    public float m_fallMultiplier;
+
+    public bool m_ActivateFallMultiplier;
+
+    //Rigidbody Player-Object
+    private Rigidbody2D rgb2D;
 
 
+
+    //Jump factor
+    private float jumpfactor;
+
+    private float m_circleRadius;
+
+    private bool m_canJump;
 
 
     // Constants
 
     // Constant boost factor
-    private const float m_standardboostfactor = 1.0f;
+    private const float k_standardboostfactor = 1.0f;
 
     // Constant jump factor
-    private const float m_standardjumpfactor = 1.0f;
+    private const float k_standardjumpfactor = 1.0f;
 
-    private bool m_canJump;
+
 
     /* Methods */
 
     // Use this for initialization
     void Start () {
 
-        //Initialize Rigidbody of Player
+        //Initialize fields
         rgb2D = GetComponent<Rigidbody2D>();
-
-        // Set the boostfactor on standard
-        boostfactor = m_standardboostfactor;
-
-        // Set the jumpfactor on standard
-        jumpfactor = m_standardjumpfactor;
-
-        // Initialize m_canJump
+        boostfactor = k_standardboostfactor;
+        jumpfactor = k_standardjumpfactor;
         m_canJump = false;
+        m_fallMultiplier = 3.0f;
+        m_circleRadius = GetComponent<CircleCollider2D>().radius + 0.1f;
 	}
 	
     /// <summary>
     /// This function moves the player horizontally
     /// </summary>
     /// <param name="direction">This param decides, if the movment is to the left (-1) or to the right(1)</param>
-    public void MovePlayer(float direction)
+    public void MovePlayer(float _direction)
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(direction*acceleration*boostfactor, 0);
+        Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor, 0);
 
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
@@ -72,7 +83,6 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        // If there is no y-velocity ...
         if(m_canJump)
         {
             //Create movementVector2
@@ -89,7 +99,7 @@ public class Player_Movement : MonoBehaviour {
     public void SetBoostSpeedToStandard()
     {
         // Set the boostfactor to standard
-        boostfactor = m_standardboostfactor;
+        boostfactor = k_standardboostfactor;
 
         //Debug.Log("Boost is on standard value");
     }
@@ -100,7 +110,7 @@ public class Player_Movement : MonoBehaviour {
     public void SetJumpFactorToStandard()
     {
         // Set the jumpfactor to standard
-        jumpfactor = m_standardjumpfactor;
+        jumpfactor = k_standardjumpfactor;
 
         //Debug.Log("Jump is on standard value");
     }
@@ -110,12 +120,52 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     private void Update()
     {
-        // Get actual velocity of the player on y-axis
-        float velocityY = rgb2D.velocity.y;
+        m_canJump = false;
 
-        velocityY = Mathf.Abs(velocityY);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_circleRadius);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+
+            if (colliders[i].gameObject != gameObject)
+            {
+                bool somethingUnder = CheckIfSomethingUnder(transform.position, colliders[i].gameObject.transform.position);
+
+                if(somethingUnder)
+                {
+                    m_canJump = true;
+                }
+               
+            }
+        }
+
+        if(m_ActivateFallMultiplier)
+        {
+            // If the player is falling, add some extra force
+            if (rgb2D.velocity.y < 0)
+            {
+                rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
+            }
+        }
+
+    }
+
+
+    public void SetJumpFactor(float _factor)
+    {
+        jumpfactor = _factor;
+    }
+
+    private bool CheckIfSomethingUnder(Vector3 _position, Vector3 _testPosition)
+    {
+        bool isNearX = Mathf.Abs(_position.x - _testPosition.x) <= m_JumpThresholdX;
+
+        if(_position.y > _testPosition.y && isNearX)
+        {
+            return true;
+        }
+
+        return false;
         
-        // If the velocity of the player is between -0.1f and 0.1f, the player can jump
-        m_canJump = (velocityY < 0.1f) ? true : false;
     }
 }

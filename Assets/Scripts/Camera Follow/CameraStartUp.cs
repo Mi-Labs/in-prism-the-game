@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 ///  This script adds the follow script to the main camera and destroys itself
@@ -8,14 +6,26 @@ using UnityEngine;
 /// </summary>
 public class CameraStartUp : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+
+    /* Fields */
+
+    private static CameraFollow m_FollowScript = null;
+
+
+    /* Methods */
+
+    void Start ()
     {
-        // Add Script CameraFollow to main camera
-        Camera.main.gameObject.AddComponent<CameraFollow>();
+        // Try to get the camera follow script
+        m_FollowScript = Camera.main.GetComponent<CameraFollow>();
+
+        // If no camera follow script is found -> add it to the main camera
+        if(m_FollowScript == null)
+        {
+            Camera.main.gameObject.AddComponent<CameraFollow>(); 
+        }
+
         // Destroy this script
         Destroy(this);
 	}
-	
-	
 }

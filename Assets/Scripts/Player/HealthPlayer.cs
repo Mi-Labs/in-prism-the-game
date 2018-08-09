@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using GameManagement;
 
 public class HealthPlayer : MonoBehaviour {
 
-
-    /* Variables */
+    /* Fields */
 
     // Holds the current amount of lifepoints
     private int lifepoints;
@@ -17,6 +16,11 @@ public class HealthPlayer : MonoBehaviour {
     // Holds the status of invulnerability
     private bool isInvulnerable;
 
+    private ChangeLifeFilling m_FillingScript;
+
+    // private World_Stats stats;
+
+    private SceneManagerPlayScene m_ManagerPlay;
 
 
     /* Methods */
@@ -29,34 +33,42 @@ public class HealthPlayer : MonoBehaviour {
 
         // Set isInvulnerable to false -> only true when powerup is active
         isInvulnerable = false;
+
+        m_FillingScript = gameObject.GetComponentInChildren<ChangeLifeFilling>();
 	}
 
     /// <summary>
     /// This method decreases the life point with the given parameter
     /// </summary>
     /// <param name="damage">The amount of lifepoints, that should be decreased</param>
-    public void DecreaseLife(int damage)
+    public void DecreaseLife(int _damage)
     {
+        // Debug.Log("Method DecreaseLife was called with "+ _damage +" Damage!");
+
         if(!isInvulnerable)
         {
-            //Debug.Log("Damage " + damage);
-
-            // Calculate the lifepoints, that are left after the decrease
-            lifepoints = lifepoints - damage;
-
-            //Debug.Log("LifeP" + lifepoints);
+            // Check if with the new life point value is greater than zero
+            if(lifepoints - _damage < 0)
+            {
+                lifepoints = 0;
+            }
+            else
+            {
+                // Calculate the lifepoints, that are left after the decrease
+                lifepoints = lifepoints - _damage;
+            }
 
             // Change the text on the life bar
-            ChangeLifeBar();
+            ChangeLifeBar(lifepoints);
 
-            // If the lifepoints are below zero, reset this scene
-            if (lifepoints <= 0)
+            // If the lifepoints are below or zero, reset this scene
+            if (lifepoints <= 0) //Be Aware of a possible Bug
             {
-                // Get the build index of the active scence
-                int activescene = SceneManager.GetActiveScene().buildIndex;
+                // Reset the life points to maximum after reset
+                ResetLifePoints();
 
-                // Reload the scence
-                SceneManager.LoadScene(activescene);
+                // Resets the Level
+                ResetLevel();
             }
         }   
     }
@@ -64,11 +76,11 @@ public class HealthPlayer : MonoBehaviour {
     /// <summary>
     /// This method increases the lifepoints of the player with the given parameter
     /// </summary>
-    /// <param name="life">The amount of lifepoints, that should be added</param>
-    public void IncreaseLife(int life)
+    /// <param name="_life">The amount of lifepoints, that should be added</param>
+    public void IncreaseLife(int _life)
     {
-        //If the lifepoints + the parameter are more ore equal of the maximal lifepoint time -> set lifepoints to maximum
-        if(lifepoints + life >= maxlifepoints)
+        //If the lifepoints + the parameter are more ore equal of the maximal life point time -> set lifepoints to maximum
+        if(lifepoints + _life >= maxlifepoints)
         {
             // Set lifepoints to maximum
             lifepoints = maxlifepoints;
@@ -76,9 +88,12 @@ public class HealthPlayer : MonoBehaviour {
         else
         {
             // Add the parameter value to the lifepoints
-            lifepoints =+ life;
+            lifepoints =+ _life;
         }
+        // Change displayed lifepoints
+        ChangeLifeBar(lifepoints);
     }
+
 
     /// <summary>
     /// This method gives the current lifepoints
@@ -89,6 +104,7 @@ public class HealthPlayer : MonoBehaviour {
         return lifepoints;
     }
 
+
     /// <summary>
     /// This method gives the maximal lifepoints
     /// </summary>
@@ -98,13 +114,13 @@ public class HealthPlayer : MonoBehaviour {
         return maxlifepoints;
     }
 
+
     /// <summary>
-    /// This method changes the Value of the lifebar
+    /// This method changes the Value of the life bar
     /// </summary>
-    private void ChangeLifeBar()
+    private void ChangeLifeBar(int _lifepoints)
     {
-        // Get the ReadPlayerTime script and change the value of the lifebar to the actual value
-        this.GetComponent<ReadPlayerTime>().ChangeTextValue();
+        m_FillingScript.SetNewLifePoint(_lifepoints);
     }
 
     /// <summary>
@@ -112,14 +128,48 @@ public class HealthPlayer : MonoBehaviour {
     /// </summary>
     public void ToogleIsInvulnerable(bool status)
     {
-        // If the powerUp Invulnerability is active
-        if(status == true)
+        isInvulnerable = (status) ? true : false;        
+    }
+
+
+    /// <summary>
+    /// This method resets the lifepoints to the maximum / startvalue;
+    /// </summary>
+    public void ResetLifePoints()
+    {
+        IncreaseLife(maxlifepoints);
+    }
+
+
+    /// <summary>
+    /// This method resets the level
+    /// </summary>
+    private void ResetLevel()
+    {
+        GameObject sceneController = GameObject.FindGameObjectWithTag("GameController");
+
+        // Find Scene Controller
+        m_ManagerPlay = sceneController.GetComponent<SceneManagerPlayScene>();
+
+        // Add death to statistic
+        if(sceneController.GetComponent<Level_Stats>() != null)
         {
-            isInvulnerable = true;
+            sceneController.GetComponent<Level_Stats>().AddDeath();
         }
         else
         {
-            isInvulnerable = false;
+            Debug.Log("No Level stats found");
         }
-    }
+        
+        // Reset Scene
+        m_ManagerPlay.ResetScene();
+
+        // Reset Life Points
+        ResetLifePoints();
+
+        // Sets player to start position
+        gameObject.GetComponent<Player_Position>().SetPlayerToStartPosition();
+
+        
+    }  
 }

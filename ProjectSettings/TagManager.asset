@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Underground
   - Config
+  - SceneManager
+  - LifePointDisplay
+  - PowerUpMenu
+  - Statistic
+  - Killzone
+  - LevelSave
+  - LevelGenerator
+  - Serializer
+  - StartMenuPanel
+  - TextboxPanel
   layers:
   - Default
   - TransparentFX
