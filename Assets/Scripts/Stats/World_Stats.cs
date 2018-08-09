@@ -19,6 +19,8 @@ public class World_Stats : MonoBehaviour
 
     public GlobalStatistics m_Stats;
 
+    public int m_Deaths;
+
 
     /* Methods */
 
@@ -50,6 +52,17 @@ public class World_Stats : MonoBehaviour
         {
             BinarySerializer.LoadStats();
         }
+        else
+        {
+            Debug.Log("Create new GlobalStatistic");
+            m_Stats = new GlobalStatistics();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        //m_Deaths = GlobalStatistics.m_numberOfDeath;
+      //  Debug.Log(GlobalStatistics.m_numberOfDeath);
     }
 
     public StatisticsSave SaveData()
@@ -61,8 +74,19 @@ public class World_Stats : MonoBehaviour
     {
         if(_savedData != null)
         {
-            m_Stats = _savedData.GetSaveData();
+            string save =_savedData.GetSaveData().ToString();
+            string[] data = save.Split('$');
+            m_Deaths = 0;
+            int.TryParse(data[0], out m_Deaths);
         }
     }
+
+
+    private void OnApplicationQuit()
+    {
+       BinarySerializer.SaveStats(SaveData());
+    }
+
 }
+
 

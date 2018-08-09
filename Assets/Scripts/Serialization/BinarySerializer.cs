@@ -98,7 +98,7 @@ public class BinarySerializer : MonoBehaviour {
         }
         else
         {
-            World_Stats worldObjectSave = GameObject.FindGameObjectWithTag("Statistics").GetComponent<World_Stats>();
+            World_Stats worldObjectSave = GameObject.FindGameObjectWithTag("Statistic").GetComponent<World_Stats>();
             worldObjectSave.LoadStats(m_Stats);
         }
     }

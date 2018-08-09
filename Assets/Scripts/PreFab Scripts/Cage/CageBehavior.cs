@@ -57,9 +57,19 @@ namespace Spheres
                 case 0:
                     // Make the sprite for the cage disapear
                     m_CageRenderer.enabled = false;
-                    m_CageRenderer.GetComponent<BoxCollider2D>().enabled = false;
-                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    m_SphereScript.gameObject.GetComponent<CircleCollider2D>().enabled = false;
                     m_SphereScript.RiseSphere();
+
+                    GameObject sceneController = GameObject.FindGameObjectWithTag("GameController");
+
+                    if (sceneController.GetComponent<Level_Stats>() != null)
+                    {
+                        sceneController.GetComponent<Level_Stats>().AddSavedSphere();
+                    }
+                    else
+                    {
+                        Debug.Log("No Level stats found");
+                    }
                     break;
 
                 case 1:

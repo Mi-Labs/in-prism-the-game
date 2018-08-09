@@ -5,22 +5,33 @@ using UnityEngine;
 [System.Serializable]
 public class GlobalStatistics {
 
-    public int m_numberOfDeath;
-    public float m_playTime;
-    public int m_playedLevel;
-    public int saved_orbits;  
+    public static int m_numberOfDeath;
+    public static float m_playTime;
+    public static int m_playedLevel;
+    public static int saved_orbits;  
     
-    public void IncreaseNumberOfDeath(int _change)
+    public static void IncreaseNumberOfDeath(int _change)
     {
         if(_change > 0)
         {
+            Debug.Log("GS Death increased by" + _change);
             m_numberOfDeath += _change; 
         }
     }
 
-    public void UpdatePlayTime(int _newValue)
+    public static void UpdatePlayTime(int _newValue)
     {
         m_playedLevel = _newValue;
+    }
+
+    public static int GetNumberOfDeath()
+    {
+        return m_numberOfDeath;
+    }
+
+    public override string ToString()
+    {
+        return m_numberOfDeath + "$" + m_playTime + "$" + m_playedLevel + "$" + saved_orbits + "$";
     }
 
 }

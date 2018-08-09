@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114117336114390184}
   - component: {fileID: 61698895103448046}
   m_Layer: 0
-  m_Name: Cage Blue
+  m_Name: Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8352d976ca78440942ca9c931a24a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RiseSpeed: 2
+  m_RiseSpeed: 100
   m_RiseHeight: 2
 --- !u!114 &114117336114390184
 MonoBehaviour:
