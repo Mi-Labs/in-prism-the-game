@@ -56,9 +56,8 @@ public class Level_Stats : MonoBehaviour {
     public void AddDeath()
     {
         m_NumberOfDeaths++;
-        GlobalStatistics.IncreaseNumberOfDeath(1);
-        Debug.Log(GlobalStatistics.m_numberOfDeath);
-    }
+        GlobalStatistics.Instance.IncreaseNumberOfDeath(1);
+            }
 
 
     public int GetNumberOfSavedSpheres()

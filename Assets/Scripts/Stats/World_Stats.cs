@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.IO;
 
 /// <summary>
@@ -19,7 +17,9 @@ public class World_Stats : MonoBehaviour
 
     public GlobalStatistics m_Stats;
 
-    public int m_Deaths;
+    private float m_TotalPlayedTime;
+
+    public string m_PlayTimeInSeconds;
 
 
     /* Methods */
@@ -39,8 +39,13 @@ public class World_Stats : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
+    public void Update()
+    {
+        m_TotalPlayedTime = Time.timeSinceLevelLoad;   
+    }
 
     /// <summary>
     ///  Is called after Awake()
@@ -54,16 +59,10 @@ public class World_Stats : MonoBehaviour
         }
         else
         {
-            Debug.Log("Create new GlobalStatistic");
-            m_Stats = new GlobalStatistics();
+            m_Stats = GlobalStatistics.Instance;
         }
     }
 
-    private void LateUpdate()
-    {
-        //m_Deaths = GlobalStatistics.m_numberOfDeath;
-      //  Debug.Log(GlobalStatistics.m_numberOfDeath);
-    }
 
     public StatisticsSave SaveData()
     {
@@ -74,16 +73,18 @@ public class World_Stats : MonoBehaviour
     {
         if(_savedData != null)
         {
-            string save =_savedData.GetSaveData().ToString();
-            string[] data = save.Split('$');
-            m_Deaths = 0;
-            int.TryParse(data[0], out m_Deaths);
+            m_Stats = GlobalStatistics.Instance;
+            m_Stats.SetNumberOfDeath(_savedData.GetSaveData().GetNumberOfDeath());
+            m_Stats.SetPlayTime(_savedData.GetSaveData().GetPlayTime());
+            m_PlayTimeInSeconds = TimeSpan.FromSeconds(m_Stats.GetPlayTime()).ToString();
         }
     }
 
 
     private void OnApplicationQuit()
     {
+       m_Stats.UpdatePlayTime(m_TotalPlayedTime);
+
        BinarySerializer.SaveStats(SaveData());
     }
 

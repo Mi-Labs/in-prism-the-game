@@ -5,33 +5,66 @@ using UnityEngine;
 [System.Serializable]
 public class GlobalStatistics {
 
-    public static int m_numberOfDeath;
-    public static float m_playTime;
-    public static int m_playedLevel;
-    public static int saved_orbits;  
-    
-    public static void IncreaseNumberOfDeath(int _change)
+    public static GlobalStatistics instance = null;
+
+    [SerializeField]
+    private int m_numberOfDeath;
+    [SerializeField]
+    private float m_playTime;
+    public int m_playedLevel;
+    public int saved_orbits;
+
+    public static GlobalStatistics Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GlobalStatistics();
+            }
+            return instance;
+        }
+    }
+
+    public void IncreaseNumberOfDeath(int _change)
     {
         if(_change > 0)
         {
-            Debug.Log("GS Death increased by" + _change);
             m_numberOfDeath += _change; 
         }
     }
 
-    public static void UpdatePlayTime(int _newValue)
+    public void UpdatePlayTime(float _newValue)
     {
-        m_playedLevel = _newValue;
+        if(m_playTime == 0.0f)
+        {
+            m_playTime = _newValue;
+        }
+        else
+        {
+            m_playTime += _newValue;
+        }   
     }
 
-    public static int GetNumberOfDeath()
+    public int GetNumberOfDeath()
     {
         return m_numberOfDeath;
     }
 
-    public override string ToString()
+    public void SetNumberOfDeath(int _number)
     {
-        return m_numberOfDeath + "$" + m_playTime + "$" + m_playedLevel + "$" + saved_orbits + "$";
+        m_numberOfDeath = _number;
     }
+
+    public float GetPlayTime()
+    {
+        return m_playTime;
+    }
+
+    public void SetPlayTime(float _time)
+    {
+        m_playTime = _time;
+    }
+
 
 }
