@@ -27,7 +27,11 @@ public class PowerUp_Menu : MonoBehaviour {
 
         for (int i = 0; i < buttons.Length; i++)
         {
-            powerups[i] = buttons[i].gameObject;
+            if (buttons[i].gameObject.name.Contains("PowerUp"))
+            {
+                powerups[i] = buttons[i].gameObject;
+            }
+            
         }
 
         CheckForVisiblePowerUps();
