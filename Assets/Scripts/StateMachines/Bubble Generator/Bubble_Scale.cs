@@ -55,13 +55,21 @@ namespace BubbleGenerator
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)  {}
 
-
+        /// <summary>
+        /// This method generates the scaling step vector
+        /// </summary>
+        /// <param name="_step">The generated scaling step vector (z-Axis)</param>
+        /// <returns></returns>
         private Vector3 GenerateScaleStepVector(float _step)
         {
             return new Vector3(_step, _step, 0.0f);
         }
 
-
+        /// <summary>
+        /// This method generates the endsize of the scaling process
+        /// </summary>
+        /// <param name="_EndSize">The endsize as Vector3 (X-,Y-Axis)</param>
+        /// <returns></returns>
         private Vector3 GenerateEndSize(float _EndSize)
         {
             return new Vector3(_EndSize, _EndSize, 1.0f);

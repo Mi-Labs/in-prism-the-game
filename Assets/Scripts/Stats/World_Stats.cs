@@ -17,9 +17,11 @@ public class World_Stats : MonoBehaviour
 
     public GlobalStatistics m_Stats;
 
+    public string m_PlayTimeInSeconds;
+
     private float m_TotalPlayedTime;
 
-    public string m_PlayTimeInSeconds;
+
 
 
     /* Methods */
@@ -42,11 +44,6 @@ public class World_Stats : MonoBehaviour
 
     }
 
-    public void Update()
-    {
-        m_TotalPlayedTime = Time.timeSinceLevelLoad;   
-    }
-
     /// <summary>
     ///  Is called after Awake()
     /// </summary>
@@ -63,31 +60,49 @@ public class World_Stats : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// This method generates a statistic save and returns it 
+    /// </summary>
+    /// <returns>saved statistic data</returns>
     public StatisticsSave SaveData()
     {
         return new StatisticsSave(m_Stats);
     }
 
+    /// <summary>
+    /// This method loads the data from a serialized data
+    /// </summary>
+    /// <param name="_savedData">Serialized statistic data</param>
     public void LoadStats(StatisticsSave _savedData)
     {
         if(_savedData != null)
         {
+            // Set Global Statistics
             m_Stats = GlobalStatistics.Instance;
+
+            // Set Number of Deaths
             m_Stats.SetNumberOfDeath(_savedData.GetSaveData().GetNumberOfDeath());
+
+            // Set Play Time
             m_Stats.SetPlayTime(_savedData.GetSaveData().GetPlayTime());
+
+            // Convert PlayTime to readable format
             m_PlayTimeInSeconds = TimeSpan.FromSeconds(m_Stats.GetPlayTime()).ToString();
         }
     }
 
-
+    
+    /// <summary>
+    /// If the application is quit, save the statistics
+    /// </summary>
     private void OnApplicationQuit()
     {
+
+       m_TotalPlayedTime = Time.timeSinceLevelLoad;
        m_Stats.UpdatePlayTime(m_TotalPlayedTime);
 
        BinarySerializer.SaveStats(SaveData());
     }
-
 }
 
 

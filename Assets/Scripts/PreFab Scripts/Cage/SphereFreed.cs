@@ -5,9 +5,10 @@ namespace Spheres
 {
     public class SphereFreed : MonoBehaviour
     {
+        /* Fields */
 
         public float m_RiseSpeed;
-
+        [Space(20)]
         public float m_RiseHeight;
 
         private Rigidbody2D m_SphereBody;
@@ -20,9 +21,13 @@ namespace Spheres
 
         private Vector3 m_Endposition;
 
+
+        /* Methods */
+
         // Use this for initialization
         void Start()
         {
+            // Initalize the fields
             m_RiseVector = new Vector2(0.0f, m_RiseSpeed);
             m_SphereBody = gameObject.GetComponent<Rigidbody2D>();
             m_ShouldRise = false;
@@ -34,17 +39,24 @@ namespace Spheres
         {
             if(m_ShouldRise)
             {
+                // Add Force that move the sphere upward
                 m_SphereBody.AddForce(m_RiseVector*Time.deltaTime);
+
+                // If the sphere is near the endpoint, destroy it
                 if(WayCalculation.CalculateWayLeftY(transform.position, m_Endposition) == false)
                 {
-                    Debug.Log("No way left");
+                    // Set rising process to false
                     m_ShouldRise = false;
+
+                    // Destroy the sphere
                     Destroy(gameObject);            
                 }            
             }
         }
 
-
+        /// <summary>
+        /// Start the rising process
+        /// </summary>
         public void RiseSphere()
         {
             m_ShouldRise = true;
