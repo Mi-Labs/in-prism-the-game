@@ -13,7 +13,7 @@ public class Player_Control : MonoBehaviour {
     private Player_Movement movescript;
 
     [SerializeField]
-    private static PowerUp_Menu m_Powerupscript = null;
+    private static MenuSwitching m_MenuScript = null;
 
     private bool left_active;
 
@@ -67,7 +67,7 @@ public class Player_Control : MonoBehaviour {
 
         jump_active = Input.GetKeyDown(KeyCode.Space);
 
-        if(m_Powerupscript != null)
+        if(m_MenuScript != null)
         {
             powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
         }
@@ -172,7 +172,7 @@ public class Player_Control : MonoBehaviour {
         //if the powerupmenu_trigger is active -> toggle the screen
         if (powerupmenu_trigger)
         {
-            m_Powerupscript.ToggleMenu();
+            m_MenuScript.ToggleMenu();
         }
 
     } 
@@ -199,8 +199,8 @@ public class Player_Control : MonoBehaviour {
 
     public void AddPowerUpMenu()
     {
-        m_Powerupscript = GameObject.FindGameObjectWithTag("PowerUpMenu").GetComponent<PowerUp_Menu>();
-        if(m_Powerupscript == null)
+        m_MenuScript = GameObject.FindGameObjectWithTag("PowerUpMenu").GetComponent<MenuSwitching>();
+        if(m_MenuScript == null)
         {
             Debug.LogError("PowerUp_Menu still not found");
         }

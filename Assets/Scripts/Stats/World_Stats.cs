@@ -103,6 +103,11 @@ public class World_Stats : MonoBehaviour
 
        BinarySerializer.SaveStats(SaveData());
     }
+
+    public GlobalStatistics GetStats()
+    {
+        return m_Stats;
+    }
 }
 
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PowerUp_Menu : MonoBehaviour {
 
     //Holds the menucanvas -> must be assigned
-    private Canvas m_powerupCanvas;
+    public GameObject m_powerupCanvas;
 
     //Holds all available powerups in Array
     [SerializeField]
@@ -17,8 +17,6 @@ public class PowerUp_Menu : MonoBehaviour {
     {
         // Register the PowerUpMenu in the player
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Control>().AddPowerUpMenu();
-
-        m_powerupCanvas = gameObject.GetComponentInChildren<Canvas>();
 
         //Create a new array with space for 5 powerups
         powerups = new GameObject[5];
@@ -34,9 +32,9 @@ public class PowerUp_Menu : MonoBehaviour {
             
         }
 
-        CheckForVisiblePowerUps();
+        // CheckForVisiblePowerUps();
 
-        ToggleCanvas(false);
+        //ToggleCanvas(false);
     }
 
     /// <summary>
@@ -69,13 +67,13 @@ public class PowerUp_Menu : MonoBehaviour {
     }
 
 
-    /// <summary>
-    /// This method toggle the powerup-menu screen
-    /// </summary>
-    void ToggleCanvas(bool _status)
-    { 
-        m_powerupCanvas.enabled = (_status) ? true: false;   
-    }
+    ///// <summary>
+    ///// This method toggle the powerup-menu screen
+    ///// </summary>
+    //void ToggleCanvas(bool _status)
+    //{
+    //    m_powerupCanvas.SetActive(_status);
+    //}
 
     /// <summary>
     /// This method makes a specific powerup visible
@@ -90,21 +88,21 @@ public class PowerUp_Menu : MonoBehaviour {
     }
 
 
-    /// <summary>
-    /// This method toggles between an active and an inactive powerup-menu screen
-    /// </summary>
-    public void ToggleMenu()
-    {
-        // If the canvas is deactivated...
-        if(!m_powerupCanvas.enabled)
-        {
-            ToggleCanvas(true);
-        }
-        else
-        {
-            ToggleCanvas(false);
-        }   
-    }
+    ///// <summary>
+    ///// This method toggles between an active and an inactive powerup-menu screen
+    ///// </summary>
+    //public void ToggleMenu()
+    //{
+    //    // If the canvas is deactivated...
+    //    if(!m_powerupCanvas.activeSelf)
+    //    {
+    //        ToggleCanvas(true);
+    //    }
+    //    else
+    //    {
+    //        ToggleCanvas(false);
+    //    }   
+    //}
 
     
     /// <summary>

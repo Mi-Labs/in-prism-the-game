@@ -123,4 +123,14 @@ public class BinarySerializer : MonoBehaviour {
         }
         return true;
     }
+
+    public static string GetSaveGamePath()
+    {
+        return m_FilePathSaveGame;
+    }
+
+    public static string GetSaveStasticPath()
+    {
+        return m_FilePathStats;
+    }
 }
