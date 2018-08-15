@@ -25,13 +25,13 @@ public class LoadStatistics : MonoBehaviour {
     public void SetPlayTime(float _time)
     {
         double formatSeconds = TimeSpan.FromSeconds(_time).TotalSeconds;
-        Debug.Log(formatSeconds);
+
         double formatMinutes = formatSeconds / 60.0f;
-        Debug.Log(formatMinutes);
+
         double formatHours = formatMinutes / 60.0f;
 
         int totalHours = (int) formatHours;
-        Debug.Log(totalHours);
+
         int totalMinutes = (int) formatMinutes - (totalHours * 60);
 
         string playtime = totalHours + " Hours and " + totalMinutes + " Minutes";

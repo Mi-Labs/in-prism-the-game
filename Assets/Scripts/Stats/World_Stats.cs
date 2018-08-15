@@ -17,11 +17,7 @@ public class World_Stats : MonoBehaviour
 
     public GlobalStatistics m_Stats;
 
-    public string m_PlayTimeInSeconds;
-
     private float m_TotalPlayedTime;
-
-
 
 
     /* Methods */
@@ -41,7 +37,6 @@ public class World_Stats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     /// <summary>
@@ -86,8 +81,6 @@ public class World_Stats : MonoBehaviour
             // Set Play Time
             m_Stats.SetPlayTime(_savedData.GetSaveData().GetPlayTime());
 
-            // Convert PlayTime to readable format
-            m_PlayTimeInSeconds = TimeSpan.FromSeconds(m_Stats.GetPlayTime()).ToString();
         }
     }
 
@@ -109,5 +102,3 @@ public class World_Stats : MonoBehaviour
         return m_Stats;
     }
 }
-
-
