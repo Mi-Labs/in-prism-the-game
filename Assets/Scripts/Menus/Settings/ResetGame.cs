@@ -17,5 +17,6 @@ public class ResetGame : MonoBehaviour {
         File.Delete(m_SavePath);
         File.Delete(m_StatsPath);
         Debug.Log("Deleted Files");
+        GlobalStatistics.Instance.m_Deleted = true;
     }
 }

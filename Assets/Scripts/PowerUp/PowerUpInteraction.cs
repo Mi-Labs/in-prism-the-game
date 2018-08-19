@@ -61,6 +61,11 @@ public class PowerUpInteraction : MonoBehaviour {
     /// </summary>
     public void MakePowerUpVisible()
     {
+        if(m_image == null)
+        {
+            Start();
+        }
+
         // Debug.Log("Make Visible is called on " + gameObject.name);
         if(!m_image.enabled)
         {

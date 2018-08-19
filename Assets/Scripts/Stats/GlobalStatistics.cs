@@ -10,7 +10,9 @@ public class GlobalStatistics {
     [SerializeField]
     private float m_playTime;
     public int m_playedLevel;
-    public int saved_orbits;
+    public int m_saved_orbits;
+
+    public bool m_Deleted;
 
     public static GlobalStatistics Instance
     {
@@ -58,11 +60,27 @@ public class GlobalStatistics {
     {
         return m_playTime;
     }
-
+    /// <summary>
+    /// This method sets the playtime
+    /// </summary>
+    /// <param name="_time"></param>
     public void SetPlayTime(float _time)
     {
         m_playTime = _time;
     }
 
-
+    /// <summary>
+    /// This method set the statistics for destruction
+    /// </summary>
+    public void ToogleDestruction(bool _status)
+    {
+        if(!m_Deleted)
+        {
+            m_Deleted = true;
+        }
+        else
+        {
+            m_Deleted = false;
+        }
+    }
 }

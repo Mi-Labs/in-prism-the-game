@@ -80,7 +80,6 @@ public class World_Stats : MonoBehaviour
 
             // Set Play Time
             m_Stats.SetPlayTime(_savedData.GetSaveData().GetPlayTime());
-
         }
     }
 
@@ -90,11 +89,13 @@ public class World_Stats : MonoBehaviour
     /// </summary>
     private void OnApplicationQuit()
     {
+       if(!m_Stats.m_Deleted)
+       {
+            m_TotalPlayedTime = Time.timeSinceLevelLoad;
+            m_Stats.UpdatePlayTime(m_TotalPlayedTime);
 
-       m_TotalPlayedTime = Time.timeSinceLevelLoad;
-       m_Stats.UpdatePlayTime(m_TotalPlayedTime);
-
-       BinarySerializer.SaveStats(SaveData());
+            BinarySerializer.SaveStats(SaveData());
+       }
     }
 
     public GlobalStatistics GetStats()

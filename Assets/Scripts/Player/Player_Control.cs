@@ -21,9 +21,8 @@ public class Player_Control : MonoBehaviour {
 
     private bool jump_active;
 
-    [SerializeField]
-    //If trigger for powerupmenu is activated -> true
-    private bool powerupmenu_trigger;
+    //If trigger for menu is activated -> true
+    private bool menu_trigger;
 
 
 
@@ -34,6 +33,8 @@ public class Player_Control : MonoBehaviour {
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
+
+        AddPowerUpMenu();
 	}
 
     // Update is called once per frame
@@ -69,7 +70,7 @@ public class Player_Control : MonoBehaviour {
 
         if(m_MenuScript != null)
         {
-            powerupmenu_trigger = Input.GetKeyDown(KeyCode.E);
+            menu_trigger = Input.GetKeyDown(KeyCode.E);
         }
         
 
@@ -124,7 +125,7 @@ public class Player_Control : MonoBehaviour {
                             }
                             else if(HasPlayerBeenTouched(mytouch))
                             {
-                            powerupmenu_trigger = true;
+                            menu_trigger = true;
                             }
     
                                                      
@@ -170,7 +171,7 @@ public class Player_Control : MonoBehaviour {
             jump_active = false;
         }
         //if the powerupmenu_trigger is active -> toggle the screen
-        if (powerupmenu_trigger)
+        if (menu_trigger)
         {
             m_MenuScript.ToggleMenu();
         }

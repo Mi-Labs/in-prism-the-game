@@ -12,6 +12,7 @@ public class MenuSwitching : MonoBehaviour {
 
     public GameObject m_currentlyActiv;
 
+
     /// <summary>
     /// This method switch the canvas to settings
     /// </summary>

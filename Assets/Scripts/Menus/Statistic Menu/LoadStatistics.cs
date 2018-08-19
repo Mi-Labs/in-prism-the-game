@@ -10,11 +10,6 @@ public class LoadStatistics : MonoBehaviour {
     public Text m_SavedSpheres;
 
 
-    private void Start()
-    {
-
-    }
-
     public void SetActualValues()
     {
         

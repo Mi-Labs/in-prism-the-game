@@ -12,6 +12,8 @@ public class PowerUp_Menu : MonoBehaviour {
     [SerializeField]
     public GameObject[] powerups;
 
+    public World_Config m_config;
+
 
     void Start()
     {
@@ -31,9 +33,10 @@ public class PowerUp_Menu : MonoBehaviour {
             }         
         }
 
-        // CheckForVisiblePowerUps();
+        m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
 
-        //ToggleCanvas(false);
+        CheckForVisiblePowerUps();
+
     }
 
     /// <summary>
@@ -42,17 +45,25 @@ public class PowerUp_Menu : MonoBehaviour {
     private void CheckForVisiblePowerUps()
     {
         // Find config data
-        World_Config config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
 
+        GameObject controller = GameObject.FindGameObjectWithTag("GameController");
+        if(controller != null)
+        {
+            int actualLevelNumber = controller.GetComponent<Level_Stats>().GetLevelNumber();
+            SetPowerUpConfig(actualLevelNumber);
+
+        }
+  
+        
         // Create a bool array for status of availability of powerups
         bool[] availablePowerups = new bool[5];
 
         // Fill the array
-        availablePowerups[0] = config.isAvailableBoost;
-        availablePowerups[1] = config.isAvailablePowerJump;
-        availablePowerups[2] = config.isAvailablePowerLight;
-        availablePowerups[3] = config.isAvailableSticky;
-        availablePowerups[4] = config.isAvailableInvulnerability;
+        availablePowerups[0] = m_config.isAvailableBoost;
+        availablePowerups[1] = m_config.isAvailablePowerJump;
+        availablePowerups[2] = m_config.isAvailablePowerLight;
+        availablePowerups[3] = m_config.isAvailableSticky;
+        availablePowerups[4] = m_config.isAvailableInvulnerability;
 
         // Iterate through the array
         for (int i=0;i < availablePowerups.Length;i++)
@@ -65,14 +76,6 @@ public class PowerUp_Menu : MonoBehaviour {
         }
     }
 
-
-    ///// <summary>
-    ///// This method toggle the powerup-menu screen
-    ///// </summary>
-    //void ToggleCanvas(bool _status)
-    //{
-    //    m_powerupCanvas.SetActive(_status);
-    //}
 
     /// <summary>
     /// This method makes a specific powerup visible
@@ -87,22 +90,30 @@ public class PowerUp_Menu : MonoBehaviour {
     }
 
 
-    ///// <summary>
-    ///// This method toggles between an active and an inactive powerup-menu screen
-    ///// </summary>
-    //public void ToggleMenu()
-    //{
-    //    // If the canvas is deactivated...
-    //    if(!m_powerupCanvas.activeSelf)
-    //    {
-    //        ToggleCanvas(true);
-    //    }
-    //    else
-    //    {
-    //        ToggleCanvas(false);
-    //    }   
-    //}
+    public void SetPowerUpConfig(int _number)
+    {
+        if(_number >=7)
+        {
+            m_config.isAvailableBoost = true;
+        }
 
+        if(_number >=12)
+        {
+            m_config.isAvailablePowerJump = true;
+        }
+        if(_number >= 17)
+        {
+            m_config.isAvailableSticky = true;
+        }
+        if(_number >=22)
+        {
+            m_config.isAvailableInvulnerability = true;
+        }
+        if(_number >= 31)
+        {
+            m_config.isAvailablePowerLight = true;
+        }
+    }
     
     /// <summary>
     /// This method starts the powerup action that is assigned to the specific powerup
