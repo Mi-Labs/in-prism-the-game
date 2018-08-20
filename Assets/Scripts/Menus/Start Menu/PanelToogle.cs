@@ -9,9 +9,10 @@ namespace StartMenu
         public GameObject m_Panel;
 
         public GameObject controller;
-
+        [SerializeField]
         private int m_Acutallevelnumber;
-
+        [SerializeField]
+        private int m_HighestNumber;
 
         /// <summary>
         /// This method closes the level panel
@@ -24,8 +25,16 @@ namespace StartMenu
             }
         }
 
+
+        /// <summary>
+        /// This method toogles the level panel with the given levelnumber
+        /// </summary>
+        /// <param name="_levelnumber"></param>
         public void ToogleLevelPanel(int _levelnumber)
         {
+            // Get highest level number
+            m_HighestNumber = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>().GetHighestLevelNumber();
+
             // If Level panel is active and is called from the same button
             if (m_Panel.activeSelf && _levelnumber == m_Acutallevelnumber)
             {
@@ -45,6 +54,17 @@ namespace StartMenu
 
                 // Find all buttons on the panel
                 Button[] buttons = m_Panel.GetComponentsInChildren<Button>();
+
+                if(m_Acutallevelnumber > (m_HighestNumber-2))
+                {
+                    foreach(Button button in buttons)
+                    {
+                        if(button.gameObject.name.Equals("Replay"))
+                        {
+                            button.gameObject.SetActive(false);
+                        }
+                    }
+                }
 
                 // Generate the scene number to load
                 int choosenumber = _levelnumber + 2;
@@ -81,7 +101,5 @@ namespace StartMenu
         {
             controller.GetComponent<SceneManagerMenuScene>().ChooseLevel(_params);
         }
-
     }
-
 }

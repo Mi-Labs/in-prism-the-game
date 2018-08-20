@@ -9,6 +9,8 @@ public class WorldObjectSave : MonoBehaviour {
     // Holds a list with all saved levels
     public List<LevelSave> m_levelSaves = new List<LevelSave>();
 
+    private int m_HighestNumber;
+
 
     /* Methods */
 
@@ -22,8 +24,32 @@ public class WorldObjectSave : MonoBehaviour {
         {
             BinarySerializer.LoadSaveGame();
         }
+
+        // Init local variable for highest number
+        int highestNumber = 0;
+
+        // Change the level save list to an array
+        LevelSave[] saves = m_levelSaves.ToArray();
+
+        // Calculate the highest saved level
+        for (int i = 0; i < saves.Length; i++)
+        {
+            if (saves[i].m_levelnumber > highestNumber)
+            {
+                highestNumber = saves[i].m_levelnumber;
+            }
+        }
+        m_HighestNumber = highestNumber;
     }
 
+    /// <summary>
+    /// This method returns the highest saved level
+    /// </summary>
+    /// <returns>Number of the highest saved level</returns>
+    public int GetHighestLevelNumber()
+    {
+        return m_HighestNumber;
+    }
 
     /// <summary>
     /// This method adds a LevelSave to the saving list
@@ -47,40 +73,6 @@ public class WorldObjectSave : MonoBehaviour {
         }
     }
 
-
-    /// <summary>
-    /// Check if a level already exists
-    /// </summary>
-    /// <param name="_save">Level, that should searched for</param>
-    /// <returns>If level is found, return true</returns>
-    private bool LevelSaveExists(LevelSave _save)
-    {
-        return SearchForLevel(_save) != null ? true : false;
-    }
-
-
-    /// <summary>
-    /// This method search for a level in the levellist
-    /// </summary>
-    /// <param name="_save">Level to search for</param>
-    /// <returns>If Level was found, return this, else null</returns>
-    private LevelSave SearchForLevel(LevelSave _save)
-    {
-        // Get levelnumber from the given LevelSave
-        int newLevelnumber = _save.m_levelnumber;
-        // Search all LevelSaves
-        foreach (LevelSave save in m_levelSaves)
-        {
-            // If a level in the list has the same number as the given level
-            if (save.m_levelnumber.Equals(newLevelnumber))
-            {
-                return save;
-            }
-        }
-        return null;
-    }
-
-
     /// <summary>
     /// This method loads a given WorldSave data
     /// </summary>
@@ -88,7 +80,7 @@ public class WorldObjectSave : MonoBehaviour {
     public void LoadLevelList(WorldSave _savedata)
     {
         // When the saved data is not null, load the data from the given WorldSave
-        if(_savedata != null)
+        if (_savedata != null)
         {
             m_levelSaves = _savedata.GetSaveData();
         }
@@ -111,5 +103,39 @@ public class WorldObjectSave : MonoBehaviour {
     public WorldSave SaveData()
     {
         return new WorldSave(m_levelSaves);
+    }
+
+
+    /// <summary>
+    /// Check if a level already exists
+    /// </summary>
+    /// <param name="_save">Level, that should searched for</param>
+    /// <returns>If level is found, return true</returns>
+    private bool LevelSaveExists(LevelSave _save)
+    {
+        return SearchForLevel(_save) != null ? true : false;
+    }
+
+
+    /// <summary>
+    /// This method search for a level in the levellist
+    /// </summary>
+    /// <param name="_save">Level to search for</param>
+    /// <returns>If Level was found, return this, else null</returns>
+    private LevelSave SearchForLevel(LevelSave _save)
+    {
+        // Get levelnumber from the given LevelSave
+        int newLevelnumber = _save.m_levelnumber;
+
+        // Search all LevelSaves
+        foreach (LevelSave save in m_levelSaves)
+        {
+            // If a level in the list has the same number as the given level
+            if (save.m_levelnumber.Equals(newLevelnumber))
+            {
+                return save;
+            }
+        }
+        return null;
     }
 }
