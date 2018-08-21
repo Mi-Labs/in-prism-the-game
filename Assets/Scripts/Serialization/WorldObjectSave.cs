@@ -9,6 +9,7 @@ public class WorldObjectSave : MonoBehaviour {
     // Holds a list with all saved levels
     public List<LevelSave> m_levelSaves = new List<LevelSave>();
 
+    [SerializeField]
     private int m_HighestNumber;
 
 

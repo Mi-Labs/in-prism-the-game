@@ -2882,8 +2882,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Panel: {fileID: 1803607497}
   controller: {fileID: 16995049}
-  m_Acutallevelnumber: 0
-  m_HighestNumber: 0
+  m_ReplayButton: {fileID: 1113896289}
+  m_StartButton: {fileID: 1978866240}
 --- !u!1 &805949243
 GameObject:
   m_ObjectHideFlags: 0

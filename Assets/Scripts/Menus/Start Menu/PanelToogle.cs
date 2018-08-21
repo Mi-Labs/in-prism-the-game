@@ -9,9 +9,11 @@ namespace StartMenu
         public GameObject m_Panel;
 
         public GameObject controller;
-        [SerializeField]
+
+        public Button m_ReplayButton, m_StartButton;
+
         private int m_Acutallevelnumber;
-        [SerializeField]
+
         private int m_HighestNumber;
 
         /// <summary>
@@ -36,10 +38,10 @@ namespace StartMenu
             m_HighestNumber = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>().GetHighestLevelNumber();
 
             // If Level panel is active and is called from the same button
-            if (m_Panel.activeSelf && _levelnumber == m_Acutallevelnumber)
+            if (_levelnumber == m_Acutallevelnumber)
             {
-                Debug.Log("Closed LevelPanel");
-                m_Panel.SetActive(false);
+                CloseLevelPanel();
+                m_Acutallevelnumber = 0;
             }
             else
             {
@@ -52,18 +54,14 @@ namespace StartMenu
                 // Change the displayed text
                 m_Panel.GetComponentInChildren<Text>().text = LevelTextGenerator.GetLevelText(_levelnumber);
 
-                // Find all buttons on the panel
-                Button[] buttons = m_Panel.GetComponentsInChildren<Button>();
-
-                if(m_Acutallevelnumber > (m_HighestNumber-2))
+               
+                if(m_Acutallevelnumber >= (m_HighestNumber-2))
                 {
-                    foreach(Button button in buttons)
-                    {
-                        if(button.gameObject.name.Equals("Replay"))
-                        {
-                            button.gameObject.SetActive(false);
-                        }
-                    }
+                    m_ReplayButton.gameObject.SetActive(false);  
+                }
+                else
+                {
+                    m_ReplayButton.gameObject.SetActive(true);
                 }
 
                 // Generate the scene number to load
@@ -79,20 +77,10 @@ namespace StartMenu
                 }
 
                 // Add event listener to every button
-                foreach (Button button in buttons)
-                {
-                    // Add Eventlistener to Start button
-                    if (button.gameObject.name.Equals("Start"))
-                    {
-                        button.onClick.RemoveAllListeners();
-                        button.onClick.AddListener(delegate { LevelStart(chooseLevel + "false"); });
-                    }
-                    else if (button.gameObject.name.Equals("Replay"))
-                    {
-                        button.onClick.RemoveAllListeners();
-                        button.onClick.AddListener(delegate { LevelStart(chooseLevel + "true"); });
-                    }
-                }
+                m_StartButton.onClick.RemoveAllListeners();
+                m_StartButton.onClick.AddListener(delegate { LevelStart(chooseLevel + "false"); });
+                m_ReplayButton.onClick.RemoveAllListeners();
+                m_ReplayButton.onClick.AddListener(delegate { LevelStart(chooseLevel + "true"); });  
             }
         }
      

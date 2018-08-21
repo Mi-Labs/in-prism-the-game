@@ -22,7 +22,7 @@ namespace StartMenu
         void Start()
         {
             m_HighestLevelNumber = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>().GetHighestLevelNumber();
-
+            m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
         }
 
         public void ShowAvailableLevel()
