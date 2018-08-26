@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonSelfToggle : MonoBehaviour {
 
     public int m_OwnLevelNumber;
+
+    public Sprite m_ReloadSprite;
 
     private int m_HighestNumber;
 
@@ -12,10 +13,19 @@ public class ButtonSelfToggle : MonoBehaviour {
 	void Start ()
     {
         m_HighestNumber = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>().GetHighestLevelNumber();
-        if (m_OwnLevelNumber < m_HighestNumber)
+
+        bool admin_mode = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>().m_AdminMode; 
+
+        if (m_OwnLevelNumber > m_HighestNumber+1 && !admin_mode)
         {
             gameObject.SetActive(false);
         }
+
+        if(m_OwnLevelNumber <= m_HighestNumber)
+        {
+            gameObject.GetComponent<Image>().sprite = m_ReloadSprite;
+        }
+
 	}
 	
 }

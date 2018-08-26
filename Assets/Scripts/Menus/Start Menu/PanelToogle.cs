@@ -55,7 +55,7 @@ namespace StartMenu
                 m_Panel.GetComponentInChildren<Text>().text = LevelTextGenerator.GetLevelText(_levelnumber);
 
                
-                if(m_Acutallevelnumber >= (m_HighestNumber-2))
+                if(m_Acutallevelnumber >= m_HighestNumber)
                 {
                     m_ReplayButton.gameObject.SetActive(false);  
                 }
@@ -65,7 +65,7 @@ namespace StartMenu
                 }
 
                 // Generate the scene number to load
-                int choosenumber = _levelnumber + 2;
+                int choosenumber = _levelnumber;
                 string chooseLevel = string.Empty;
                 if (choosenumber < 10)
                 {
