@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aba6794e67539243a7cf0893adfb02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AdminMode: 0
+  m_AdminMode: 1
   isAvailableBoost: 0
   activetimeBoost: 2
   cooldowntimeBoost: 10
@@ -4209,6 +4209,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
+        type: 2}
+      propertyPath: jumppower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
+        type: 2}
+      propertyPath: m_acceleration
+      value: 1.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6500ba08d2e2e4aa1a857422318989, type: 2}
   m_IsPrefabAsset: 0
@@ -4371,6 +4381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_levelSaves: []
+  m_HighestNumber: 0
 --- !u!4 &1996643022
 Transform:
   m_ObjectHideFlags: 0
