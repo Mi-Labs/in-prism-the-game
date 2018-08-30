@@ -8,7 +8,14 @@ public class AddTopping : MonoBehaviour {
     public GameObject m_topping;
 
     // Hold the length and direction of the raycast
-    private float m_castLength;
+    public float m_castLength;
+
+    [Space(20)]
+    [Header("Debug Mode")]
+    public bool m_DebugMode;
+    public float m_DebugDuration;
+
+
     private Vector2 m_castDirection;
 
     // Holds the layer for checking
@@ -24,7 +31,7 @@ public class AddTopping : MonoBehaviour {
     {
         // Init cast direction and length
         m_castDirection = Vector2.up;        
-        m_castLength = 0.6f;
+       // m_castLength = 0.6f;
 
         // Set LayerMask to Layer 8 -> Underground
         m_undergroundMask = 1 << 8;       
@@ -35,6 +42,12 @@ public class AddTopping : MonoBehaviour {
     /// </summary>
     public void GenerateTopping()
     {
+        if(m_DebugMode)
+        {
+            Vector3 direction = transform.position + new Vector3(0.0f, m_castLength, 0.0f);
+            Debug.DrawLine(transform.position,direction , Color.white, m_DebugDuration);
+        }
+
         bool thingAbove = CheckIfSomethingAbove();
 
         // If there isn't anything above, create the topping
