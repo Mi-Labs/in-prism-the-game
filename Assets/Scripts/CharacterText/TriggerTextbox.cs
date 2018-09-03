@@ -4,7 +4,7 @@ public class TriggerTextbox : MonoBehaviour {
 
     /* Fields */
 
-    public string[] m_text;
+    public TextSpeech[] m_text;
 
     private World_Config m_Config;
 

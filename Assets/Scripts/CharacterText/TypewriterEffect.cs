@@ -10,7 +10,7 @@ public class TypewriterEffect : MonoBehaviour {
 
     public Text m_Textbox;
 
-    private string[] m_ShownText;
+    private TextSpeech[] m_Content;
 
     private float m_TimeToNextText;
 
@@ -24,12 +24,12 @@ public class TypewriterEffect : MonoBehaviour {
     IEnumerator AnimateText()
     {
         // For every char in the textline
-        for (int i=0; i < m_ShownText[m_CurrentDisplayedText].Length; i++)
+        for (int i=0; i < m_Content[m_CurrentDisplayedText].GetText().Length; i++)
         {
             // Debug.Log("Length string: " +m_ShownText[m_CurrentDisplayedText].Length);
 
             // Show all chars till the actual char in this string
-            m_Textbox.text = m_ShownText[m_CurrentDisplayedText].Substring(0, i);
+            m_Textbox.text = m_Content[m_CurrentDisplayedText].GetText().Substring(0, i);
 
             // Wait till the next char should be shown
             yield return new WaitForSeconds(m_TimeToNextText);
@@ -51,7 +51,7 @@ public class TypewriterEffect : MonoBehaviour {
     /// This method starts the typewriter effect on the textpanel
     /// </summary>
     /// <param name="_text">All text, that should be displayed</param>
-    public void StartText(string[] _text)
+    public void StartText(TextSpeech[] _text)
     {
         // Initalize the Script
         Start();
@@ -60,7 +60,7 @@ public class TypewriterEffect : MonoBehaviour {
         if(_text != null)
         {
             // Save input
-            m_ShownText = _text;
+            m_Content = _text;
 
             // Start typewriter effect
             StartCoroutine(AnimateText());
@@ -84,7 +84,7 @@ public class TypewriterEffect : MonoBehaviour {
         m_CurrentDisplayedText++;
 
         // If there is no next textline, deactivate the text panel ...
-        if(m_CurrentDisplayedText >= m_ShownText.Length)
+        if(m_CurrentDisplayedText >= m_Content.Length)
         {
             m_config.m_TextCanvas.GetComponent<ToogleTextPanel>().SetPanel(false);
         }
