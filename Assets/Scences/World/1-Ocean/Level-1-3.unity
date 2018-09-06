@@ -157,6 +157,11 @@ Prefab:
       propertyPath: colorassignment.Array.data[74].m_isActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: levelmap
+      value: 
+      objectReference: {fileID: 2800000, guid: 10c69a30af80bee44a297e0654e352cc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
   m_IsPrefabAsset: 0

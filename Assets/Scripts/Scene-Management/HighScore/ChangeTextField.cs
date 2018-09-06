@@ -27,7 +27,7 @@ namespace HighScore
             }
             else if(m_LevelTextActive)
             {
-                m_levelText.text = LevelTextGenerator.GetLevelText(m_temp.m_ActualLevelNumber - 2);
+                m_levelText.text = LevelTextGenerator.GetLevelText(m_temp.m_ActualLevelNumber);
             }
             else
             {

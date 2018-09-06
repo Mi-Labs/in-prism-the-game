@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4705075040873332}
   - component: {fileID: 212707282292382252}
-  - component: {fileID: 58066022008723778}
   m_Layer: 0
   m_Name: Bubble_Left
   m_TagString: Untagged
@@ -37,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848895367223874}
   - component: {fileID: 114366473711382136}
+  - component: {fileID: 70808327858705676}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -53,7 +53,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4461703643791212}
   - component: {fileID: 212005227751281280}
-  - component: {fileID: 58146040511173394}
   m_Layer: 0
   m_Name: Bubble_Right
   m_TagString: Untagged
@@ -102,12 +101,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58066022008723778
-CircleCollider2D:
+--- !u!70 &70808327858705676
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523907112605098}
+  m_GameObject: {fileID: 1608499772164566}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -115,23 +114,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.44
---- !u!58 &58146040511173394
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1734052267986270}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.44
+  m_Size: {x: 1.75, y: 1}
+  m_Direction: 1
 --- !u!114 &114366473711382136
 MonoBehaviour:
   m_ObjectHideFlags: 1

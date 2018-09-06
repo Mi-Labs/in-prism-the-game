@@ -72,8 +72,8 @@ MonoBehaviour:
     m_isActive: 1
   - colorPreFab:
       serializedVersion: 2
-      rgba: 4292252672
-    PreFab: {fileID: 1304047920554538, guid: 29a96d09c5fcdc1479c7d681734dc7b1, type: 2}
+      rgba: 4294901760
+    PreFab: {fileID: 1073520641576102, guid: bb4925c214555f347bc343f771091629, type: 2}
     m_isActive: 1
   - colorPreFab:
       serializedVersion: 2

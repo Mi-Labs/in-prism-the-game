@@ -10,27 +10,27 @@
         string leveltext = string.Empty;
         string worldtext = string.Empty;
 
-        if (_levelnumber < 5)
+        if (_levelnumber < 7)
         {
             worldtext = "World Ocean";
         }
-        else if (_levelnumber > 4 && _levelnumber < 10)
+        else if (_levelnumber > 6 && _levelnumber < 12)
         {
             worldtext = "World Desert";
         }
-        else if (_levelnumber > 9 && _levelnumber < 15)
+        else if (_levelnumber > 11 && _levelnumber < 17)
         {
             worldtext = "World Jungle";
         }
-        else if (_levelnumber > 14 && _levelnumber < 20)
+        else if (_levelnumber > 16 && _levelnumber < 22)
         {
             worldtext = "World Forest";
         }
-        else if (_levelnumber > 19 && _levelnumber < 25)
+        else if (_levelnumber > 23 && _levelnumber < 27)
         {
             worldtext = "World Underground";
         }
-        else if (_levelnumber > 24 && _levelnumber < 30)
+        else if (_levelnumber > 26 && _levelnumber < 32)
         {
             worldtext = "World Vulcan";
         }
