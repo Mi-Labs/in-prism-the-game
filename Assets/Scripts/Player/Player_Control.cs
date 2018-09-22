@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,20 +6,16 @@ public class Player_Control : MonoBehaviour {
 
     /* Variables */
 
-    //this field holds the player gameobject
-    private GameObject m_player;
-
-    [SerializeField]
     private Player_Movement movescript;
 
     [SerializeField]
     private static MenuSwitching m_MenuScript = null;
 
-    private bool left_active;
+    private bool m_LeftActive;
 
-    private bool right_active;
+    private bool m_RightActive;
 
-    private bool jump_active;
+    private bool m_JumpActive;
 
     //If trigger for menu is activated -> true
     private bool menu_trigger;
@@ -35,7 +31,14 @@ public class Player_Control : MonoBehaviour {
         movescript = GetComponent<Player_Movement>();
 
         AddPowerUpMenu();
+
+       
 	}
+
+    private void Awake()
+    {
+        SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
+    }
 
     // Update is called once per frame
     void Update()
@@ -49,7 +52,7 @@ public class Player_Control : MonoBehaviour {
         switch (horizontal)
         {
             case 1:
-                right_active = true;
+                m_RightActive = true;
                 break;
 
             case -1:
@@ -91,18 +94,7 @@ public class Player_Control : MonoBehaviour {
                 Touch mytouch = Input.GetTouch(i);
 
                 // Save position of touch in Vector2 curpos
-                Vector2 curpos = mytouch.position;
-
-                // Save endposition of touch in Vector endpos
-                Vector2 endpos = mytouch.deltaPosition;
-
-                //Calculate Touch-Speed
-                float touchspeed = endpos.magnitude / mytouch.deltaTime;
-
-                Debug.Log("Touch erkannt" + mytouch.fingerId);
-
-                Debug.Log(touchspeed);
-                
+                Vector2 curpos = mytouch.position;       
 
                     switch(mytouch.phase)
                     {
@@ -110,20 +102,16 @@ public class Player_Control : MonoBehaviour {
                             if (curpos.x < (Screen.width / 6))
                             {
                                 Debug.Log("Touch left started");
-                                left_active = true;
+                                m_LeftActive = true;
                             }
 
                             else if(curpos.x > (Screen.width - Screen.width / 6))
                             {
                                 Debug.Log("Touch right started");
-                            right_active = true;
+                                m_RightActive = true;
                             }
-
-                            else if(touchspeed > 800)
-                            {
-                            jump_active = true;
-                            }
-                            else if(HasPlayerBeenTouched(mytouch))
+         
+                            if(HasPlayerBeenTouched(mytouch))
                             {
                             menu_trigger = true;
                             }
@@ -134,21 +122,32 @@ public class Player_Control : MonoBehaviour {
                       case TouchPhase.Ended:
                                               
                             Debug.Log("Touch ended");
-                            left_active = false;
-                            right_active = false;
+                            m_LeftActive = false;
+                            m_RightActive = false;
                            
                         break;
-
-                      default:
-
-                            Debug.Log("Error, no regular TouchPhase");
-                            break;
                     }
+                
             }
+
         }
     #endif
     
     }
+
+    private void SwipeDetector_OnSwipe(SwipeDetector.SwipeData data)
+    {
+        if(data.direction == SwipeDetector.SwipeDirection.Up)
+        {
+            m_JumpActive = true;
+        }
+        else
+        {
+            m_JumpActive = false;
+        }
+        
+    }
+
 
     /// <summary>
     /// Does physics after every Update
@@ -156,44 +155,51 @@ public class Player_Control : MonoBehaviour {
     private void FixedUpdate()
     {
 
-        if (left_active)
+        if (m_LeftActive)
         {
             movescript.MovePlayer(-1.0f);
         }
 
-        if (right_active)
+        if (m_RightActive)
         {
             movescript.MovePlayer(1.0f);
         }
-        if (jump_active)
+        if (m_JumpActive)
         {
             movescript.JumpPlayer();
-            jump_active = false;
+            m_JumpActive = false;
         }
         //if the powerupmenu_trigger is active -> toggle the screen
         if (menu_trigger)
         {
             m_MenuScript.ToggleMenu();
+            menu_trigger = false;
         }
 
     } 
     
-    public RaycastHit2D GetTouchHit2D(Touch _mytouch)
+    public RaycastHit2D GetTouchHit(Touch _mytouch)
     {
-        Ray ray = Camera.main.ScreenPointToRay(_mytouch.position);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(_mytouch.position);
+
+        Debug.Log(worldPoint);
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.down);
         return hit;
     }
 
-    private bool HasPlayerBeenTouched(Touch mytouch)
+    private bool HasPlayerBeenTouched(Touch _mytouch)
     {
-        RaycastHit2D hit = GetTouchHit2D(mytouch);
+        RaycastHit2D hit = GetTouchHit(_mytouch);
 
-        if(hit && hit.collider.transform.CompareTag("Player"))
+        if (hit.collider != null)
         {
-            Debug.Log("Player was touched");
-            return true;
-            
+            Debug.Log("Hit something "+ hit.collider.gameObject.name);
+            if (hit.collider.tag =="Player")
+            {
+                Debug.Log("Player was touched");
+                return true;
+
+            }
         }
         return false;
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class Player_Movement : MonoBehaviour {
@@ -72,7 +70,7 @@ public class Player_Movement : MonoBehaviour {
     {
         //Create movementVector2
         Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor*Time.deltaTime*100, 0);
-
+        Debug.Log("Input: " + _direction + " Movement: " + movement.x);
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
 

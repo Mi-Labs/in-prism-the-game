@@ -18,11 +18,17 @@ public class TypewriterEffect : MonoBehaviour {
 
     private World_Config m_config;
 
+    private AudioSource m_Audiosource;
 
     /* IEnumators */
    
     IEnumerator AnimateText()
     {
+        m_Audiosource.clip = m_Content[m_CurrentDisplayedText].GetAudio();
+
+        m_TimeToNextText = m_Content[m_CurrentDisplayedText].GetAudio().length /m_Content[m_CurrentDisplayedText].GetText().Length;
+
+        m_Audiosource.Play(); 
         // For every char in the textline
         for (int i=0; i < m_Content[m_CurrentDisplayedText].GetText().Length; i++)
         {
@@ -34,6 +40,8 @@ public class TypewriterEffect : MonoBehaviour {
             // Wait till the next char should be shown
             yield return new WaitForSeconds(m_TimeToNextText);
         }
+
+        SkipToNextText();
     }
 
 
@@ -41,6 +49,10 @@ public class TypewriterEffect : MonoBehaviour {
 
     void Start ()
     {
+        if(m_Audiosource == null)
+        {
+            m_Audiosource = gameObject.AddComponent<AudioSource>();
+        }
         m_CurrentDisplayedText = 0;
         m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
         m_TimeToNextText = m_config.m_Textspeed;
@@ -87,6 +99,7 @@ public class TypewriterEffect : MonoBehaviour {
         if(m_CurrentDisplayedText >= m_Content.Length)
         {
             m_config.m_TextCanvas.GetComponent<ToogleTextPanel>().SetPanel(false);
+            m_Audiosource.Stop();
         }
         // Else show next textline
         else
