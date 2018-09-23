@@ -70,7 +70,7 @@ public class Player_Movement : MonoBehaviour {
     {
         //Create movementVector2
         Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor*Time.deltaTime*100, 0);
-        Debug.Log("Input: " + _direction + " Movement: " + movement.x);
+      
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
 
@@ -110,7 +110,7 @@ public class Player_Movement : MonoBehaviour {
         // Set the jumpfactor to standard
         jumpfactor = k_standardjumpfactor;
 
-        //Debug.Log("Jump is on standard value");
+       
     }
 
     /// <summary>
