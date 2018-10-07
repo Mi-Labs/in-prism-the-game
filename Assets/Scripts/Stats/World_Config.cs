@@ -15,6 +15,12 @@ public class World_Config : MonoBehaviour {
     public bool m_AdminMode;
 
     [Space(20)]
+    [Header("PlayerPrefs")]
+    public bool m_EnabledSounds;
+    public bool m_EnabledVoice;
+    public bool m_InverseControls;
+
+    [Space(20)]
     // Values for Boost
     [Header("Boost-Values")]
     public bool isAvailableBoost;

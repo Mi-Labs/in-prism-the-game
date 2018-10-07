@@ -18,7 +18,7 @@ public class Player_Control : MonoBehaviour {
     //If trigger for menu is activated -> true
     private bool menu_trigger;
 
-
+    private World_Config m_config;
 
     /* Methods */
 
@@ -27,6 +27,8 @@ public class Player_Control : MonoBehaviour {
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
+
+        m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
 
         AddPowerUpMenu();  
 	}
@@ -95,19 +97,33 @@ public class Player_Control : MonoBehaviour {
                     switch(mytouch.phase)
                     {
                       case TouchPhase.Began:
-                            // If the touch is in the left end of the screen (0 - 1/6)
-                            if (curpos.x < (Screen.width / 6))
+                        // If the touch is in the left end of the screen (0 - 1/6)
+                        if (curpos.x < (Screen.width / 6))
+                        {
+                            // Debug.Log("Touch left started");
+                            if (m_config.m_InverseControls)
                             {
-                                // Debug.Log("Touch left started");
                                 m_RightActive = true;
                             }
-
-                            // If the touch is in the right end of the screen (5/6 -1)
-                            else if(curpos.x > (Screen.width - Screen.width / 6))
+                            else
                             {
-                                // Debug.Log("Touch right started");
                                 m_LeftActive = true;
                             }
+                        }
+
+                        // If the touch is in the right end of the screen (5/6 -1)
+                        else if (curpos.x > (Screen.width - Screen.width / 6))
+                        {
+                            // Debug.Log("Touch right started");
+                            if (m_config.m_InverseControls)
+                            {
+                                m_LeftActive = true;
+                            }
+                            else
+                            {
+                                m_RightActive = true;
+                            }
+                        }
                             
                             // If the player is touched -> activate the menu
                             if(HasPlayerBeenTouched(mytouch))
