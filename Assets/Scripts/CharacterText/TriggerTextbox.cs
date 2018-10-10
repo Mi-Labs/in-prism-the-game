@@ -8,12 +8,14 @@ public class TriggerTextbox : MonoBehaviour {
 
     private World_Config m_Config;
 
-
+    [SerializeField]
+    private bool m_HasPlayed;
     /* Methods */
 
     private void Start()
     {
         m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
+        m_HasPlayed = false;
     }
 
     /// <summary>
@@ -25,11 +27,15 @@ public class TriggerTextbox : MonoBehaviour {
         // If the player activates the trigger
         if(_collision.gameObject.CompareTag("Player"))
         {
-            // Show the text panel
-            ShowTextBox();
+            if(!m_HasPlayed)
+            {
+                // Show the text panel
+                ShowTextBox();
 
-            // Show the attached text
-            ShowText();
+                // Show the attached text
+                ShowText();
+            }
+                   
         }
     }
 

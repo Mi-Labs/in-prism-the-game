@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[System.Serializable]
 public class TextSpeech{
 
     [SerializeField]
@@ -9,6 +8,7 @@ public class TextSpeech{
 
     [SerializeField]
     private string m_Text;
+
 
     public string GetText()
     {

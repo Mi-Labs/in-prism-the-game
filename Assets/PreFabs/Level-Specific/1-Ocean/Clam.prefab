@@ -91,11 +91,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360753713517432}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 838c3c0c2b1ec3e49adde3e97462ef4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text:
+  - m_Audio: {fileID: 8300000, guid: 74757662e4bbf24448e2b03f10a74b35, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: eeac416df6b187b4e85ed091b3f0cf87, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 39c2f8a910446064886bba0e16b30a9e, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: c41e96d17cfb3704f922a32a07bc7d9f, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 32f1ae13743782a4bb413e7f03d1d65d, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 3b15b88ceefa69542b5b9ca0a4f51366, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 30fa2800f0517d7469a7674d2b4ab080, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 0efad7a691559a14fbd15f9e0d301eb8, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 88a2bcd7d24ef034ebcf9e5c689e88c9, type: 3}
+    m_Text: 
+  - m_Audio: {fileID: 8300000, guid: 349a5e6377a7c65478f18dd37c7759fb, type: 3}
+    m_Text: 
+  m_HasPlayed: 0
 --- !u!114 &114697492824250634
 MonoBehaviour:
   m_ObjectHideFlags: 1
