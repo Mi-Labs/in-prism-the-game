@@ -24,8 +24,16 @@ namespace HighScore
 
         public void PlayNextLevel()
         {
-            m_ControlScript.LoadScene(m_Temp.m_ActualLevelNumber + 1);
-            m_Temp.EraseTempStats();
+            if(m_Temp.m_ActualLevelNumber+1 <= 32)
+            {
+                m_ControlScript.LoadScene(m_Temp.m_ActualLevelNumber + 1);
+                m_Temp.EraseTempStats();
+            }
+            else
+            {
+                m_ControlScript.SwitchToCredits();
+            }
+            
         }
     }
 }

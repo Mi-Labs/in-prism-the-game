@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Player_Control : MonoBehaviour {
 
     /* Variables */
+
+    public bool m_PlayerIsSelectable;
 
     private Player_Movement movescript;
 
@@ -96,7 +100,7 @@ public class Player_Control : MonoBehaviour {
 
                     switch(mytouch.phase)
                     {
-                      case TouchPhase.Began:
+                        case TouchPhase.Began:
                         // If the touch is in the left end of the screen (0 - 1/6)
                         if (curpos.x < (Screen.width / 6))
                         {
@@ -125,15 +129,20 @@ public class Player_Control : MonoBehaviour {
                             }
                         }
                             
+                         if(m_PlayerIsSelectable)
+                        {
                             // If the player is touched -> activate the menu
-                            if(HasPlayerBeenTouched(mytouch))
+                            if (HasPlayerBeenTouched(mytouch))
                             {
-                            menu_trigger = true;
+                                menu_trigger = true;
                             }
-                                         
-                            break;
 
-                      case TouchPhase.Ended:
+                        }
+                        // End the case
+                        break;
+
+
+                    case TouchPhase.Ended:
                                               
                             // Debug.Log("Touch ended");
                             m_LeftActive = false;
@@ -255,4 +264,13 @@ public class Player_Control : MonoBehaviour {
         Debug.Assert(m_MenuScript == null, "PowerUp_Menu still not found");     
     }
 
+
+    /// <summary>
+    /// This method changes the selectability of the player
+    /// </summary>
+    /// <param name="_newStatus">True, if player can be touched</param>
+    public void MakePlayerSelectable(bool _newStatus)
+    {
+        m_PlayerIsSelectable = _newStatus;
+    }
 }

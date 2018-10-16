@@ -129,9 +129,12 @@ EditorBuildSettings:
     path: Assets/Scences/Menus/PowerUpMenu.unity
     guid: 7977e32a5b1e50343baf88e196e1c796
   - enabled: 1
+    path: Assets/Scences/Menus/HighScoreMenu.unity
+    guid: ebfd68db849ddc349bd4c784c215055f
+  - enabled: 1
     path: Assets/Scences/Menus/Credits.unity
     guid: ab05a007b55a26b4c9ff36b3b7a1b486
   - enabled: 1
-    path: Assets/Scences/Menus/HighScoreMenu.unity
-    guid: ebfd68db849ddc349bd4c784c215055f
+    path: Assets/Scences/Basic/StartScreen.unity
+    guid: 52d1feb1b1fa161468f03005d2e0e99a
   m_configObjects: {}
