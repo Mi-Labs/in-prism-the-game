@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4646832607920718}
   - component: {fileID: 82058964454178792}
+  - component: {fileID: 114409504820710328}
   m_Layer: 0
   m_Name: Background_Sound
   m_TagString: Untagged
@@ -191,6 +192,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ManagerTag: SceneManager
+--- !u!114 &114409504820710328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241898748653470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1abd220f12e8fd4bb0e0809b019b87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114970656335480366
 MonoBehaviour:
   m_ObjectHideFlags: 1

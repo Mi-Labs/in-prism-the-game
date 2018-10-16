@@ -59,12 +59,12 @@ public class Player_Control : MonoBehaviour {
                 break;
 
             case -1:
-                left_active = true;
+                m_LeftActive = true;
                 break;
 
             case 0:
-                right_active = false;
-                left_active = false;
+                m_RightActive = false;
+                m_LeftActive = false;
                 break;
 
             default:
@@ -72,7 +72,7 @@ public class Player_Control : MonoBehaviour {
                 break;
         }
 
-        jump_active = Input.GetKeyDown(KeyCode.Space);
+        m_JumpActive = Input.GetKeyDown(KeyCode.Space);
 
         if(m_MenuScript != null)
         {
