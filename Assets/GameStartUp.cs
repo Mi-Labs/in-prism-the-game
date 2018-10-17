@@ -26,7 +26,7 @@ public class GameStartUp : MonoBehaviour {
         }
         else
         {
-            m_Controller.LoadScene(3);
+            m_Controller.LoadScene(2);
         }
     }
 }

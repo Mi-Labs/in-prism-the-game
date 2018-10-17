@@ -14,6 +14,6 @@ public class ToogleMusic : MonoBehaviour {
     {
         m_Source = GetComponent<AudioSource>();
 
-        m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent
+        m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
     }
 }
