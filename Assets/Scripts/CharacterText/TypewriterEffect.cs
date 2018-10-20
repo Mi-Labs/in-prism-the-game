@@ -8,8 +8,13 @@ public class TypewriterEffect : MonoBehaviour {
 
     /* Fields */
 
+    // Field for the text to show up
     public Text m_Textbox;
 
+    // Field for wait time after text is finished
+    public float m_ExtraWaitTime;
+
+    // Field for the content -> text and sound
     private TextSpeech[] m_Content;
 
     private float m_TimeToNextText;
@@ -40,7 +45,7 @@ public class TypewriterEffect : MonoBehaviour {
             // Wait till the next char should be shown
             yield return new WaitForSeconds(m_TimeToNextText);
         }
-
+        yield return new WaitForSeconds(m_ExtraWaitTime);
         SkipToNextText();
     }
 

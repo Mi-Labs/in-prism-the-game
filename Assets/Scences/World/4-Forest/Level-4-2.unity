@@ -160,6 +160,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &1548915894
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559105463273740, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 789ec3511aef2f34d861bc64b2ff9274, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1569709392
 Prefab:
   m_ObjectHideFlags: 0
@@ -219,6 +261,12 @@ Prefab:
       propertyPath: colorassignment.Array.data[5].PreFab
       value: 
       objectReference: {fileID: 1897844909898850, guid: 62bd0c4ffdcdb46dc83d2cf3e3ba9f1f,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[1].PreFab
+      value: 
+      objectReference: {fileID: 1992505509341668, guid: 50a4fe59cf4bf4898866656ce15b98c4,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
