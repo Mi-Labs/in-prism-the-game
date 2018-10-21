@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: GrayScaleMaterial
   m_Shader: {fileID: 4800000, guid: a1e776e485b6cab418eade5c1683a7eb, type: 3}

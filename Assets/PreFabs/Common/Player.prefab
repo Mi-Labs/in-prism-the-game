@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31986eba47a19d84a935a2b24546a834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movescript: {fileID: 114423321016373896}
+  m_PlayerIsSelectable: 0
 --- !u!114 &114423321016373896
 MonoBehaviour:
   m_ObjectHideFlags: 1

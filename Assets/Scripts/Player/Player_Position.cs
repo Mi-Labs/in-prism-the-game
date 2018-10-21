@@ -88,7 +88,7 @@ public class Player_Position : MonoBehaviour {
 
         foreach(int scene in loadedScences)
         {
-            if(scene >= 2)
+            if(scene >= 2 && scene <= 38)
             {
                 return true;
             }

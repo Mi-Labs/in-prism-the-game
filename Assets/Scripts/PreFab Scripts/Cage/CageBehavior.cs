@@ -5,13 +5,11 @@ namespace Spheres
     public class CageBehavior : MonoBehaviour
     {
         /* Fields */
-
+        
         public int m_CageStage;
-        [Space(20)]
         public Sprite m_CageBroken;
 
         private SpriteRenderer m_CageRenderer;
-
         private SphereFreed m_SphereScript;
 
 
@@ -38,12 +36,12 @@ namespace Spheres
         }
 
         /// <summary>
-        /// This method is called, when there is an collision with an object
+        /// This method is called, when there is an trigger with an object
         /// </summary>
         /// <param name="_collision"></param>
         private void OnTriggerEnter2D(Collider2D _collision)
         {
-            if (_collision.gameObject.CompareTag("Player"))
+            if (_collision.gameObject.tag == "Player")
             {
                 // If the cage is not fully broken
                 if (m_CageStage > 0)

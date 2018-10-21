@@ -26,7 +26,7 @@
         {
             worldtext = "World Forest";
         }
-        else if (_levelnumber > 23 && _levelnumber < 27)
+        else if (_levelnumber > 21 && _levelnumber < 27)
         {
             worldtext = "World Underground";
         }

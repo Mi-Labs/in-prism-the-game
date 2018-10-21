@@ -46,6 +46,7 @@ public class TypewriterEffect : MonoBehaviour {
             yield return new WaitForSeconds(m_TimeToNextText);
         }
         yield return new WaitForSeconds(m_ExtraWaitTime);
+
         SkipToNextText();
     }
 
@@ -56,8 +57,17 @@ public class TypewriterEffect : MonoBehaviour {
     {
         if(m_Audiosource == null)
         {
-            m_Audiosource = gameObject.AddComponent<AudioSource>();
+            if(gameObject.GetComponent<AudioSource>() == null)
+            {
+                m_Audiosource = gameObject.AddComponent<AudioSource>();
+            }
+            else
+            {
+                m_Audiosource = gameObject.GetComponent<AudioSource>();
+            }
+                
         }
+        
         m_CurrentDisplayedText = 0;
         m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
         m_TimeToNextText = m_config.m_Textspeed;

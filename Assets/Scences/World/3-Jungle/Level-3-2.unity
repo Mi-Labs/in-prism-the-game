@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,6 +113,692 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &746560107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1543889249563162, guid: 146e9b8719c1acd46b721412586e2bd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552837264}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 746560110}
+  - component: {fileID: 746560109}
+  - component: {fileID: 746560108}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: LevelGenerator
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &746560108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114544211631143638, guid: 146e9b8719c1acd46b721412586e2bd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552837264}
+  m_GameObject: {fileID: 746560107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d14e21e5f4e17468e7ecb6b63c8c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &746560109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552837264}
+  m_GameObject: {fileID: 746560107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211370ba367af141bb1403f9d12d1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Activate_SkyKillzone: 0
+  levelmap: {fileID: 2800000, guid: 266e70f8ab1231c4289e5a3a062abe2c, type: 3}
+  colorassignment:
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278190335
+    PreFab: {fileID: 1703995403581956, guid: 72a33fcbe5e8d0f44a59ab79f80206f4, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278190080
+    PreFab: {fileID: 1693321450339534, guid: da2af18b750344844a0cc253f3636fc7, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4289950976
+    PreFab: {fileID: 1682849909562750, guid: c94b3b18aac7d6c4d9684c8c20a9f701, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294901760
+    PreFab: {fileID: 1073520641576102, guid: bb4925c214555f347bc343f771091629, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278249958
+    PreFab: {fileID: 1304047920554538, guid: 29a96d09c5fcdc1479c7d681734dc7b1, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4288519581
+    PreFab: {fileID: 1095283308406196, guid: 2ce8bbe68a7b7f340bd7189047a97bf6, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278255360
+    PreFab: {fileID: 1455700051096712, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4282263040
+    PreFab: {fileID: 1465097039839166, guid: 795dfa7146c536340ad16f52836eaa45, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4282335512
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4284455704
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4285765150
+    PreFab: {fileID: 1304285228190590, guid: 34a1b662f4993d24f8317e62f4991af6, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294960160
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4281119266
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280229669
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294960176
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4282321974
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4281808700
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286684476
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4288519751
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4287716938
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280821844
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280887380
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4264110164
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283790420
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283855956
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280624487
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4287847273
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4289476211
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280776819
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280842355
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4284455795
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286094965
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4284700535
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286426489
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283461762
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283527298
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4287153283
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4289423750
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4284328592
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4290433168
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4281742993
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280163990
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4288519581
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280783776
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4288807076
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4289703855
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280188597
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280254133
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4281237173
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283330747
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283396283
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286282689
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4286282689
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4280340421
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4285665478
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4283171528
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4292694751
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4292760287
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4292825823
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294922975
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294923231
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278249958
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4261472742
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278190335
+    PreFab: {fileID: 1703995403581956, guid: 72a33fcbe5e8d0f44a59ab79f80206f4, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294705407
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294705407
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294770943
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278210303
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278255615
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4279173120
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4279752200
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294960128
+    PreFab: {fileID: 1759595136902644, guid: d255705590c06054da12ab91718d2885, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4287020544
+    PreFab: {fileID: 1019923838569208, guid: 52378d58e5bd81348887533913bdb1c0, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4278255534
+    PreFab: {fileID: 1922476305737344, guid: 30dea3ebc9a6a524fbdf3bf36ba896c9, type: 2}
+    m_isActive: 1
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4290199552
+    PreFab: {fileID: 1360753713517432, guid: 407fbc622cc7c774c8eb91c84012de31, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4290016512
+    PreFab: {fileID: 1953535873278770, guid: e4d9b2770d47ac146a6f7bf97d0399e0, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+  - colorPreFab:
+      serializedVersion: 2
+      rgba: 4294967295
+    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    m_isActive: 0
+--- !u!4 &746560110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4104424696276344, guid: 146e9b8719c1acd46b721412586e2bd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552837264}
+  m_GameObject: {fileID: 746560107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &798593792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1287709044739084, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798593796}
+  - component: {fileID: 798593795}
+  - component: {fileID: 798593794}
+  - component: {fileID: 798593793}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798593793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114241807357899614, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 798593792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafe9458f65c6944abe0ccbdecb0df46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActivatePlayer: 0
+--- !u!114 &798593794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114970656335480366, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 798593792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e7357bb952c364b98e0bcc918eb3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsComplete: 0
+  m_Leveltime: 0
+  m_Savedspheres: 0
+  m_NumberOfDeaths: 0
+  m_ActualSceneNumber: 0
+--- !u!114 &798593795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114301568994021664, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 798593792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5c8d04776db4944a0b19d66186c2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ManagerTag: SceneManager
+--- !u!4 &798593796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4322298906585274, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 798593792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1701245169}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1552837264
 Prefab:
   m_ObjectHideFlags: 0
@@ -159,6 +845,7 @@ Prefab:
       objectReference: {fileID: 2800000, guid: 266e70f8ab1231c4289e5a3a062abe2c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
+  m_RootGameObject: {fileID: 746560107}
   m_IsPrefabAsset: 0
 --- !u!1001 &1635995768
 Prefab:
@@ -206,4 +893,147 @@ Prefab:
       objectReference: {fileID: 8300000, guid: b4a7402b2042b4448adcf8ce5f9950bf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca, type: 2}
+  m_RootGameObject: {fileID: 798593792}
   m_IsPrefabAsset: 0
+--- !u!1 &1701245168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1241898748653470, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701245169}
+  - component: {fileID: 1701245171}
+  - component: {fileID: 1701245170}
+  m_Layer: 0
+  m_Name: Background_Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701245169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4646832607920718, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 1701245168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 798593796}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701245170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114409504820710328, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 1701245168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1abd220f12e8fd4bb0e0809b019b87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsMuted: 0
+  m_Config: {fileID: 0}
+--- !u!82 &1701245171
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 82058964454178792, guid: 4b7745a4fe4fd6e46bd2356d4d2326ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635995768}
+  m_GameObject: {fileID: 1701245168}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b4a7402b2042b4448adcf8ce5f9950bf, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.087
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.028
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

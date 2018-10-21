@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+
 
 public class Player_Control : MonoBehaviour {
 
@@ -42,6 +41,7 @@ public class Player_Control : MonoBehaviour {
         // Add Listener for SwipeDetector
         SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
     }
+
 
     // Update is called once per frame
     void Update()
