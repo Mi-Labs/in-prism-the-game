@@ -5457,7 +5457,7 @@ Prefab:
     - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
         type: 2}
       propertyPath: m_acceleration
-      value: 1.51
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
         type: 2}
@@ -5467,7 +5467,7 @@ Prefab:
     - target: {fileID: 114423321016373896, guid: 4e6500ba08d2e2e4aa1a857422318989,
         type: 2}
       propertyPath: m_JumpPowerDesk
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e6500ba08d2e2e4aa1a857422318989, type: 2}
