@@ -20,7 +20,7 @@ public class ToogleVoice : MonoBehaviour {
         // Set AudioSource to saved mute status
         m_Source.mute = m_IsMuted;
 
-        PlayerSettings.VoiceOn += PlayerSettings_VoiceOn; ;
+         
     }
 
     private void PlayerSettings_VoiceOn(bool _status)
@@ -28,4 +28,8 @@ public class ToogleVoice : MonoBehaviour {
         m_Source.mute = _status;
     }
 
+    private void OnDestroy()
+    {
+        PlayerSettings.VoiceOn -= PlayerSettings_VoiceOn;
+    }
 }

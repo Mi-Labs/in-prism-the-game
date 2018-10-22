@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ToggleMenuCircles : MonoBehaviour {
 
-    private SpriteRenderer m_MainCircleRenderer;
+    private Image m_MainCircleRenderer;
 
     public Sprite m_InverseCircle;
     public Sprite m_NormalCircle;
@@ -12,7 +13,7 @@ public class ToggleMenuCircles : MonoBehaviour {
     public void Start()
     {
         m_Config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
-        m_MainCircleRenderer = gameObject.GetComponent<SpriteRenderer>();
+        m_MainCircleRenderer = gameObject.GetComponent<Image>();
     }
 
     /// <summary>
