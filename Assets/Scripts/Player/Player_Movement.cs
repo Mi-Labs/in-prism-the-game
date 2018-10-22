@@ -14,8 +14,9 @@ public class Player_Movement : MonoBehaviour {
     [Space]
     [Header("Jump Attributs")]
     //Jump-Strength
-    public float jumppower;
+    public float m_JumpPowerMobile;
     //[Range(0, 1)]
+    public float m_JumpPowerDesk;
     //public float m_JumpThresholdX; 
 
     [Space]
@@ -83,9 +84,13 @@ public class Player_Movement : MonoBehaviour {
     {
         if(m_canJump)
         {
+#if UNITY_IOS || UNITY_ANDROID
             //Create movementVector2
-            Vector2 movement = new Vector2(0f, jumppower * jumpfactor*Time.deltaTime*1000);
+            Vector2 movement = new Vector2(0f, m_JumpPowerMobile * jumpfactor*Time.deltaTime*1000);
+#elif UNITY_STANDALONE || UNITY_WEBGL
 
+            Vector2 movment = new Vector2(0f, m_JumpPowerDesk * jumpfactor*Time.deltaTime*1000);
+#endif
             //Add movement to rgb2D
             rgb2D.AddForce(movement);
         }     
