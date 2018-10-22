@@ -388,10 +388,9 @@ MonoBehaviour:
   m_Text: "Nico Geiger - Game Design\nMicha Kodalle - Developer\nAdelheid Haslach
     - Artist\nSimon Z\xFCllich - Marketing\n\nDavid Baudot -Music\n\nMarina Wolf -
     The Clam\nStefan Liffers - The Ape\nGare Anighoro - The Rasta Coackroach\nTusimbanashe
-    Muchabiwa - The Prism\nFabienne Geffroy - The Birds\nNico Geiger - The Mole\n\nGregor
-    Cresnar from Flaticon - Icons\n\nSpecial thanks to the VWDS faculty at the University
-    of Technology Ilmenau, especially Tobias Schwandt M. Sc. and Prof. Dr Wolfgang
-    Broll for the cooperation."
+    Muchabiwa - The Prism\nFabienne Geffroy - The Birds\nNico Geiger - The Mole\n\nSpecial
+    thanks to the VWDS faculty at the University of Technology Ilmenau, especially
+    Tobias Schwandt M. Sc. and Prof. Dr Wolfgang Broll for the cooperation."
 --- !u!222 &1371938119
 CanvasRenderer:
   m_ObjectHideFlags: 0

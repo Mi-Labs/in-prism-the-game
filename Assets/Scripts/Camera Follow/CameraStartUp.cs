@@ -25,7 +25,10 @@ public class CameraStartUp : MonoBehaviour {
             m_FollowScript = Camera.main.gameObject.AddComponent<CameraFollow>();
             m_FollowScript.InsertLevelGen(gameObject);
         }
-
+        else
+        {
+            m_FollowScript.InsertLevelGen(gameObject);
+        }
         // Destroy this script
         Destroy(this);
 	}
