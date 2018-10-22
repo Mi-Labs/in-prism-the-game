@@ -13,7 +13,7 @@ namespace Spheres
         private SpriteRenderer m_CageRenderer;
         private SphereFreed m_SphereScript;
 
-        public static event Action<bool> SphereFreed = delegate { };
+        //public static event Action<bool> SphereFreed = delegate { };
 
         /* Methods */
 
@@ -86,7 +86,7 @@ namespace Spheres
                         Debug.Log("No Level stats found");
                     }
 
-                    OnSphereFreed();
+                    //OnSphereFreed();
 
                     break;
 
@@ -106,13 +106,13 @@ namespace Spheres
             
         }
 
-        public void OnSphereFreed()
-        {
-            if(SphereFreed != null)
-            {
-                SphereFreed(true);
-            }
-        }
+        //public void OnSphereFreed()
+        //{
+        //    if(SphereFreed != null)
+        //    {
+        //        SphereFreed(true);
+        //    }
+        //}
     }
 
 }

@@ -34,13 +34,13 @@ namespace Spheres
             m_PlayerStartPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
             m_Endposition = m_PlayerStartPosition + new Vector3(0.0f, m_RiseHeight, 0.0f);
 
-            CageBehavior.SphereFreed += CageBehavior_SphereFreed;
+           // CageBehavior.SphereFreed += CageBehavior_SphereFreed;
         }
 
-        private void CageBehavior_SphereFreed(bool _status)
-        {
-            RiseSphere();
-        }
+        //private void CageBehavior_SphereFreed(bool _status)
+        //{
+        //    RiseSphere();
+        //}
 
         private void Update()
         {
@@ -75,10 +75,10 @@ namespace Spheres
             m_SphereBody.constraints = RigidbodyConstraints2D.None;
         }
 
-        private void OnDestroy()
-        {
-            CageBehavior.SphereFreed -= CageBehavior_SphereFreed;
-        }
+        //private void OnDestroy()
+        //{
+        //    CageBehavior.SphereFreed -= CageBehavior_SphereFreed;
+        //}
     }
 
 }
