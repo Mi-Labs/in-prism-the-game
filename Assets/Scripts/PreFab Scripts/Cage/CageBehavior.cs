@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 namespace Spheres
 {
@@ -12,6 +13,7 @@ namespace Spheres
         private SpriteRenderer m_CageRenderer;
         private SphereFreed m_SphereScript;
 
+        public static event Action<bool> SphereFreed = delegate { };
 
         /* Methods */
 
@@ -77,12 +79,17 @@ namespace Spheres
                     if (sceneController.GetComponent<Level_Stats>() != null)
                     {
                         sceneController.GetComponent<Level_Stats>().AddSavedSphere();
+                
                     }
                     else
                     {
                         Debug.Log("No Level stats found");
                     }
+
+                    OnSphereFreed();
+
                     break;
+
 
                 case 1:
                     // Change the sprite to broken
@@ -93,7 +100,19 @@ namespace Spheres
                     // If the stage number is invalid
                     Debug.Log("Invalid cage stage");
                     break;
+
+            }
+            
+            
+        }
+
+        public void OnSphereFreed()
+        {
+            if(SphereFreed != null)
+            {
+                SphereFreed(true);
             }
         }
     }
+
 }

@@ -133,7 +133,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207118716219650}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 3
 --- !u!58 &58125920209022200
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -237,6 +237,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RiseSpeed: 100
   m_RiseHeight: 2
+  m_SphereBody: {fileID: 0}
+  m_RiseVector: {x: 0, y: 0}
+  m_ShouldRise: 0
+  m_PlayerStartPosition: {x: 0, y: 0, z: 0}
+  m_Endposition: {x: 0, y: 0, z: 0}
 --- !u!212 &212861579245420758
 SpriteRenderer:
   m_ObjectHideFlags: 1

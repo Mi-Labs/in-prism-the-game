@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 /// <summary>
 ///  This script allows the camera to follow the player
@@ -40,6 +37,10 @@ public class CameraFollow : MonoBehaviour {
     // The minimum y coordinate the camera can have.
     private float m_minY;
 
+    private bool m_LevelGenLoaded;
+
+    private bool m_BoundsCalculated;
+
 
     /* Methods */
 
@@ -64,21 +65,41 @@ public class CameraFollow : MonoBehaviour {
         // Set the calculated camera position to the position of this GO
         transform.position = newCameraPosition;
 
-        // Search for the level generator object and assign it.
-        m_levelgenerator = GameObject.Find("LevelGenerator");
 
-        // Calculate the camera bounds
-        CalculateCameraBounds();
+        // SendLevelGen.LevelGen += SendLevelGen_LevelGen;
+
+        // Search for the level generator object and assign it.
+        //m_levelgenerator = GameObject.Find("LevelGenerator");
+
+        m_BoundsCalculated = false;
     }
+
+ 
 
 
     // Update is called after all other calculation are finished
     void LateUpdate ()
     {
-        CheckForPlayer();
-        FollowPlayer();   
+        Debug.Log(m_LevelGenLoaded+ "LvlGen");
+
+        if(m_LevelGenLoaded && !m_BoundsCalculated)
+        {
+            // Calculate the camera bounds
+            CalculateCameraBounds();
+            // Debug.Log("Calculated CameraBounds");
+        }
+        else if(m_LevelGenLoaded && m_BoundsCalculated)
+        {
+            CheckForPlayer();
+            FollowPlayer();
+        }
+        
 	}
 
+    //private void SendLevelGen_LevelGen(GameObject _obj)
+    //{
+    //    m_levelgenerator = _obj;
+    //}
 
     /// <summary>
     ///  This method calculates the actual player position and makes the camera follow it
@@ -181,5 +202,20 @@ public class CameraFollow : MonoBehaviour {
         // Init minX and minY
         m_minX = horizontal_extend;
         m_minY = vertical_extend;
+
+        m_BoundsCalculated = true;
+    }
+
+    private void OnDestroy()
+    {
+       // SendLevelGen.LevelGen -= SendLevelGen_LevelGen;
+    }
+
+    public void InsertLevelGen(GameObject _Gen)
+    {
+        m_levelgenerator = _Gen;
+        m_LevelGenLoaded = true;
+       // Debug.Log("LevelGen input");
+       // Debug.Log(_Gen.name);
     }
 }
