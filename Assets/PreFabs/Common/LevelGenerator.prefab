@@ -243,7 +243,7 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4289423750
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1968778418998620, guid: fe2dc2f61fd928143bd1fd4d52e69b64, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
@@ -328,7 +328,7 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4285665478
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1130124438419508, guid: b3df6fa1d6749be41b36e7cb5e60954e, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2

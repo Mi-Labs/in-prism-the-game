@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1929395223116992}
+  m_RootGameObject: {fileID: 1052933878351760}
   m_IsPrefabAsset: 1
---- !u!1 &1929395223116992
+--- !u!1 &1052933878351760
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4608819522178480}
-  - component: {fileID: 212193902864764262}
-  - component: {fileID: 60175217217369784}
-  - component: {fileID: 114703580975761012}
-  - component: {fileID: 114211123750546396}
+  - component: {fileID: 4597330930703856}
+  - component: {fileID: 212148519876752026}
+  - component: {fileID: 60588375829274852}
+  - component: {fileID: 114878198669016110}
+  - component: {fileID: 114513568191246290}
   m_Layer: 0
-  m_Name: Bird_Text1
+  m_Name: Bird_Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4608819522178480
+--- !u!4 &4597330930703856
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929395223116992}
+  m_GameObject: {fileID: 1052933878351760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -43,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60175217217369784
+--- !u!60 &60588375829274852
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929395223116992}
+  m_GameObject: {fileID: 1052933878351760}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -95,50 +95,45 @@ PolygonCollider2D:
       - {x: 0.21, y: -0.53999996}
       - {x: 0.32999998, y: -0.42}
       - {x: 0.45, y: -0.25}
---- !u!114 &114211123750546396
+--- !u!114 &114513568191246290
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929395223116992}
+  m_GameObject: {fileID: 1052933878351760}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df9f8dddc9537a8449aba91fa3785d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectdamage: 5
---- !u!114 &114703580975761012
+--- !u!114 &114878198669016110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929395223116992}
+  m_GameObject: {fileID: 1052933878351760}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 838c3c0c2b1ec3e49adde3e97462ef4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_text:
-  - m_Audio: {fileID: 8300000, guid: 51bcf31b4a0323e4db3583bc91168381, type: 3}
-    m_Text: Hello stranger, what are you doing here at my place?
-  - m_Audio: {fileID: 8300000, guid: 22ddddd2f50590f4682f296a5d4b735c, type: 3}
-    m_Text: "I have a lot of precious eggs laying around so be careful that you won\u2018t
-      destroy of them.  "
-  - m_Audio: {fileID: 8300000, guid: 33a0c608f9ed4c24986347bdfa0d62f2, type: 3}
-    m_Text: 'I got them from a really shiny fella. '
-  - m_Audio: {fileID: 8300000, guid: e17523d993cdc4346a85a3a8ea04418f, type: 3}
-    m_Text: He told me to take care of them until he returns.
-  - m_Audio: {fileID: 8300000, guid: ea7f044e3ae54084bb08c53a4acd4aa1, type: 3}
-    m_Text: I hope there are really beautiful birds inside.
-  - m_Audio: {fileID: 8300000, guid: b2f18c0b2dd85844781111e869ab2525, type: 3}
-    m_Text: "And again: Don\xB4t touch them!"
+  - m_Audio: {fileID: 8300000, guid: 4d9b51a431d433142b1d332934491c55, type: 3}
+    m_Text: "Are you freakin\u2018 kidding me?!"
+  - m_Audio: {fileID: 8300000, guid: 17cda1f783a80ff4497c760e9c7ff9b2, type: 3}
+    m_Text: I told you not to touch my eggs and now you stole one?
+  - m_Audio: {fileID: 8300000, guid: f995c40a7e775b141945d38ae71f1e4c, type: 3}
+    m_Text: "AAAAAAHHH! I\xB4m gonna kick your round rear end!"
+  - m_Audio: {fileID: 8300000, guid: 020fcaebf1e21504190438c190cf12df, type: 3}
+    m_Text: You ungrateful round thing.
   m_HasPlayed: 0
---- !u!212 &212193902864764262
+--- !u!212 &212148519876752026
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929395223116992}
+  m_GameObject: {fileID: 1052933878351760}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
