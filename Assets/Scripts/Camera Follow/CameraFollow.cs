@@ -88,11 +88,8 @@ public class CameraFollow : MonoBehaviour {
             CalculateCameraBounds();
             // Debug.Log("Calculated CameraBounds");
         }
-        else if(m_LevelGenLoaded && m_BoundsCalculated)
-        {
             CheckForPlayer();
             FollowPlayer();
-        }
         
 	}
 

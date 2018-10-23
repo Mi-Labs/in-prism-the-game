@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212713013413773282}
   - component: {fileID: 60465500557911346}
   - component: {fileID: 114161076903767748}
+  - component: {fileID: 114486374378781030}
   m_Layer: 0
   m_Name: Spikes_Right
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617913826916072}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &60465500557911346
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -280,6 +281,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectdamage: 0
+--- !u!114 &114486374378781030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617913826916072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737dd4021093ba0449b31df80aa73bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationX: 0
+  m_RotationY: 180
+  m_RotationZ: 0
 --- !u!212 &212713013413773282
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60794281627552928}
   - component: {fileID: 114709700797494794}
   - component: {fileID: 114548376265318564}
+  - component: {fileID: 114438711454728384}
   m_Layer: 0
   m_Name: ForestSlope_LeftH2RightLUpside
   m_TagString: Untagged
@@ -36,13 +37,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870214059276036}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &60794281627552928
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -146,6 +147,20 @@ PolygonCollider2D:
       - {x: 5.12, y: -5.12}
       - {x: 5.12, y: -3.97}
       - {x: 4.91, y: -3.9599998}
+--- !u!114 &114438711454728384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870214059276036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737dd4021093ba0449b31df80aa73bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationX: 180
+  m_RotationY: 180
+  m_RotationZ: 0
 --- !u!114 &114548376265318564
 MonoBehaviour:
   m_ObjectHideFlags: 1

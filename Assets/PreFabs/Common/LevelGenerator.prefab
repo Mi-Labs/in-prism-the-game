@@ -163,12 +163,12 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4280887380
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1959263780071040, guid: 0c3c71d025e07134d9a43877dc57b884, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
       rgba: 4264110164
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1617913826916072, guid: 1f81cf306ffa9a242a78cb6822ea912a, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
@@ -208,7 +208,7 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4284455795
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1845906936663938, guid: cfe9f3f7733ba4b4181bae5db9519d49, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
@@ -333,7 +333,7 @@ MonoBehaviour:
   - colorPreFab:
       serializedVersion: 2
       rgba: 4283171528
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+    PreFab: {fileID: 1867843616781080, guid: 931bc90c6840e0743a52541dcb540297, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
@@ -402,8 +402,8 @@ MonoBehaviour:
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
-      rgba: 4279173120
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+      rgba: 4279320448
+    PreFab: {fileID: 1083777817514150, guid: c6b271dc7835c3344bcceac0c2b0e2a0, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
@@ -472,8 +472,8 @@ MonoBehaviour:
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
-      rgba: 4294967295
-    PreFab: {fileID: 1356707100031818, guid: 84dc632719ab02349ae0514913e9a1cd, type: 2}
+      rgba: 4278255871
+    PreFab: {fileID: 1896680951696948, guid: 41e74abfe00346c4eb9de2bf751bb906, type: 2}
     m_isActive: 0
   - colorPreFab:
       serializedVersion: 2
