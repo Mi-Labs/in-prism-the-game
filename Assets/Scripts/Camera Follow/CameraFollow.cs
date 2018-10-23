@@ -80,7 +80,7 @@ public class CameraFollow : MonoBehaviour {
     // Update is called after all other calculation are finished
     void LateUpdate ()
     {
-        Debug.Log(m_LevelGenLoaded+ "LvlGen");
+        // Debug.Log(m_LevelGenLoaded+ "LvlGen");
 
         if(m_LevelGenLoaded && !m_BoundsCalculated)
         {

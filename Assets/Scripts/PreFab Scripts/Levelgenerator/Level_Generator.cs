@@ -110,15 +110,18 @@ public class Level_Generator : MonoBehaviour {
                 actualLevel = save;
                 break;
             }
+            break;
         }
 
         // If there is a saved level
         if(actualLevel != null)
         {
+            Debug.Log("Levelsave found");
             // Get every object in the level and apply the colorchange to this
             foreach (Vector2Ser pos in actualLevel.m_colorChangedObjectPosition)
             {
                 Vector2 position = pos.GetVector2();
+                
                 GameObject inLevel = Physics2D.OverlapCircle(position, 0.1f).gameObject;
 
                 inLevel.GetComponent<Coloration>().ActivateColor();
