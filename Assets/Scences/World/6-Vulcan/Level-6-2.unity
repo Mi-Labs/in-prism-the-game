@@ -303,6 +303,28 @@ Prefab:
       value: 
       objectReference: {fileID: 1845906936663938, guid: cfe9f3f7733ba4b4181bae5db9519d49,
         type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[65].PreFab
+      value: 
+      objectReference: {fileID: 1010411824423732, guid: b2f6c5819eae42347a8b1f1c43ebc2ef,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[64].PreFab
+      value: 
+      objectReference: {fileID: 1392278384140988, guid: a7c9b7b3517f5674e81f174282571cba,
+        type: 2}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[64].m_isActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114358330726220206, guid: 146e9b8719c1acd46b721412586e2bd4,
+        type: 2}
+      propertyPath: colorassignment.Array.data[65].m_isActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146e9b8719c1acd46b721412586e2bd4, type: 2}
   m_IsPrefabAsset: 0
