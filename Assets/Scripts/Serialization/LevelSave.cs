@@ -55,7 +55,7 @@ public class LevelSave {
     public void SaveAllLevelData()
     {
         FillColorList();
-        
+        ImportLevelStatistics();    
     }
 
     private bool CheckIfSaved(Vector2 _position)

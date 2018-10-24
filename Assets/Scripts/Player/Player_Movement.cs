@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class Player_Movement : MonoBehaviour {
@@ -16,9 +14,10 @@ public class Player_Movement : MonoBehaviour {
     [Space]
     [Header("Jump Attributs")]
     //Jump-Strength
-    public float jumppower;
-    [Range(0, 1)]
-    public float m_JumpThresholdX; 
+    public float m_JumpPowerMobile;
+    //[Range(0, 1)]
+    public float m_JumpPowerDesk;
+    //public float m_JumpThresholdX; 
 
     [Space]
     [Header("Fall Multiplier (Experimental)")]
@@ -31,11 +30,9 @@ public class Player_Movement : MonoBehaviour {
     private Rigidbody2D rgb2D;
 
 
-
     //Jump factor
     private float jumpfactor;
 
-    private float m_circleRadius;
 
     private bool m_canJump;
 
@@ -47,6 +44,9 @@ public class Player_Movement : MonoBehaviour {
 
     // Constant jump factor
     private const float k_standardjumpfactor = 1.0f;
+
+
+    public LayerMask m_DetectTheseLayers;
 
 
 
@@ -61,7 +61,6 @@ public class Player_Movement : MonoBehaviour {
         jumpfactor = k_standardjumpfactor;
         m_canJump = false;
         m_fallMultiplier = 3.0f;
-        m_circleRadius = GetComponent<CircleCollider2D>().radius + 0.1f;
 	}
 	
     /// <summary>
@@ -71,8 +70,8 @@ public class Player_Movement : MonoBehaviour {
     public void MovePlayer(float _direction)
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor, 0);
-
+        Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor*Time.deltaTime*100, 0);
+      
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
 
@@ -85,9 +84,13 @@ public class Player_Movement : MonoBehaviour {
     {
         if(m_canJump)
         {
+        #if UNITY_IOS || UNITY_ANDROID
             //Create movementVector2
-            Vector2 movement = new Vector2(0f, jumppower * jumpfactor);
-
+            Vector2 movement = new Vector2(0f, m_JumpPowerMobile * jumpfactor*Time.deltaTime*1000);
+        #elif UNITY_STANDALONE || UNITY_WEBGL
+            //Create movementVector2
+            Vector2 movement = new Vector2(0f, m_JumpPowerDesk * jumpfactor*Time.deltaTime*1000);
+        #endif
             //Add movement to rgb2D
             rgb2D.AddForce(movement);
         }     
@@ -112,7 +115,7 @@ public class Player_Movement : MonoBehaviour {
         // Set the jumpfactor to standard
         jumpfactor = k_standardjumpfactor;
 
-        //Debug.Log("Jump is on standard value");
+       
     }
 
     /// <summary>
@@ -121,24 +124,20 @@ public class Player_Movement : MonoBehaviour {
     private void Update()
     {
         m_canJump = false;
+        // Cast Box under player
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.75f,0.75f), 0.0f, Vector2.down,0.5f);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, m_circleRadius);
-
-        for (int i = 0; i < colliders.Length; i++)
+        // If the hit isn't the player and not null 
+        if (raycastHit.collider != null && !raycastHit.collider.gameObject.tag.Equals("Player"))
         {
-
-            if (colliders[i].gameObject != gameObject)
-            {
-                bool somethingUnder = CheckIfSomethingUnder(transform.position, colliders[i].gameObject.transform.position);
-
-                if(somethingUnder)
-                {
-                    m_canJump = true;
-                }
-               
-            }
+            m_canJump = true;
+        }
+        else
+        {
+            m_canJump = false;
         }
 
+        // Experimental Fall Multiplier
         if(m_ActivateFallMultiplier)
         {
             // If the player is falling, add some extra force
@@ -147,7 +146,6 @@ public class Player_Movement : MonoBehaviour {
                 rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
             }
         }
-
     }
 
 
@@ -156,16 +154,4 @@ public class Player_Movement : MonoBehaviour {
         jumpfactor = _factor;
     }
 
-    private bool CheckIfSomethingUnder(Vector3 _position, Vector3 _testPosition)
-    {
-        bool isNearX = Mathf.Abs(_position.x - _testPosition.x) <= m_JumpThresholdX;
-
-        if(_position.y > _testPosition.y && isNearX)
-        {
-            return true;
-        }
-
-        return false;
-        
-    }
 }

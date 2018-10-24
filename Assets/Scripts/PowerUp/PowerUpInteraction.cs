@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -61,6 +60,11 @@ public class PowerUpInteraction : MonoBehaviour {
     /// </summary>
     public void MakePowerUpVisible()
     {
+        if(m_image == null)
+        {
+            Start();
+        }
+
         // Debug.Log("Make Visible is called on " + gameObject.name);
         if(!m_image.enabled)
         {

@@ -14,7 +14,7 @@ public class SaveLevelData : MonoBehaviour {
         LevelSave levelSave = new LevelSave();
 
         // Save all changed colors
-        levelSave.FillColorList();
+        levelSave.SaveAllLevelData();
 
         // Get WorldObjectSave Object
         WorldObjectSave worldObjectSave = GameObject.FindGameObjectWithTag("LevelSave").GetComponent<WorldObjectSave>();

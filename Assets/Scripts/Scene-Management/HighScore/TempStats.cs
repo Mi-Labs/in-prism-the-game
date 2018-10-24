@@ -22,6 +22,28 @@ namespace HighScore
             return "Leveltime: " + timeText + "\n" + "Saved Spheres: " + m_SavedSpheres + "\n" + "Deaths: " + m_NumberofDeaths;
         }
 
+        public string GenerateLevelTimeStats()
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(m_leveltime);
+            string timeText = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+            return timeText;
+        }
+
+        public string GenerateSavedSphereText()
+        {
+            return m_SavedSpheres.ToString();
+        }
+
+        public string GenerateDeathText()
+        {
+            return m_NumberofDeaths.ToString();
+        }
+
+        public string GeneratePlayedLevel()
+        {
+            return m_ActualLevelNumber.ToString();
+        }
+
         public void EraseTempStats()
         {
             m_leveltime = 0.0f;

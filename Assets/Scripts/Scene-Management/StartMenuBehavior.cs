@@ -143,10 +143,6 @@ public class StartMenuBehavior : MonoBehaviour {
 
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
     private World GetActualWorld(string _world)
     {
@@ -184,7 +180,6 @@ public class StartMenuBehavior : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update() { }
+    
     
 }

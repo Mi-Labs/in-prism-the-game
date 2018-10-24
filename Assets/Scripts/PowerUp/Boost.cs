@@ -158,7 +158,7 @@ public class Boost : MonoBehaviour, IPowerUp {
         // Start Cooldown-Timer
         StartTimer(cooldowntime);
 
-        m_interaction.StartCoolDownGraphic(cooldowntime);
+        // m_interaction.StartCoolDownGraphic(cooldowntime);
 
         // Set cooldownphase to not active
         cooldownIsActive = false;

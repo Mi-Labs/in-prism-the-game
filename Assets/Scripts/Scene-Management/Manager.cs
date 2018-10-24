@@ -26,7 +26,7 @@ namespace GameManagement
         {
             Base = 0,            
             Menu = 1,
-            TestMenu = 2,
+            StartLevel = 2,
             Ocean1 = 3,
             Ocean2 = 4,
             Ocean3 = 5,
@@ -64,7 +64,9 @@ namespace GameManagement
             Night6 = 37,
             Night7 = 38,
             HighScore = 39,
-            NumberOfScenes = 40
+            Credits = 40,
+            StartSceen = 41,
+            NumberOfScenes = 42
         };
 
 

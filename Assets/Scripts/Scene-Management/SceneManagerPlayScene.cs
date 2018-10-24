@@ -28,6 +28,11 @@ namespace GameManagement
         {
             LoadScene(Manager.EScene.HighScore);
         }
+
+        public void SwitchToCredits()
+        {
+            LoadScene(Manager.EScene.Credits);
+        }
     }
 
 }

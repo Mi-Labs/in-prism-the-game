@@ -19,8 +19,6 @@ public class World_Stats : MonoBehaviour
 
     private float m_TotalPlayedTime;
 
-    public string m_PlayTimeInSeconds;
-
 
     /* Methods */
 
@@ -39,12 +37,6 @@ public class World_Stats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-    }
-
-    public void Update()
-    {
-        m_TotalPlayedTime = Time.timeSinceLevelLoad;   
     }
 
     /// <summary>
@@ -63,31 +55,51 @@ public class World_Stats : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// This method generates a statistic save and returns it 
+    /// </summary>
+    /// <returns>saved statistic data</returns>
     public StatisticsSave SaveData()
     {
         return new StatisticsSave(m_Stats);
     }
 
+    /// <summary>
+    /// This method loads the data from a serialized data
+    /// </summary>
+    /// <param name="_savedData">Serialized statistic data</param>
     public void LoadStats(StatisticsSave _savedData)
     {
         if(_savedData != null)
         {
+            // Set Global Statistics
             m_Stats = GlobalStatistics.Instance;
+
+            // Set Number of Deaths
             m_Stats.SetNumberOfDeath(_savedData.GetSaveData().GetNumberOfDeath());
+
+            // Set Play Time
             m_Stats.SetPlayTime(_savedData.GetSaveData().GetPlayTime());
-            m_PlayTimeInSeconds = TimeSpan.FromSeconds(m_Stats.GetPlayTime()).ToString();
         }
     }
 
-
+    
+    /// <summary>
+    /// If the application is quit, save the statistics
+    /// </summary>
     private void OnApplicationQuit()
     {
-       m_Stats.UpdatePlayTime(m_TotalPlayedTime);
+       if(!m_Stats.m_Deleted)
+       {
+            m_TotalPlayedTime = Time.timeSinceLevelLoad;
+            m_Stats.UpdatePlayTime(m_TotalPlayedTime);
 
-       BinarySerializer.SaveStats(SaveData());
+            BinarySerializer.SaveStats(SaveData());
+       }
     }
 
+    public GlobalStatistics GetStats()
+    {
+        return m_Stats;
+    }
 }
-
-

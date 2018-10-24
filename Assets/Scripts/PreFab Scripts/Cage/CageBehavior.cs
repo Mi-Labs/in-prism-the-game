@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
+using System;
 
 namespace Spheres
 {
     public class CageBehavior : MonoBehaviour
     {
-
         /* Fields */
-
+        
         public int m_CageStage;
-        [Space(20)]
         public Sprite m_CageBroken;
 
         private SpriteRenderer m_CageRenderer;
-
         private SphereFreed m_SphereScript;
+
+        //public static event Action<bool> SphereFreed = delegate { };
+
         /* Methods */
 
         void Start()
         {
             // Init fields
             m_CageStage = 2;
+
             // Search for spriteRenderer of the cage sprite
             SpriteRenderer[] renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer renderer in renderers)
@@ -29,18 +31,27 @@ namespace Spheres
                     m_CageRenderer = renderer;
                 }
             }
+
+            // Get the sphere script
             m_SphereScript = gameObject.GetComponentInChildren<SphereFreed>();
 
         }
 
-
+        /// <summary>
+        /// This method is called, when there is an trigger with an object
+        /// </summary>
+        /// <param name="_collision"></param>
         private void OnTriggerEnter2D(Collider2D _collision)
         {
-            if (_collision.gameObject.CompareTag("Player"))
+            if (_collision.gameObject.tag == "Player")
             {
+                // If the cage is not fully broken
                 if (m_CageStage > 0)
                 {
+                    // Change CageStage
                     m_CageStage--;
+
+                    // Change to the new stage
                     ChangeCageStage(m_CageStage);
                 }
             }
@@ -58,19 +69,27 @@ namespace Spheres
                     // Make the sprite for the cage disapear
                     m_CageRenderer.enabled = false;
                     m_SphereScript.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+                    // Start the sphere rise process 
                     m_SphereScript.RiseSphere();
 
                     GameObject sceneController = GameObject.FindGameObjectWithTag("GameController");
 
+                    // Add saved sphere to statistics
                     if (sceneController.GetComponent<Level_Stats>() != null)
                     {
                         sceneController.GetComponent<Level_Stats>().AddSavedSphere();
+                
                     }
                     else
                     {
                         Debug.Log("No Level stats found");
                     }
+
+                    //OnSphereFreed();
+
                     break;
+
 
                 case 1:
                     // Change the sprite to broken
@@ -78,10 +97,22 @@ namespace Spheres
                     break;
 
                 default:
+                    // If the stage number is invalid
                     Debug.Log("Invalid cage stage");
                     break;
+
             }
+            
+            
         }
+
+        //public void OnSphereFreed()
+        //{
+        //    if(SphereFreed != null)
+        //    {
+        //        SphereFreed(true);
+        //    }
+        //}
     }
 
 }
