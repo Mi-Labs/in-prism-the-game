@@ -65,12 +65,6 @@ public class CameraFollow : MonoBehaviour {
         // Set the calculated camera position to the position of this GO
         transform.position = newCameraPosition;
 
-
-        // SendLevelGen.LevelGen += SendLevelGen_LevelGen;
-
-        // Search for the level generator object and assign it.
-        //m_levelgenerator = GameObject.Find("LevelGenerator");
-
         m_BoundsCalculated = false;
     }
 
@@ -80,23 +74,17 @@ public class CameraFollow : MonoBehaviour {
     // Update is called after all other calculation are finished
     void LateUpdate ()
     {
-        // Debug.Log(m_LevelGenLoaded+ "LvlGen");
 
         if(m_LevelGenLoaded && !m_BoundsCalculated)
         {
             // Calculate the camera bounds
             CalculateCameraBounds();
-            // Debug.Log("Calculated CameraBounds");
         }
             CheckForPlayer();
             FollowPlayer();
         
 	}
 
-    //private void SendLevelGen_LevelGen(GameObject _obj)
-    //{
-    //    m_levelgenerator = _obj;
-    //}
 
     /// <summary>
     ///  This method calculates the actual player position and makes the camera follow it
@@ -203,10 +191,6 @@ public class CameraFollow : MonoBehaviour {
         m_BoundsCalculated = true;
     }
 
-    private void OnDestroy()
-    {
-       // SendLevelGen.LevelGen -= SendLevelGen_LevelGen;
-    }
 
     public void InsertLevelGen(GameObject _Gen)
     {

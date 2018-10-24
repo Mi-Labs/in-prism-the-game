@@ -32,12 +32,21 @@ public class MenuSwitching : MonoBehaviour {
         m_StatisticsCanvas.GetComponent<LoadStatistics>().SetActualValues();
     }
 
+    /// <summary>
+    /// This method switch the canvas to powerUp
+    /// </summary>
     public void SwitchToPowerUpCanvas()
     {
         SwitchCanvas(false, false, true);
         m_currentlyActiv = m_PowerUpMenuCanvas;
     }
 
+    /// <summary>
+    /// This method switch all the canvas
+    /// </summary>
+    /// <param name="_settings">If settings are aktive</param>
+    /// <param name="_statistics">If statistics are aktive</param>
+    /// <param name="_powerUp">If powerUp are aktive</param>
     private void SwitchCanvas(bool _settings, bool _statistics, bool _powerUp)
     {
         m_SettingCanvas.SetActive(_settings);
@@ -45,6 +54,9 @@ public class MenuSwitching : MonoBehaviour {
         m_PowerUpMenuCanvas.SetActive(_powerUp);
     }
 
+    /// <summary>
+    /// This method activates or deactives the menu
+    /// </summary>
     public void ToggleMenu()
     {
         if(m_currentlyActiv != null)

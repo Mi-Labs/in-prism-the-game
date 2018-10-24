@@ -20,15 +20,13 @@ public class CameraStartUp : MonoBehaviour {
         m_FollowScript = Camera.main.GetComponent<CameraFollow>();
 
         // If no camera follow script is found -> add it to the main camera
-        if(m_FollowScript == null)
+        if (m_FollowScript == null)
         {
             m_FollowScript = Camera.main.gameObject.AddComponent<CameraFollow>();
-            m_FollowScript.InsertLevelGen(gameObject);
         }
-        else
-        {
-            m_FollowScript.InsertLevelGen(gameObject);
-        }
+        // Insert Levelgen into camera script
+        m_FollowScript.InsertLevelGen(gameObject);
+        
         // Destroy this script
         Destroy(this);
 	}
