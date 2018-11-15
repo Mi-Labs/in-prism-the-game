@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PowerJump : MonoBehaviour, IPowerUp
 {
@@ -62,7 +60,6 @@ public class PowerJump : MonoBehaviour, IPowerUp
         // @Start the powerUp should be interactable
         m_IsInteractable = true;
 
-        m_interaction.ToggleInteractibility(m_IsInteractable);
     }
 
 

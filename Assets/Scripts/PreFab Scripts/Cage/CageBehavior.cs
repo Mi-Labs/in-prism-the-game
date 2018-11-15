@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 
 namespace Spheres
 {
@@ -13,7 +12,7 @@ namespace Spheres
         private SpriteRenderer m_CageRenderer;
         private SphereFreed m_SphereScript;
 
-        //public static event Action<bool> SphereFreed = delegate { };
+      
 
         /* Methods */
 
@@ -69,6 +68,7 @@ namespace Spheres
                     // Make the sprite for the cage disapear
                     m_CageRenderer.enabled = false;
                     m_SphereScript.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    m_CageRenderer.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                     // Start the sphere rise process 
                     m_SphereScript.RiseSphere();
@@ -86,7 +86,7 @@ namespace Spheres
                         Debug.Log("No Level stats found");
                     }
 
-                    //OnSphereFreed();
+               
 
                     break;
 
@@ -106,13 +106,7 @@ namespace Spheres
             
         }
 
-        //public void OnSphereFreed()
-        //{
-        //    if(SphereFreed != null)
-        //    {
-        //        SphereFreed(true);
-        //    }
-        //}
+ 
     }
 
 }

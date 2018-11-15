@@ -94,7 +94,7 @@ public class TypewriterEffect : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("No text to display!");
+           // Debug.LogError("No text to display!");
         }
     }
 

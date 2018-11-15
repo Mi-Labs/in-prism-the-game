@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61338337430727546}
   - component: {fileID: 114555096471297260}
   - component: {fileID: 114273865256746612}
+  - component: {fileID: 114754193052327116}
   m_Layer: 0
   m_Name: SandCracking
   m_TagString: Untagged
@@ -111,6 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerHasHit: 0
+--- !u!114 &114754193052327116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881546368894160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846e1a88a375f8f42a22850e8e3e333c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsChanged: 0
+  m_IsColorful: 0
+  m_CageStatus: 0
+  m_GOPosition: {x: 0, y: 0}
 --- !u!212 &212692226990618038
 SpriteRenderer:
   m_ObjectHideFlags: 1

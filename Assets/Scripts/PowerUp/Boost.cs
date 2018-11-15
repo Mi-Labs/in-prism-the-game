@@ -70,7 +70,6 @@ public class Boost : MonoBehaviour, IPowerUp {
         // @Start the powerUp should be interactable
         m_IsInteractable = true;
 
-        m_interaction.ToggleInteractibility(m_IsInteractable);
     }
 
 
@@ -117,7 +116,7 @@ public class Boost : MonoBehaviour, IPowerUp {
         // Start the timer with the given parameter
         timerClone.BroadcastMessage("StartTimer", time);
 
-        //Debug.Log("Started Timer with " + time + " seconds");
+        Debug.Log("Started Timer with " + time + " seconds");
     }
 
 

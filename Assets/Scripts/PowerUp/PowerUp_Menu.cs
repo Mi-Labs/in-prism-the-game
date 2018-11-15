@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PowerUp_Menu : MonoBehaviour {
@@ -97,23 +95,28 @@ public class PowerUp_Menu : MonoBehaviour {
         if(_number >=7)
         {
             m_config.isAvailableBoost = true;
+            powerups[0].GetComponent<Button>().interactable = true;
         }
 
         if(_number >=12)
         {
             m_config.isAvailablePowerJump = true;
+            powerups[1].GetComponent<Button>().interactable = true;
         }
         if(_number >= 17)
         {
             m_config.isAvailableSticky = true;
+            powerups[3].GetComponent<Button>().interactable = true;
         }
         if(_number >=22)
         {
             m_config.isAvailableInvulnerability = true;
+            powerups[4].GetComponent<Button>().interactable = true;
         }
         if(_number >= 31)
         {
             m_config.isAvailablePowerLight = true;
+            powerups[2].GetComponent<Button>().interactable = true;
         }
     }
     

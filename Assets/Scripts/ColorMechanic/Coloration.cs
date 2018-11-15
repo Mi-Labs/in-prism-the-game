@@ -62,7 +62,7 @@ namespace ColorChange
                 }
                 else
                 {
-                    Debug.Log("No Changed Value script on: " + gameObject.name);
+                //    Debug.Log("No Changed Value script on: " + gameObject.name);
                 }
                 
             }

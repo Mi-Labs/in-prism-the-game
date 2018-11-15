@@ -4,10 +4,8 @@ public class CloseLoadScreen : MonoBehaviour {
 
     public GameObject m_Canvas;
 
-
-
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         m_Canvas = gameObject;	
 	}
@@ -16,7 +14,7 @@ public class CloseLoadScreen : MonoBehaviour {
     {
         if(m_Canvas.activeSelf)
         {
-            m_Canvas.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

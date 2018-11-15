@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212248750355985772}
   - component: {fileID: 61915198000514470}
   - component: {fileID: 114482984821399556}
+  - component: {fileID: 114588224198427208}
+  - component: {fileID: 114407856331948218}
   m_Layer: 0
   m_Name: Sandstrom_A
   m_TagString: Untagged
@@ -67,6 +69,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 3.84}
   m_EdgeRadius: 0
+--- !u!114 &114407856331948218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304285228190590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868d747b8dac8cf4682d43a99d0af3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsColorful: 0
 --- !u!114 &114482984821399556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,6 +93,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Force: 20
+--- !u!114 &114588224198427208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304285228190590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846e1a88a375f8f42a22850e8e3e333c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsChanged: 0
+  m_IsColorful: 0
+  m_CageStatus: 0
+  m_GOPosition: {x: 0, y: 0}
 --- !u!212 &212248750355985772
 SpriteRenderer:
   m_ObjectHideFlags: 1

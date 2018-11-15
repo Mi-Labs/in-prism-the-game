@@ -44,6 +44,12 @@ public class CameraFollow : MonoBehaviour {
 
     /* Methods */
 
+    private void Awake()
+    {
+
+        m_BoundsCalculated = false;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -65,7 +71,6 @@ public class CameraFollow : MonoBehaviour {
         // Set the calculated camera position to the position of this GO
         transform.position = newCameraPosition;
 
-        m_BoundsCalculated = false;
     }
 
  
@@ -79,6 +84,7 @@ public class CameraFollow : MonoBehaviour {
         {
             // Calculate the camera bounds
             CalculateCameraBounds();
+
         }
             CheckForPlayer();
             FollowPlayer();
@@ -196,7 +202,7 @@ public class CameraFollow : MonoBehaviour {
     {
         m_levelgenerator = _Gen;
         m_LevelGenLoaded = true;
-       // Debug.Log("LevelGen input");
-       // Debug.Log(_Gen.name);
+        // Debug.Log("LevelGen input");
+        // Debug.Log(_Gen.name);
     }
 }

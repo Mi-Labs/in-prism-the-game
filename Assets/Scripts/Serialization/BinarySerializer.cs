@@ -32,7 +32,7 @@ public class BinarySerializer : MonoBehaviour {
             {
                 _bf.Serialize(stream, m_Save);
             }
-            Debug.Log("Level serialized");
+           // Debug.Log("Level serialized");
         }
     }
 
@@ -42,7 +42,7 @@ public class BinarySerializer : MonoBehaviour {
 
         if (!LoadSaveGame(bf))
         {
-            Debug.Log("No saved data found");
+           // Debug.Log("No saved data found");
         }
         else
         {
@@ -84,7 +84,7 @@ public class BinarySerializer : MonoBehaviour {
             {
                 _bf.Serialize(stream, m_Stats);
             }
-            Debug.Log("Statistics are serialized");
+         //   Debug.Log("Statistics are serialized");
         }
     }
 
@@ -94,7 +94,7 @@ public class BinarySerializer : MonoBehaviour {
 
         if (!LoadStats(bf))
         {
-            Debug.Log("No saved data found");
+       //     Debug.Log("No saved data found");
         }
         else
         {

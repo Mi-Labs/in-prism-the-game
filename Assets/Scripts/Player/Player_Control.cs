@@ -260,8 +260,7 @@ public class Player_Control : MonoBehaviour {
     public void AddPowerUpMenu()
     {
         m_MenuScript = GameObject.FindGameObjectWithTag("PowerUpMenu").GetComponent<MenuSwitching>();
-
-        Debug.Assert(m_MenuScript == null, "PowerUp_Menu still not found");     
+  
     }
 
 
