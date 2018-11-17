@@ -31,16 +31,10 @@ namespace Spheres
             m_RiseVector = new Vector2(0.0f, m_RiseSpeed);
             m_SphereBody = gameObject.GetComponent<Rigidbody2D>();
             m_ShouldRise = false;
-            m_PlayerStartPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-            m_Endposition = m_PlayerStartPosition + new Vector3(0.0f, m_RiseHeight, 0.0f);
-
-           // CageBehavior.SphereFreed += CageBehavior_SphereFreed;
+            m_Endposition =  gameObject.transform.parent.transform.position + new Vector3(0.0f, m_RiseHeight, 0.0f);
         }
 
-        //private void CageBehavior_SphereFreed(bool _status)
-        //{
-        //    RiseSphere();
-        //}
+
 
         private void Update()
         {
@@ -50,19 +44,12 @@ namespace Spheres
                 // Add Force that move the sphere upward
                 m_SphereBody.AddForce(m_RiseVector*Time.deltaTime);
 
-                // If the sphere is near the endpoint, destroy it
-                if(WayCalculation.CalculateWayLeftY(transform.position, m_Endposition) == false)
-                {
-                    // Set rising process to false
-                    m_ShouldRise = false;
 
-                    if(gameObject.transform.position.y >= m_Endposition.y)
-                    {
-                        // Destroy the sphere
-                        Destroy(gameObject);
-                    }
-                    
-                }            
+                // If the sphere is near the endpoint, destroy it
+                if (WayCalculation.CalculateWayLeftY(transform.position, m_Endposition) == false)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
@@ -75,10 +62,7 @@ namespace Spheres
             m_SphereBody.constraints = RigidbodyConstraints2D.None;
         }
 
-        //private void OnDestroy()
-        //{
-        //    CageBehavior.SphereFreed -= CageBehavior_SphereFreed;
-        //}
+  
     }
 
 }

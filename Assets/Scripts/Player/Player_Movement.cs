@@ -121,11 +121,11 @@ public class Player_Movement : MonoBehaviour {
     /// <summary>
     /// Is called every frame
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         m_canJump = false;
         // Cast Box under player
-        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.75f,0.75f), 0.0f, Vector2.down,0.5f);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.01f,0.01f), 0.0f, Vector2.down,0.5f);
 
         // If the hit isn't the player and not null 
         if (raycastHit.collider != null && !raycastHit.collider.gameObject.tag.Equals("Player"))
