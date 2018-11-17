@@ -33,7 +33,7 @@ namespace PlatformMovement
             if (!isWayLeft)
             {
                 animator.SetBool("ReachRightEnd", true);
-                animator.gameObject.GetComponent<PlattformMoving>().FlipPlattformLeft(false);
+
             }
             else
             {
@@ -42,7 +42,10 @@ namespace PlatformMovement
         }
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) { }
+        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            animator.gameObject.GetComponent<PlattformMoving>().FlipPlattformLeft(false);
+        }
 
     }
 }
