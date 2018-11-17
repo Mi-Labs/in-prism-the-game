@@ -14,10 +14,8 @@ public class Player_Movement : MonoBehaviour {
     [Space]
     [Header("Jump Attributs")]
     //Jump-Strength
-    public float m_JumpPowerMobile;
-    //[Range(0, 1)]
-    public float m_JumpPowerDesk;
-    //public float m_JumpThresholdX; 
+    public float m_JumpPower;
+
 
     [Space]
     [Header("Fall Multiplier (Experimental)")]
@@ -82,15 +80,13 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
+        CheckIfJumpPossible();
         if(m_canJump)
         {
-        #if UNITY_IOS || UNITY_ANDROID
+        
             //Create movementVector2
-            Vector2 movement = new Vector2(0f, m_JumpPowerMobile * jumpfactor*Time.deltaTime*1000);
-        #elif UNITY_STANDALONE || UNITY_WEBGL
-            //Create movementVector2
-            Vector2 movement = new Vector2(0f, m_JumpPowerDesk * jumpfactor*Time.deltaTime*1000);
-        #endif
+            Vector2 movement = new Vector2(0f, m_JumpPower * jumpfactor*Time.deltaTime*1000);
+       
             //Add movement to rgb2D
             rgb2D.AddForce(movement);
         }     
@@ -121,11 +117,11 @@ public class Player_Movement : MonoBehaviour {
     /// <summary>
     /// Is called every frame
     /// </summary>
-    private void FixedUpdate()
+    private void CheckIfJumpPossible()
     {
         m_canJump = false;
         // Cast Box under player
-        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.01f,0.01f), 0.0f, Vector2.down,0.5f);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.1f,0.1f), 0.0f, Vector2.down,0.5f);
 
         // If the hit isn't the player and not null 
         if (raycastHit.collider != null && !raycastHit.collider.gameObject.tag.Equals("Player"))
