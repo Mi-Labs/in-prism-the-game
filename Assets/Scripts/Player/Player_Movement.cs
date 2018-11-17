@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 public class Player_Movement : MonoBehaviour {
 
     /* Variables */
@@ -42,9 +41,6 @@ public class Player_Movement : MonoBehaviour {
 
     // Constant jump factor
     private const float k_standardjumpfactor = 1.0f;
-
-
-    public LayerMask m_DetectTheseLayers;
 
 
 
