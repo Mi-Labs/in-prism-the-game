@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerSizing : MonoBehaviour {
 
     [SerializeField]
-    private bool m_PlayerIsShrunken;
+    // private bool m_PlayerIsShrunken;
 
 	// Use this for initialization
 	void Start ()
     {
-        m_PlayerIsShrunken = false;	
+        // m_PlayerIsShrunken = false;	
 	}
 	
 

@@ -6,52 +6,61 @@ public class Player_Control : MonoBehaviour {
     /* Variables */
 
     public bool m_PlayerIsSelectable;
+    public static Player_Control Instance;
+    public bool m_CanJump;
 
     private Player_Movement movescript;
-
     [SerializeField]
     private static MenuSwitching m_MenuScript = null;
-
     private bool m_LeftActive;
-
     private bool m_RightActive;
-
     private bool m_JumpActive;
-
     //If trigger for menu is activated -> true
     private bool menu_trigger;
-
-    private World_Config m_config;
+    // private World_Config m_config;
 
     /* Methods */
-
     // Use this for initialization
     void Start ()
     {
         // Initialize Player_Movement script
         movescript = GetComponent<Player_Movement>();
 
-        m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
-
+        // m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
+        m_CanJump = false;
         AddPowerUpMenu();  
 	}
 
     private void Awake()
     {
         // Add Listener for SwipeDetector
-        SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
+        // SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
+        Instance = this;
     }
 
+    void OnCollisionEnter(Collision hit) {
+        if (hit.gameObject.layer == LayerMask.NameToLayer("Underground"))
+        {
+            Debug.Log("touch ground");
+            m_CanJump = true;
+        }
+    }
+
+    void OnCollisionExit(Collision hit)
+    {
+        if (hit.gameObject.layer == LayerMask.NameToLayer("Underground"))
+        {
+            Debug.Log("leave ground");
+            m_CanJump = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
 
-    #if UNITY_STANDALONE || UNITY_WEBGL
         int horizontal = 0;
-
         horizontal = (int)(Input.GetAxisRaw("Horizontal"));
-
         switch (horizontal)
         {
             case 1:
@@ -78,108 +87,10 @@ public class Player_Control : MonoBehaviour {
         {
             menu_trigger = Input.GetKeyDown(KeyCode.E);
         }
-        
-
-       
-    // When build platform is IOS or Android            
-    #elif UNITY_IOS || UNITY_ANDROID
-
-        // Touch(es) was found
-        if (Input.touchCount > 0)
-        {
-            //Do this for every touch found
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                //  Debug.Log("Touch found");
-
-                // Save touch in mytouch
-                Touch mytouch = Input.GetTouch(i);
-
-                // Save position of touch in Vector2 curpos
-                Vector2 curpos = mytouch.position;       
-
-                    switch(mytouch.phase)
-                    {
-                        case TouchPhase.Began:
-                        // If the touch is in the left end of the screen (0 - 1/6)
-                        if (curpos.x < (Screen.width / 6))
-                        {
-                            // Debug.Log("Touch left started");
-                            if (m_config.m_InverseControls)
-                            {
-                                m_RightActive = true;
-                            }
-                            else
-                            {
-                                m_LeftActive = true;
-                            }
-                        }
-
-                        // If the touch is in the right end of the screen (5/6 -1)
-                        else if (curpos.x > (Screen.width - Screen.width / 6))
-                        {
-                            // Debug.Log("Touch right started");
-                            if (m_config.m_InverseControls)
-                            {
-                                m_LeftActive = true;
-                            }
-                            else
-                            {
-                                m_RightActive = true;
-                            }
-                        }
-                            
-                         if(m_PlayerIsSelectable)
-                        {
-                            // If the player is touched -> activate the menu
-                            if (HasPlayerBeenTouched(mytouch))
-                            {
-                                menu_trigger = true;
-                            }
-
-                        }
-                        // End the case
-                        break;
-
-
-                    case TouchPhase.Ended:
-                                              
-                            // Debug.Log("Touch ended");
-                            m_LeftActive = false;
-                            m_RightActive = false;
-                           
-                        break;
-                    }
-            }
-
-        }
-    #endif
     
     }
 
 
-    /// <summary>
-    ///  If there is a swipe, do this action
-    /// </summary>
-    /// <param name="data">The data from the swipe detector</param>
-    private void SwipeDetector_OnSwipe(SwipeDetector.SwipeData data)
-    {
-        // If the swipe direction is up -> make a jump
-        if(data.direction == SwipeDetector.SwipeDirection.Up)
-        {
-            m_JumpActive = true;
-        }
-        else
-        {
-            m_JumpActive = false;
-        }
-        
-    }
-
-
-    /// <summary>
-    /// Does physics after every Update
-    /// </summary>
     private void FixedUpdate()
     {
 
@@ -197,6 +108,7 @@ public class Player_Control : MonoBehaviour {
         if (m_JumpActive)
         {
             // Jump
+            // Debug.Log("enter jump");
             movescript.JumpPlayer();
             m_JumpActive = false;
         }
@@ -242,7 +154,7 @@ public class Player_Control : MonoBehaviour {
         // If there is an object...
         if (hit.collider != null)
         {
-            // Debug.Log("Hit something "+ hit.collider.gameObject.name);
+            Debug.Log("Hit something "+ hit.collider.gameObject.name);
 
             // If the object has the player tag...
             if (hit.collider.tag == "Player")

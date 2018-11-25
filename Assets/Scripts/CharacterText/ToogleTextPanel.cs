@@ -15,7 +15,7 @@ public class ToogleTextPanel : MonoBehaviour {
         }
         else
         {
-            m_TextPanel.SetActive(true);
+            m_TextPanel.SetActive(false);
         }
     }
 

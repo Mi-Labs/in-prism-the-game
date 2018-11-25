@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -29,9 +30,7 @@ public class Player_Movement : MonoBehaviour {
 
     //Jump factor
     private float jumpfactor;
-
-
-    private bool m_canJump;
+    // private bool m_canJump;
 
 
     // Constants
@@ -48,12 +47,10 @@ public class Player_Movement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         //Initialize fields
         rgb2D = GetComponent<Rigidbody2D>();
         boostfactor = k_standardboostfactor;
         jumpfactor = k_standardjumpfactor;
-        m_canJump = false;
         m_fallMultiplier = 3.0f;
 	}
 	
@@ -64,7 +61,9 @@ public class Player_Movement : MonoBehaviour {
     public void MovePlayer(float _direction)
     {
         //Create movementVector2
-        Vector2 movement = new Vector2(_direction*m_acceleration*boostfactor*Time.deltaTime*100, 0);
+        int timeMult = 100;
+        float physic = _direction * m_acceleration * boostfactor * Time.deltaTime * timeMult;
+        Vector2 movement = new Vector2(physic, 0);
       
         //Add movement to Rigidbody
         rgb2D.AddForce(movement);
@@ -76,16 +75,46 @@ public class Player_Movement : MonoBehaviour {
     /// </summary>
     public void JumpPlayer()
     {
-        CheckIfJumpPossible();
-        if(m_canJump)
-        {
-        
-            //Create movementVector2
-            Vector2 movement = new Vector2(0f, m_JumpPower * jumpfactor*Time.deltaTime*1000);
-       
-            //Add movement to rgb2D
-            rgb2D.AddForce(movement);
-        }     
+
+        // Cast Box under player
+        float hitbox = 0.5f;
+        float range = 0.0f;
+        RaycastHit2D raycastHitD = Physics2D.BoxCast(transform.position, new Vector2(0.1f, 0.1f), range, Vector2.down, hitbox);
+        RaycastHit2D raycastHitL = Physics2D.BoxCast(transform.position, new Vector2(0.1f, 0.1f), range, Vector2.left, hitbox);
+        RaycastHit2D raycastHitR = Physics2D.BoxCast(transform.position, new Vector2(0.1f, 0.1f), range, Vector2.right, hitbox);
+
+        // !If the hit isn't the player and not null 
+        bool hitD = raycastHitD.collider != null && !raycastHitD.collider.gameObject.tag.Equals("Player");
+        bool hitL = raycastHitL.collider != null && !raycastHitL.collider.gameObject.tag.Equals("Player");
+        bool hitR = raycastHitR.collider != null && !raycastHitR.collider.gameObject.tag.Equals("Player");
+        if (!(hitD || hitL || hitR)) {
+            return;
+        }
+
+        //Create movementVector2
+        int factor = 1;
+        int timeMult = 1000;
+
+        float physic = factor * m_JumpPower * jumpfactor;
+        physic *= Time.deltaTime * timeMult;
+
+        float py = gameObject.transform.position.y;
+        float px = gameObject.transform.position.x;
+        float normalX;
+        float normalY;
+        if (hitD){
+            normalX = raycastHitD.normal.x;
+            normalY = raycastHitD.normal.y;
+        } else if (hitL){
+            normalX = raycastHitD.normal.x;
+            normalY = raycastHitD.normal.y;
+        }
+        else {
+            normalX = raycastHitD.normal.x;
+            normalY = raycastHitD.normal.y;
+        }
+        Vector2 movement = new Vector2(normalX * physic, normalY * physic);
+        rgb2D.AddForce(movement);
     }
 
     /// <summary>
@@ -113,22 +142,23 @@ public class Player_Movement : MonoBehaviour {
     /// <summary>
     /// Is called every frame
     /// </summary>
-    private void CheckIfJumpPossible()
+    private bool CanJump()
     {
-        m_canJump = false;
+        //bool m_canJump = false;
+        bool m_canJump = false;
         // Cast Box under player
-        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.1f,0.1f), 0.0f, Vector2.down,0.5f);
+        float hitbox = 0.5f;
+        float range = 0.0f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(transform.position, new Vector2(0.1f, 0.1f), range, Vector2.down, hitbox);
 
         // If the hit isn't the player and not null 
         if (raycastHit.collider != null && !raycastHit.collider.gameObject.tag.Equals("Player"))
         {
+            Debug.Log("can jump, keine sorge");
             m_canJump = true;
         }
-        else
-        {
-            m_canJump = false;
-        }
 
+        /*
         // Experimental Fall Multiplier
         if(m_ActivateFallMultiplier)
         {
@@ -138,6 +168,10 @@ public class Player_Movement : MonoBehaviour {
                 rgb2D.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.deltaTime;
             }
         }
+        */
+
+        return m_canJump;
+
     }
 
 
