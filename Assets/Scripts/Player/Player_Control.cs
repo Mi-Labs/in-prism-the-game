@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Player_Control : MonoBehaviour {
 
@@ -15,6 +15,7 @@ public class Player_Control : MonoBehaviour {
     private bool m_LeftActive;
     private bool m_RightActive;
     private bool m_JumpActive;
+    private bool m_Break;
     //If trigger for menu is activated -> true
     private bool menu_trigger;
     // private World_Config m_config;
@@ -28,6 +29,7 @@ public class Player_Control : MonoBehaviour {
 
         // m_config = GameObject.FindGameObjectWithTag("Config").GetComponent<World_Config>();
         m_CanJump = false;
+        m_Break = false;
         AddPowerUpMenu();  
 	}
 
@@ -82,6 +84,8 @@ public class Player_Control : MonoBehaviour {
         }
 
         m_JumpActive = Input.GetKeyDown(KeyCode.Space);
+        m_Break = false;
+        m_Break = Input.GetKeyDown(KeyCode.DownArrow);
 
         if(m_MenuScript != null)
         {
@@ -93,17 +97,25 @@ public class Player_Control : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
-        if (m_LeftActive)
+        if (!m_Break)
         {
-            // Move left
-            movescript.MovePlayer(-1.0f);
+            movescript.rgb2D.constraints = RigidbodyConstraints2D.None;
+            if (m_LeftActive)
+            {
+                // Move left
+                movescript.MovePlayer(-1.0f);
+            }
+
+            if (m_RightActive)
+            {
+                // Move right
+                movescript.MovePlayer(1.0f);
+            }
         }
-
-        if (m_RightActive)
-        {
-            // Move right
-            movescript.MovePlayer(1.0f);
+        else{
+            movescript.rgb2D.velocity = Vector2.zero;
+            movescript.rgb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+            Debug.Log("Breaking");
         }
         if (m_JumpActive)
         {
@@ -119,6 +131,9 @@ public class Player_Control : MonoBehaviour {
             m_MenuScript.ToggleMenu();
             menu_trigger = false;
         }
+        Text text = GameObject.Find("LTextHead").GetComponent<Text>();
+        text.text = movescript.rgb2D.velocity.ToString();
+        CapSpeed();
     } 
     
 
@@ -183,5 +198,40 @@ public class Player_Control : MonoBehaviour {
     public void MakePlayerSelectable(bool _newStatus)
     {
         m_PlayerIsSelectable = _newStatus;
+    }
+
+    public void OnTriggerEnter(Collider other) 
+    {
+        Debug.Log("Enter trigger");
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = other.transform;
+            Debug.Log("Enter platform");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+            Debug.Log("Leave platform");
+        }
+    }
+
+    public void CapSpeed(){
+        int len = (int)movescript.vlen(movescript.rgb2D.velocity);
+        int maxSpeed = 10;
+        int reduceCounter = 2;
+        if (len > maxSpeed) {
+            Vector2 force = movescript.rgb2D.velocity.normalized;
+            float fx = force.x * (len - reduceCounter);
+            float fy = force.y * (len - reduceCounter);
+            force.x = fx;
+            force.y = fy;
+            force.x *= -1;
+            force.y *= -1;
+            movescript.rgb2D.AddForce(force);
+        }
     }
 }

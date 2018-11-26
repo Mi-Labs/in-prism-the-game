@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class Player_Movement : MonoBehaviour {
@@ -6,9 +7,9 @@ public class Player_Movement : MonoBehaviour {
     /* Variables */
 
     // Acceleration for movement
-    [Range(1,5)]
+    [Range(1,2)]
     public float m_acceleration;
-
+    Vector2 m_movement;
     // Factor for boost power up
     public float boostfactor;
     [Space]
@@ -25,7 +26,7 @@ public class Player_Movement : MonoBehaviour {
     public bool m_ActivateFallMultiplier;
 
     //Rigidbody Player-Object
-    private Rigidbody2D rgb2D;
+    public Rigidbody2D rgb2D;
 
 
     //Jump factor
@@ -40,7 +41,8 @@ public class Player_Movement : MonoBehaviour {
 
     // Constant jump factor
     private const float k_standardjumpfactor = 1.0f;
-
+    private int jumpCount = 1;
+    private int maxJumps = 2;
 
 
     /* Methods */
@@ -63,11 +65,14 @@ public class Player_Movement : MonoBehaviour {
         //Create movementVector2
         int timeMult = 100;
         float physic = _direction * m_acceleration * boostfactor * Time.deltaTime * timeMult;
-        Vector2 movement = new Vector2(physic, 0);
-      
-        //Add movement to Rigidbody
-        rgb2D.AddForce(movement);
 
+        Vector2 movement = new Vector2(physic, 0);
+        m_movement = movement;
+        rgb2D.AddForce(movement);
+    }
+
+    public float vlen(Vector2 x){
+        return (float)Math.Sqrt((x.x * x.x) + (x.y * x.y));
     }
 
     /// <summary>
@@ -87,34 +92,51 @@ public class Player_Movement : MonoBehaviour {
         bool hitD = raycastHitD.collider != null && !raycastHitD.collider.gameObject.tag.Equals("Player");
         bool hitL = raycastHitL.collider != null && !raycastHitL.collider.gameObject.tag.Equals("Player");
         bool hitR = raycastHitR.collider != null && !raycastHitR.collider.gameObject.tag.Equals("Player");
-        if (!(hitD || hitL || hitR)) {
-            return;
+
+        if (jumpCount > maxJumps)
+        {
+            if (!(hitD || hitL || hitR))
+            {
+                return;
+            }
+            jumpCount = 1;
         }
 
         //Create movementVector2
-        int factor = 1;
+        float factor = Math.Min(vlen(rgb2D.velocity), 0.5f);
+        factor = Math.Max(factor, 10f);
+        factor /= 8;
         int timeMult = 1000;
 
-        float physic = factor * m_JumpPower * jumpfactor;
+        float physic = m_JumpPower * jumpfactor;
         physic *= Time.deltaTime * timeMult;
+        physic /= factor;
 
         float py = gameObject.transform.position.y;
         float px = gameObject.transform.position.x;
-        float normalX;
-        float normalY;
+        float normalX = 0;
+        float normalY = 0;
+
         if (hitD){
             normalX = raycastHitD.normal.x;
             normalY = raycastHitD.normal.y;
-        } else if (hitL){
+        }
+        if (hitL){
             normalX = raycastHitD.normal.x;
             normalY = raycastHitD.normal.y;
         }
-        else {
+        if (hitR) {
             normalX = raycastHitD.normal.x;
             normalY = raycastHitD.normal.y;
+        }
+        if (jumpCount == 2) {
+            Debug.Log("Second jump");
+            normalY = 0.9f;
+            normalX = 0;
         }
         Vector2 movement = new Vector2(normalX * physic, normalY * physic);
         rgb2D.AddForce(movement);
+        jumpCount += 1;
     }
 
     /// <summary>

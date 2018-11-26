@@ -16,6 +16,8 @@ TagManager:
   - Serializer
   - StartMenuPanel
   - TextboxPanel
+  - Undefined
+  - Platform
   layers:
   - Default
   - TransparentFX

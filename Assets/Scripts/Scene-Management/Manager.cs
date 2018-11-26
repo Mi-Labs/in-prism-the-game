@@ -116,9 +116,25 @@ namespace GameManagement
         }
 
 
+        void showText(){
+            try
+            {
+                GameObject cam = GameObject.FindGameObjectWithTag("Main Camera");
+                GameObject newGO = new GameObject("myTextGO");
+                newGO.transform.SetParent(cam.transform);
+
+                Text myText = newGO.AddComponent<Text>();
+                myText.text = "Ta-dah!";
+                Debug.Log("sohwed text");
+            }
+            catch{}
+        }
+
         // Update is called once per frame
         void Update()
         {
+            showText();
+            
             if(m_NextScene != m_CurrentScene)
             {
                 StartCoroutine(OnTransition(m_NextScene));     

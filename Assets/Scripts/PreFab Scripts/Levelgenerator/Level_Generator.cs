@@ -76,6 +76,13 @@ public class Level_Generator : MonoBehaviour {
         // For every assigned color in colorassignment, create GameObject
         foreach(ColorToPreFab color in colorassignment)
         {
+            if (color.PreFab.ToString() != "null")
+            {
+                if (color.PreFab.name == "Moving Fish" || color.PreFab.name == "Moving Fish B")
+                {
+                    color.PreFab.tag = "Platform";
+                }
+            }
             if(color.m_isActive)
             {
                 if (color.colorPreFab.Equals(pixelcolor32))
