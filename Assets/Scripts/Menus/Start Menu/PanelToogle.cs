@@ -77,10 +77,13 @@ namespace StartMenu
                 }
 
                 // Add event listener to every button
+                controller.GetComponent<SceneManagerMenuScene>().ChooseLevel(chooseLevel);
+                /*
                 m_StartButton.onClick.RemoveAllListeners();
                 m_StartButton.onClick.AddListener(delegate { LevelStart(chooseLevel + "false"); });
                 m_ReplayButton.onClick.RemoveAllListeners();
                 m_ReplayButton.onClick.AddListener(delegate { LevelStart(chooseLevel + "true"); });  
+                */
             }
         }
      

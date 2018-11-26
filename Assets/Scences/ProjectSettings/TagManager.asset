@@ -3,21 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Underground
-  - Config
-  - SceneManager
-  - LifePointDisplay
-  - PowerUpMenu
-  - Statistic
-  - Killzone
-  - LevelSave
-  - LevelGenerator
-  - Serializer
-  - StartMenuPanel
-  - TextboxPanel
-  - Undefined
-  - Platform
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -27,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - Underground
+  - 
   - 
   - 
   - 
