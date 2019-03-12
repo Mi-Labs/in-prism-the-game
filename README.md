@@ -1,5 +1,3 @@
-##Nico stinkt
-
 # prepare
 zuerst brauchst du Unity version (2018.2.12f1). Version sehr wichtig!
 schau hier: https://unity3d.com/get-unity/download/archive
