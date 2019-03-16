@@ -55,9 +55,11 @@ public class CameraFollow : MonoBehaviour {
     {
         // Call method CheckForPlayer
         CheckForPlayer();
+        
 
         // Save camera z position
         float cameraZ = transform.position.z;
+        Debug.Log("CameraZ: "+cameraZ);
 
         // Save the position of the player (only x and y)
         Vector2 positionPlayer = (Vector2)m_player.transform.position;
@@ -194,6 +196,8 @@ public class CameraFollow : MonoBehaviour {
         m_minX = horizontal_extend;
         m_minY = vertical_extend;
 
+        // Debug.Log("MaxX:" + m_maxX + " MaxY:" + m_maxY + " MinY:" + m_minY + " MinX" + m_minX);
+
         m_BoundsCalculated = true;
     }
 
@@ -202,7 +206,6 @@ public class CameraFollow : MonoBehaviour {
     {
         m_levelgenerator = _Gen;
         m_LevelGenLoaded = true;
-        // Debug.Log("LevelGen input");
-        // Debug.Log(_Gen.name);
+        m_BoundsCalculated = false;
     }
 }
